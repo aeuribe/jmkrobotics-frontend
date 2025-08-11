@@ -3,3 +3,7 @@
 @theme inline {
  --font-main: var(--font-satoshi)
 }
+@theme inline {
+ --font-jakarta: var(--font-plus-jakarta-sans)
+}   
+
