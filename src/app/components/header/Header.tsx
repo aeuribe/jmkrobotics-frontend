@@ -1,6 +1,7 @@
-"use client"
-import React, { useState } from 'react';
-import { Search, Globe, Mail, Menu, X, Check, MapPin } from 'lucide-react';
+"use client";
+import React, { useState } from "react";
+import { Search, Globe, Mail, Menu, X, Check, MapPin } from "lucide-react";
+import Link from "next/link";
 
 interface Language {
   code: string;
@@ -11,11 +12,11 @@ interface Language {
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState('EN');
+  const [selectedLanguage, setSelectedLanguage] = useState("EN");
 
   const languages: Language[] = [
-    { code: 'EN', name: 'English', flag: '🇺🇸' },
-    { code: 'ES', name: 'Español', flag: '🇪🇸' },
+    { code: "EN", name: "English", flag: "🇺🇸" },
+    { code: "ES", name: "Español", flag: "🇪🇸" },
   ];
 
   const toggleMobileMenu = (): void => {
@@ -55,10 +56,18 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex flex-1 justify-center">
             <div className="flex gap-6 xl:gap-10 text-white text-[14px] font-satoshi font-light tracking-wider">
-              <a href="/" className="hover:text-[#E4173C] transition-colors">Home</a>
-              <a href="/" className="hover:text-[#E4173C] transition-colors">Products</a>
-              <a href="/" className="hover:text-[#E4173C] transition-colors">Solutions</a>
-              <a href="/" className="hover:text-[#E4173C] transition-colors">Distributors</a>
+              <a href="/" className="hover:text-[#E4173C] transition-colors">
+                Home
+              </a>
+              <a href="/" className="hover:text-[#E4173C] transition-colors">
+                Products
+              </a>
+              <a href="/" className="hover:text-[#E4173C] transition-colors">
+                Solutions
+              </a>
+              <a href="/" className="hover:text-[#E4173C] transition-colors">
+                Distributors
+              </a>
             </div>
           </nav>
 
@@ -67,19 +76,21 @@ const Header: React.FC = () => {
             <button className="text-white hover:text-[#E4173C] transition-colors">
               <Search size={20} />
             </button>
-            
-            <button 
+
+            <button
               onClick={openLanguageModal}
               className="text-white hover:text-[#E4173C] transition-colors"
             >
               <Globe size={20} />
             </button>
 
-            <button className="flex items-center gap-2 bg-[#E4173C] text-[#020C18] text-[14px] rounded-md px-3 py-1 font-medium hover:bg-[#c91534] transition-colors">
-              <Mail size={16} />
-              <span className="hidden lg:inline">Contact Us</span>
-              <span className="lg:hidden">Contact</span>
-            </button>
+            <Link href="/contact">
+              <button className="flex items-center gap-2 bg-[#E4173C] text-[#020C18] text-[14px] rounded-md px-3 py-1 font-medium hover:bg-[#c91534] transition-colors">
+                <Mail size={16} />
+                <span className="hidden lg:inline">Contact Us</span>
+                <span className="lg:hidden">Contact</span>
+              </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -97,19 +108,39 @@ const Header: React.FC = () => {
           <div className="md:hidden absolute top-full left-0 right-0 bg-[#020C18] border-t border-gray-700 z-50">
             <nav className="px-4 py-6">
               <div className="flex flex-col gap-4 mb-6">
-                <a href="/" className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light">Home</a>
-                <a href="/" className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light">Products</a>
-                <a href="/" className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light">Solutions</a>
-                <a href="/" className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light">Distributors</a>
+                <a
+                  href="/"
+                  className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light"
+                >
+                  Home
+                </a>
+                <a
+                  href="/"
+                  className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light"
+                >
+                  Products
+                </a>
+                <a
+                  href="/"
+                  className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light"
+                >
+                  Solutions
+                </a>
+                <a
+                  href="/"
+                  className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light"
+                >
+                  Distributors
+                </a>
               </div>
-              
+
               <div className="flex flex-col gap-4 pt-4 border-t border-gray-700">
                 <div className="flex items-center gap-4">
                   <button className="text-white hover:text-[#E4173C] transition-colors p-2">
                     <Search size={20} />
                   </button>
-                  
-                  <button 
+
+                  <button
                     onClick={openLanguageModal}
                     className="text-white hover:text-[#E4173C] transition-colors p-2"
                   >
@@ -128,14 +159,16 @@ const Header: React.FC = () => {
 
       {/* Language Modal */}
       {isLanguageModalOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={handleBackdropClick}
         >
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full mx-auto">
             <div className="px-6 py-4 border-b border-gray-200">
               <div className="flex items-center justify-between">
-                <h2 className="text-lg font-semibold text-gray-900">Select Language</h2>
+                <h2 className="text-lg font-semibold text-gray-900">
+                  Select Language
+                </h2>
                 <button
                   onClick={closeLanguageModal}
                   className="text-gray-400 hover:text-gray-600 transition-colors"
