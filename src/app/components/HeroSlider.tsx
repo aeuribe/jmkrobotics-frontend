@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback, useRef } from "react";
-import { ChevronLeft, ChevronRight, Sparkles, Zap, Award, Play, Pause } from "lucide-react";
+import { ChevronLeft, ChevronRight, Cpu, Factory, BrainCircuit, Play, Pause } from "lucide-react";
 
 // Tipos TypeScript
 interface SlideData {
@@ -21,28 +21,28 @@ interface TouchPosition {
 export default function HeroSlider() {
   const slides: SlideData[] = [
     {
-      text: "Built for",
-      highlight: "smart automation",
-      end: "that evolves with markets.",
-      icon: <Sparkles className="w-4 h-4 text-[#E4173C]" />,
-      bgGradient: "from-blue-50 via-indigo-50 to-purple-50",
-      accentColor: "indigo"
+      text: "Advanced",
+      highlight: "AI-driven automation",
+      end: "for industrial excellence.",
+      icon: <BrainCircuit className="w-4 h-4 text-slate-600" />,
+      bgGradient: "from-white to-white",
+      accentColor: "slate"
     },
     {
-      text: "Designing",
-      highlight: "industrial efficiency",
-      end: "with lasting impact.",
-      icon: <Zap className="w-4 h-4 text-[#E4173C]" />,
-      bgGradient: "from-emerald-50 via-green-50 to-teal-50",
-      accentColor: "emerald"
+      text: "Precision",
+      highlight: "manufacturing systems",
+      end: "optimized for efficiency.",
+      icon: <Factory className="w-4 h-4 text-slate-600" />,
+      bgGradient: "from-white to-white",
+      accentColor: "blue"
     },
     {
-      text: "We have",
-      highlight: "25+ years",
-      end: "of automation expertise.",
-      icon: <Award className="w-4 h-4 text-[#E4173C]" />,
-      bgGradient: "from-purple-50 via-violet-50 to-pink-50",
-      accentColor: "purple"
+      text: "Next-generation",
+      highlight: "process control",
+      end: "with intelligent monitoring.",
+      icon: <Cpu className="w-4 h-4 text-slate-600" />,
+      bgGradient: "from-white to-white",
+      accentColor: "gray"
     },
   ];
 
@@ -154,21 +154,20 @@ export default function HeroSlider() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
+      {/* Technical Grid Pattern */}
+      <div className="absolute inset-0 opacity-3">
         <div className="absolute inset-0" 
              style={{
-               backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' width='20' height='20' fill='none' stroke='rgb(0 0 0 / 0.1)'%3e%3cpath d='m0 .5h20m-20 20v-20'/%3e%3c/svg%3e")`,
-               backgroundSize: '20px 20px'
+               backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(71 85 105 / 0.2)'%3e%3cpath d='M0 16h32M16 0v32'/%3e%3c/svg%3e")`,
+               backgroundSize: '16px 16px'
              }} 
         />
       </div>
 
-      {/* Floating decorative elements */}
+      {/* Subtle grid overlay */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-[#E4173C] rounded-full opacity-60 animate-ping animation-delay-1000"></div>
-        <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-pink-400 rounded-full opacity-40 animate-bounce animation-delay-2000"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-1 h-1 bg-indigo-400 rounded-full opacity-50 animate-pulse animation-delay-3000"></div>
+        <div className="absolute top-1/4 right-1/4 w-1 h-1 bg-slate-400 rounded-full opacity-40 animate-pulse animation-delay-1000"></div>
+        <div className="absolute bottom-1/3 left-1/3 w-1 h-1 bg-blue-400 rounded-full opacity-30 animate-pulse animation-delay-3000"></div>
       </div>
       
       {/* Main Content Container */}
@@ -178,9 +177,9 @@ export default function HeroSlider() {
         <div className="flex items-center">
           <div className={`
             flex items-center justify-center w-12 h-12 
-            rounded-full bg-white/90 backdrop-blur-sm shadow-md border border-white/30
+            rounded-lg bg-white shadow-sm border border-slate-200
             transition-all duration-500 ease-out
-            ${showText ? "scale-100 rotate-0 opacity-100" : "scale-75 rotate-45 opacity-0"}
+            ${showText ? "scale-100 rotate-0 opacity-100" : "scale-90 rotate-12 opacity-0"}
           `}>
             {currentSlideData.icon}
           </div>
@@ -192,18 +191,17 @@ export default function HeroSlider() {
             transition-all duration-500 ease-out
             ${showText ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"}
           `}>
-            <h2 className="text-lg leading-tight text-gray-800">
-              <span className="font-medium">{currentSlideData.text}</span>{" "}
-              <span className="text-[#E4173C] font-semibold relative">
+            <h2 className="text-lg leading-tight text-slate-800">
+              <span className="font-medium text-slate-600">{currentSlideData.text}</span>{" "}
+              <span className="text-[#E4173C] font-semibold">
                 {currentSlideData.highlight}
-                <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-[#E4173C] opacity-40 rounded-full"></span>
               </span>{" "}
-              <span className="font-medium">{currentSlideData.end}</span>
+              <span className="font-medium text-slate-600">{currentSlideData.end}</span>
             </h2>
             
             {/* Subtle progress indicator */}
             <div className={`
-              w-16 h-0.5 bg-gradient-to-r from-[#E4173C] to-pink-400 rounded-full mt-3
+              w-16 h-0.5 bg-gradient-to-r from-[#E4173C] to-red-400 rounded-full mt-3
               transition-all duration-500 ease-out delay-200
               ${showText ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"}
             `}></div>
@@ -217,19 +215,19 @@ export default function HeroSlider() {
           <button
             onClick={prevSlide}
             disabled={isTransitioning}
-            className="group p-2 rounded-full bg-white/80 backdrop-blur-sm shadow-md border border-white/30
-                     hover:bg-white hover:shadow-lg hover:scale-105 disabled:opacity-50
+            className="group p-2 rounded-md bg-white shadow-sm border border-slate-200
+                     hover:bg-slate-50 hover:border-slate-300 hover:shadow-md disabled:opacity-50
                      transition-all duration-200 ease-out"
             aria-label="Previous slide"
           >
-            <ChevronLeft className="w-3 h-3 text-gray-700 group-hover:text-[#E4173C] transition-colors" />
+            <ChevronLeft className="w-3 h-3 text-slate-600 group-hover:text-slate-800 transition-colors" />
           </button>
           
           <button
             onClick={nextSlide}
             disabled={isTransitioning}
-            className="group p-2 rounded-full bg-[#E4173C] shadow-md 
-                     hover:bg-[#c21538] hover:shadow-lg hover:scale-105 disabled:opacity-50
+            className="group p-2 rounded-md bg-slate-800 shadow-sm border border-slate-700
+                     hover:bg-slate-700 hover:shadow-md disabled:opacity-50
                      transition-all duration-200 ease-out"
             aria-label="Next slide"
           >
@@ -258,13 +256,13 @@ export default function HeroSlider() {
                     w-full h-full rounded-full
                     transition-all duration-300 ease-out
                     ${active 
-                      ? "bg-[#E4173C] shadow-sm" 
-                      : "bg-gray-300 hover:bg-gray-400"
+                      ? "bg-slate-700 shadow-sm" 
+                      : "bg-slate-300 hover:bg-slate-400"
                     }
                   `}></div>
                   
                   {active && (
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#E4173C] to-pink-400 animate-pulse"></div>
+                    <div className="absolute inset-0 rounded-full bg-slate-700"></div>
                   )}
                 </button>
               );
@@ -274,30 +272,30 @@ export default function HeroSlider() {
           {/* Play/Pause Button */}
           <button
             onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-            className="group p-2 rounded-full bg-gray-700/80 backdrop-blur-sm shadow-md border border-gray-600/30
-                     hover:bg-gray-700 hover:shadow-lg hover:scale-105
+            className="group p-2 rounded-md bg-slate-100 shadow-sm border border-slate-200
+                     hover:bg-slate-200 hover:shadow-md
                      transition-all duration-200 ease-out ml-2"
             aria-label={isAutoPlaying ? "Pause autoplay" : "Start autoplay"}
           >
             {isAutoPlaying ? 
-              <Pause className="w-3 h-3 text-white" /> : 
-              <Play className="w-3 h-3 text-white" />
+              <Pause className="w-3 h-3 text-slate-600" /> : 
+              <Play className="w-3 h-3 text-slate-600" />
             }
           </button>
 
           {/* Counter */}
-          <div className="flex items-center space-x-1 px-2 py-1 bg-white/80 backdrop-blur-sm rounded-full shadow-sm border border-white/30">
+          <div className="flex items-center space-x-1 px-2 py-1 bg-white rounded-md shadow-sm border border-slate-200">
             <span className="text-[#E4173C] font-semibold text-xs">{currentSlide + 1}</span>
-            <span className="text-gray-400 text-xs">/</span>
-            <span className="text-gray-600 text-xs">{slides.length}</span>
+            <span className="text-slate-400 text-xs">/</span>
+            <span className="text-slate-600 text-xs">{slides.length}</span>
           </div>
         </div>
       </div>
 
       {/* Bottom Progress Bar */}
-      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gray-200">
+      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-slate-200">
         <div 
-          className="h-full bg-gradient-to-r from-[#E4173C] to-pink-400 transition-all duration-500 ease-out"
+          className="h-full bg-gradient-to-r from-[#E4173C] to-red-400 transition-all duration-500 ease-out"
           style={{ 
             width: `${((currentSlide + 1) / slides.length) * 100}%`,
           }}
