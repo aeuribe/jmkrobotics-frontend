@@ -11,7 +11,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: "JMK Robotics",
-  description: "",
+  description: "Induustrial Solutions for a Smarter Future",
+  keywords: ["Robotics", "Industrial Machines", "Packaging", "Manufacturing", "Machinery", "Automation", "Technology", "Innovation"],
 };
 
 export default function RootLayout({

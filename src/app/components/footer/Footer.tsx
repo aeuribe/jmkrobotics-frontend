@@ -20,7 +20,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-[#6E7784] text-xs sm:text-sm leading-relaxed max-w-xs">
-              Leading industrial automation solutions for a smarter future.
+              Reliable machines, intelligent results.
             </p>
           </div>
 
