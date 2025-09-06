@@ -55,7 +55,7 @@ const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex flex-1 justify-center">
-            <div className="flex gap-6 xl:gap-10 text-white text-[14px] font-satoshi font-light tracking-wider">
+            <div className="flex gap-6 xl:gap-10 text-white text-[16px] font-satoshi font-light tracking-wider">
               <a href="/" className="hover:text-[#E4173C] transition-colors">
                 Home
               </a>
@@ -85,7 +85,7 @@ const Header: React.FC = () => {
             </button>
 
             <Link href="/contact">
-              <button className="flex items-center gap-2 bg-[#E4173C] text-[#020C18] text-[14px] rounded-md px-3 py-1 font-medium hover:bg-[#c91534] transition-colors">
+              <button className="flex items-center gap-2 bg-[#E4173C] text-[#020C18] text-[16px] rounded-md px-3 py-1 font-medium hover:bg-[#c91534] transition-colors">
                 <Mail size={16} />
                 <span className="hidden lg:inline">Contact Us</span>
                 <span className="lg:hidden">Contact</span>
@@ -148,8 +148,8 @@ const Header: React.FC = () => {
                   </button>
                 </div>
                 <button className="flex items-center justify-center gap-2 bg-[#E4173C] text-[#020C18] text-[14px] rounded-md px-4 py-3 font-medium hover:bg-[#c91534] transition-colors w-full">
-                  <MapPin size={16} />
-                  Find a Dealer
+                  <Mail size={16} />
+                  Contact Us
                 </button>
               </div>
             </nav>
