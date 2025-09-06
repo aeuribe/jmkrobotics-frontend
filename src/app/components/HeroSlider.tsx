@@ -24,7 +24,7 @@ export default function HeroSlider() {
       text: "Advanced",
       highlight: "AI-driven automation",
       end: "for industrial excellence.",
-      icon: <BrainCircuit className="w-4 h-4 text-slate-600" />,
+      icon: <BrainCircuit className="w-full h-full text-slate-600" />,
       bgGradient: "from-white to-white",
       accentColor: "slate"
     },
@@ -32,7 +32,7 @@ export default function HeroSlider() {
       text: "Precision",
       highlight: "manufacturing systems",
       end: "optimized for efficiency.",
-      icon: <Factory className="w-4 h-4 text-slate-600" />,
+      icon: <Factory className="w-full h-full text-slate-600" />,
       bgGradient: "from-white to-white",
       accentColor: "blue"
     },
@@ -40,7 +40,7 @@ export default function HeroSlider() {
       text: "Next-generation",
       highlight: "process control",
       end: "with intelligent monitoring.",
-      icon: <Cpu className="w-4 h-4 text-slate-600" />,
+      icon: <Cpu className="w-full h-full text-slate-600" />,
       bgGradient: "from-white to-white",
       accentColor: "gray"
     },
@@ -170,28 +170,33 @@ export default function HeroSlider() {
         <div className="absolute bottom-1/3 left-1/3 w-1 h-1 bg-blue-400 rounded-full opacity-30 animate-pulse animation-delay-3000"></div>
       </div>
       
-      {/* Main Content Container */}
-      <div className="relative z-10 h-full flex items-center justify-between px-6 py-4">
+      {/* Main Content Container - Padding Más Compacto */}
+      <div className="relative z-10 h-full flex items-center justify-between 
+                     px-2 sm:px-2.5 md:px-3 lg:px-4 xl:px-5 
+                     py-1 sm:py-1.5 md:py-2 lg:py-2.5 xl:py-3">
         
-        {/* Left Column: Icon */}
-        <div className="flex items-center">
+        {/* Left Column: Icon - Más Compacto */}
+        <div className="flex items-center flex-shrink-0">
           <div className={`
-            flex items-center justify-center w-12 h-12 
-            rounded-lg bg-white shadow-sm border border-slate-200
+            flex items-center justify-center rounded-md bg-white shadow-sm border border-slate-200
             transition-all duration-500 ease-out
+            w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8
             ${showText ? "scale-100 rotate-0 opacity-100" : "scale-90 rotate-12 opacity-0"}
           `}>
-            {currentSlideData.icon}
+            <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4">
+              {currentSlideData.icon}
+            </div>
           </div>
         </div>
 
-        {/* Center Column: Main Content */}
-        <div className="flex-1 px-6">
+        {/* Center Column: Main Content - Texto Compacto */}
+        <div className="flex-1 px-1.5 sm:px-2 md:px-2.5 lg:px-3 xl:px-4">
           <div className={`
             transition-all duration-500 ease-out
             ${showText ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"}
           `}>
-            <h2 className="text-lg leading-tight text-slate-800">
+            <h2 className="leading-tight text-slate-800
+                          text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg">
               <span className="font-medium text-slate-600">{currentSlideData.text}</span>{" "}
               <span className="text-[#E4173C] font-semibold">
                 {currentSlideData.highlight}
@@ -199,43 +204,51 @@ export default function HeroSlider() {
               <span className="font-medium text-slate-600">{currentSlideData.end}</span>
             </h2>
             
-            {/* Subtle progress indicator */}
+            {/* Subtle progress indicator - Más Pequeño */}
             <div className={`
-              w-16 h-0.5 bg-gradient-to-r from-[#E4173C] to-red-400 rounded-full mt-3
+              h-0.5 bg-gradient-to-r from-[#E4173C] to-red-400 rounded-full
+              w-6 sm:w-7 md:w-8 lg:w-10 xl:w-12
+              mt-1 sm:mt-1.5 md:mt-2 lg:mt-2.5 xl:mt-3
               transition-all duration-500 ease-out delay-200
               ${showText ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"}
             `}></div>
           </div>
         </div>
 
-        {/* Right Column: Controls and Indicators */}
-        <div className="flex items-center space-x-3">
+        {/* Right Column: Controls and Indicators - Muy Compacto */}
+        <div className="flex items-center flex-shrink-0
+                       space-x-0.5 sm:space-x-1 md:space-x-1.5 lg:space-x-2 xl:space-x-2.5">
           
-          {/* Navigation Buttons */}
+          {/* Navigation Buttons - Mucho Más Pequeños */}
           <button
             onClick={prevSlide}
             disabled={isTransitioning}
-            className="group p-2 rounded-md bg-white shadow-sm border border-slate-200
+            className="group rounded-md bg-white shadow-sm border border-slate-200
                      hover:bg-slate-50 hover:border-slate-300 hover:shadow-md disabled:opacity-50
-                     transition-all duration-200 ease-out"
+                     transition-all duration-200 ease-out
+                     p-0.5 sm:p-1 md:p-1 lg:p-1.5 xl:p-1.5"
             aria-label="Previous slide"
           >
-            <ChevronLeft className="w-3 h-3 text-slate-600 group-hover:text-slate-800 transition-colors" />
+            <ChevronLeft className="text-slate-600 group-hover:text-slate-800 transition-colors
+                                  w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 xl:w-3.5 xl:h-3.5" />
           </button>
           
           <button
             onClick={nextSlide}
             disabled={isTransitioning}
-            className="group p-2 rounded-md bg-slate-800 shadow-sm border border-slate-700
+            className="group rounded-md bg-slate-800 shadow-sm border border-slate-700
                      hover:bg-slate-700 hover:shadow-md disabled:opacity-50
-                     transition-all duration-200 ease-out"
+                     transition-all duration-200 ease-out
+                     p-0.5 sm:p-1 md:p-1 lg:p-1.5 xl:p-1.5"
             aria-label="Next slide"
           >
-            <ChevronRight className="w-3 h-3 text-white" />
+            <ChevronRight className="text-white
+                                   w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 xl:w-3.5 xl:h-3.5" />
           </button>
 
-          {/* Slide Indicators */}
-          <div className="flex items-center space-x-1.5 ml-2">
+          {/* Slide Indicators - Súper Compactos */}
+          <div className="flex items-center ml-0.5 sm:ml-1 md:ml-1.5 lg:ml-2 xl:ml-2.5
+                         space-x-0.5 sm:space-x-0.5 md:space-x-1 lg:space-x-1 xl:space-x-1.5">
             {slides.map((_, idx) => {
               const active = currentSlide === idx;
               return (
@@ -244,17 +257,18 @@ export default function HeroSlider() {
                   onClick={() => goToSlide(idx)}
                   disabled={isTransitioning}
                   className={`
-                    relative overflow-hidden rounded-full
-                    transition-all duration-300 ease-out
-                    ${active ? "w-6 h-2" : "w-2 h-2"}
+                    relative overflow-hidden rounded-full transition-all duration-300 ease-out
                     ${isTransitioning ? "opacity-50" : "opacity-100"}
+                    ${active 
+                      ? "w-2 h-1 sm:w-2.5 sm:h-1 md:w-3 md:h-1.5 lg:w-4 lg:h-1.5 xl:w-5 xl:h-2" 
+                      : "w-1 h-1 sm:w-1 sm:h-1 md:w-1.5 md:h-1.5 lg:w-1.5 lg:h-1.5 xl:w-2 xl:h-2"
+                    }
                   `}
                   type="button"
                   aria-label={`Go to slide ${idx + 1}`}
                 >
                   <div className={`
-                    w-full h-full rounded-full
-                    transition-all duration-300 ease-out
+                    w-full h-full rounded-full transition-all duration-300 ease-out
                     ${active 
                       ? "bg-slate-700 shadow-sm" 
                       : "bg-slate-300 hover:bg-slate-400"
@@ -269,31 +283,35 @@ export default function HeroSlider() {
             })}
           </div>
 
-          {/* Play/Pause Button */}
+          {/* Play/Pause Button - Hidden en mobile y tablet */}
           <button
             onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-            className="group p-2 rounded-md bg-slate-100 shadow-sm border border-slate-200
-                     hover:bg-slate-200 hover:shadow-md
-                     transition-all duration-200 ease-out ml-2"
+            className="hidden lg:block group rounded-md bg-slate-100 shadow-sm border border-slate-200
+                     hover:bg-slate-200 hover:shadow-md transition-all duration-200 ease-out
+                     ml-0.5 sm:ml-1 md:ml-1.5 lg:ml-2 xl:ml-2.5
+                     p-0.5 sm:p-1 md:p-1 lg:p-1.5 xl:p-1.5"
             aria-label={isAutoPlaying ? "Pause autoplay" : "Start autoplay"}
           >
             {isAutoPlaying ? 
-              <Pause className="w-3 h-3 text-slate-600" /> : 
-              <Play className="w-3 h-3 text-slate-600" />
+              <Pause className="text-slate-600 w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 xl:w-3.5 xl:h-3.5" /> : 
+              <Play className="text-slate-600 w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 xl:w-3.5 xl:h-3.5" />
             }
           </button>
 
-          {/* Counter */}
-          <div className="flex items-center space-x-1 px-2 py-1 bg-white rounded-md shadow-sm border border-slate-200">
-            <span className="text-[#E4173C] font-semibold text-xs">{currentSlide + 1}</span>
-            <span className="text-slate-400 text-xs">/</span>
-            <span className="text-slate-600 text-xs">{slides.length}</span>
+          {/* Counter - Mucho Más Discreto */}
+          <div className="hidden sm:flex items-center bg-white rounded-md shadow-sm border border-slate-200
+                         space-x-0.5 sm:space-x-0.5 md:space-x-1 lg:space-x-1 xl:space-x-1
+                         px-1 sm:px-1 md:px-1.5 lg:px-2 xl:px-2
+                         py-0.5 sm:py-0.5 md:py-0.5 lg:py-1 xl:py-1">
+            <span className="text-[#E4173C] font-semibold text-[9px] sm:text-[10px] md:text-xs lg:text-xs xl:text-xs">{currentSlide + 1}</span>
+            <span className="text-slate-400 text-[9px] sm:text-[10px] md:text-xs lg:text-xs xl:text-xs">/</span>
+            <span className="text-slate-600 text-[9px] sm:text-[10px] md:text-xs lg:text-xs xl:text-xs">{slides.length}</span>
           </div>
         </div>
       </div>
 
-      {/* Bottom Progress Bar */}
-      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-slate-200">
+      {/* Bottom Progress Bar - Muy Sutil */}
+      <div className="absolute bottom-0 left-0 w-full h-0.5 sm:h-0.5 md:h-0.5 lg:h-1 xl:h-1 bg-slate-200">
         <div 
           className="h-full bg-gradient-to-r from-[#E4173C] to-red-400 transition-all duration-500 ease-out"
           style={{ 
