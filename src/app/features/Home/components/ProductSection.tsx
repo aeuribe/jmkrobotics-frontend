@@ -47,26 +47,37 @@ const ProductSection = () => {
   const infiniteProducts = [...products, ...products, ...products];
 
   // Auto-scroll functionality
-  useEffect(() => {
-    if (!isAutoScrolling || !scrollContainerRef.current) return;
+useEffect(() => {
+  const container = scrollContainerRef.current;
+  if (!container || !isAutoScrolling) return;
 
-    const container = scrollContainerRef.current;
-    const scrollStep = 1;
-    const scrollSpeed = 30; // ms
+  const scrollStep = 1;
+  const scrollSpeed = 30;
 
-    const autoScroll = () => {
-      if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
-        // Reset to beginning for infinite effect
-        container.scrollLeft = container.scrollWidth / 3;
-      } else {
-        container.scrollLeft += scrollStep;
-      }
-    };
+  const autoScroll = () => {
+    if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+      container.scrollLeft = container.scrollWidth / 3;
+    } else {
+      container.scrollLeft += scrollStep;
+    }
+  };
 
-    const intervalId = setInterval(autoScroll, scrollSpeed);
+  const intervalId = setInterval(autoScroll, scrollSpeed);
 
-    return () => clearInterval(intervalId);
-  }, [isAutoScrolling]);
+  // Pausar auto-scroll al tocar
+  const handleTouchStart = () => setIsAutoScrolling(false);
+  const handleTouchEnd = () => setIsAutoScrolling(true);
+
+  container.addEventListener("touchstart", handleTouchStart);
+  container.addEventListener("touchend", handleTouchEnd);
+
+  return () => {
+    clearInterval(intervalId);
+    container.removeEventListener("touchstart", handleTouchStart);
+    container.removeEventListener("touchend", handleTouchEnd);
+  };
+}, [isAutoScrolling]);
+
 
   // Handle scroll state
   const handleScroll = () => {
