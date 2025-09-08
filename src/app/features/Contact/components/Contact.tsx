@@ -245,7 +245,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                         href="mailto:info@servicesjmk.com" 
                         className="text-gray-300 hover:text-[#E4173C] font-satoshi transition-colors"
                       >
-                        info@jmkrobotics.com
+                        info@servicesjmk.com
                       </Link>
                     </div>
                   </div>
