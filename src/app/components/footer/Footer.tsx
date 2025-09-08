@@ -214,7 +214,7 @@ const Footer = () => {
             {/* Additional Links */}
             <div className="flex flex-wrap justify-center sm:justify-end gap-3 sm:gap-4">
               <Link
-                href="/"
+                href="/privacy-policy"
                 className="text-[#6E7784] hover:text-white transition-colors duration-200
                           text-xs sm:text-sm group relative"
               >
