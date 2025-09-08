@@ -7,3 +7,20 @@
  --font-jakarta: var(--font-plus-jakarta-sans)
 }   
 
+@layer utilities {
+  @keyframes fadeInSlide {
+    0% { opacity: 0; transform: translateX(-20px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+  .animate-fadeInSlide {
+    animation: fadeInSlide 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeInSlideUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeInSlideUp {
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+  }
+}

@@ -161,17 +161,7 @@ const Footer = () => {
               Support
             </h3>
             <div className="flex flex-col space-y-2 sm:space-y-2.5">
-              <Link
-                className="text-[#6E7784] hover:text-white transition-colors duration-200
-                          text-xs sm:text-sm group relative"
-                href="/"
-              >
-                <span className="relative">
-                  Find a Dealer
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
-                                 group-hover:w-full transition-all duration-300"></span>
-                </span>
-              </Link>
+
               <Link
                 className="text-[#6E7784] hover:text-white transition-colors duration-200
                           text-xs sm:text-sm group relative"
@@ -235,7 +225,7 @@ const Footer = () => {
                 </span>
               </Link>
               <Link
-                href="/"
+                href="/terms"
                 className="text-[#6E7784] hover:text-white transition-colors duration-200
                           text-xs sm:text-sm group relative"
               >
@@ -246,7 +236,7 @@ const Footer = () => {
                 </span>
               </Link>
               <Link
-                href="/"
+                href="/contact"
                 className="text-[#6E7784] hover:text-white transition-colors duration-200
                           text-xs sm:text-sm group relative"
               >
