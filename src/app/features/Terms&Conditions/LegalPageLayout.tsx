@@ -130,7 +130,7 @@ const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({
               </h2>
               <p className="text-[#6E7784] mb-6 sm:mb-8">
                 If you have any questions about this {icon === "terms" ? "Terms and Conditions" : "Privacy Policy"}, 
-                please don't hesitate to contact us.
+                please don&#39;t hesitate to contact us.
               </p>
               <div className="inline-flex items-center gap-4 text-sm sm:text-base">
                 <Link 

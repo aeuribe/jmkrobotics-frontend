@@ -1,6 +1,5 @@
 import React from "react";
 import HeroSlider from "@/app/components/HeroSlider";
-import LinkButton from "./ButtonExplore";
 import ButtonExplore from "./ButtonExplore";
 
 

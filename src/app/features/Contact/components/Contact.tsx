@@ -91,7 +91,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               Connect <span className="text-[#E4173C]">With</span> Us
             </p>
             <h1 className="font-jakarta font-medium text-5xl md:text-7xl lg:text-8xl leading-tight mb-6">
-              Let's Build the{" "}
+              Let&apos;s Build the{" "}
               <span className="text-[#E4173C]">Future</span> Together
             </h1>
             <p className="text-lg text-gray-300 font-satoshi max-w-2xl leading-relaxed">
@@ -116,13 +116,13 @@ const handleSubmit = async (e: React.FormEvent) => {
                     </svg>
                   </div>
                   <h3 className="text-xl font-jakarta font-semibold text-[#020C18] mb-2">Message Sent Successfully!</h3>
-                  <p className="text-gray-600 font-satoshi">Thank you for contacting us. We'll get back to you within 24 hours.</p>
+                  <p className="text-gray-600 font-satoshi">Thank you for contacting us. We&#39;ll get back to you within 24 hours.</p>
                 </div>
               ) : (
                 <>
                   <div className="mb-8">
                     <h2 className="text-2xl font-jakarta font-semibold text-[#020C18] mb-2">Send us a message</h2>
-                    <p className="text-gray-600 font-satoshi">Fill out the form below and we'll get back to you as soon as possible.</p>
+                    <p className="text-gray-600 font-satoshi">Fill out the form below and we&apos;ll get back to you as soon as possible.</p>
                   </div>
                   
                   <form onSubmit={handleSubmit} className="space-y-6">
@@ -229,8 +229,8 @@ const handleSubmit = async (e: React.FormEvent) => {
                 <div>
                   <h3 className="text-2xl font-jakarta font-semibold mb-6">Get in Touch</h3>
                   <p className="text-gray-300 font-satoshi text-lg leading-relaxed">
-                    Whether you're looking to automate your manufacturing process, implement robotic solutions, 
-                    or explore our cutting-edge technology, we're here to help you achieve your goals.
+                    Whether you&apos;re looking to automate your manufacturing process, implement robotic solutions, 
+                    or explore our cutting-edge technology, we&apos;re here to help you achieve your goals.
                   </p>
                 </div>
 

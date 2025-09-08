@@ -23,17 +23,17 @@ const TermsAndConditions: React.FC = () => {
           </h2>
           <div className="space-y-4 text-[#A8B2C1] leading-relaxed">
             <p>
-              We are <strong className="text-white">Services JMK LLC</strong>, doing business as <strong className="text-white">JMK Robotics</strong> ("Company," "we," "us," "our"), a company registered in Florida, United States at <strong className="text-white">15264 SW 119TH TERRACE, Miami, FL 33196</strong>.
+              We are <strong className="text-white">Services JMK LLC</strong>, doing business as <strong className="text-white">JMK Robotics</strong> (&quot;Company,&quot; &quot;we,&quot; &quot;us,&quot; &quot;our&quot;), a company registered in Florida, United States at <strong className="text-white">15264 SW 119TH TERRACE, Miami, FL 33196</strong>.
             </p>
             <p>
-              We operate the website <Link href="http://www.jmkrobotics.com" className="text-[#E4173C] hover:text-white transition-colors">http://www.jmkrobotics.com</Link> (the "Site"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").
+              We operate the website <Link href="http://www.jmkrobotics.com" className="text-[#E4173C] hover:text-white transition-colors">http://www.jmkrobotics.com</Link> (the &#34;Site&#34;), as well as any other related products and services that refer or link to these legal terms (the &quot;Legal Terms&quot;) (collectively, the &quot;Services&quot;).
             </p>
             <p>
               You can contact us by email at <Link href="mailto:info@servicesjmk.com" className="text-[#E4173C] hover:text-white transition-colors">info@servicesjmk.com</Link> or by mail to <strong className="text-white">15264 SW 119TH TERRACE, Miami, FL 33196, United States</strong>.
             </p>
             <div className="bg-[#E4173C]/10 border border-[#E4173C]/20 p-4 sm:p-6 mt-6">
               <p className="text-[#A8B2C1] text-sm sm:text-base">
-                These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and Services JMK LLC, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. <strong className="text-[#E4173C]">IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.</strong>
+                These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity (&#34;you&#34;), and Services JMK LLC, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. <strong className="text-[#E4173C]">IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.</strong>
               </p>
             </div>
             <p>
@@ -105,20 +105,20 @@ const TermsAndConditions: React.FC = () => {
             <div className="bg-[#0A1220]/30 border border-[#2E3C51] p-4 sm:p-6">
               <h3 className="text-[#E4173C] font-semibold mb-3">Our intellectual property</h3>
               <p>
-                We are the owner or the licensee of all intellectual property rights in our Services, including all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics in the Services (collectively, the "Content"), as well as the trademarks, service marks, and logos contained therein (the "Marks").
+                We are the owner or the licensee of all intellectual property rights in our Services, including all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics in the Services (collectively, the &quot;Content&quot;), as well as the trademarks, service marks, and logos contained therein (the &quot;Marks&quot;).
               </p>
             </div>
             <p>
               Our Content and Marks are protected by copyright and trademark laws (and various other intellectual property rights and unfair competition laws) and treaties around the world.
             </p>
             <p>
-              The Content and Marks are provided in or through the Services "AS IS" for your personal, non-commercial use or internal business purpose only.
+              The Content and Marks are provided in or through the Services &quot;AS IS&quot; for your personal, non-commercial use or internal business purpose only.
             </p>
             
             <div className="bg-[#0A1220]/30 border border-[#2E3C51] p-4 sm:p-6 mt-6">
               <h3 className="text-[#E4173C] font-semibold mb-3">Your use of our Services</h3>
               <p className="mb-4">
-                Subject to your compliance with these Legal Terms, including the "PROHIBITED ACTIVITIES" section below, we grant you a non-exclusive, non-transferable, revocable license to:
+                Subject to your compliance with these Legal Terms, including the &quot;PROHIBITED ACTIVITIES&quot; section below, we grant you a non-exclusive, non-transferable, revocable license to:
               </p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>access the Services; and</li>
@@ -137,7 +137,7 @@ const TermsAndConditions: React.FC = () => {
             <div className="bg-[#E4173C]/10 border border-[#E4173C]/20 p-4 sm:p-6 mt-6">
               <h3 className="text-[#E4173C] font-semibold mb-2">Your submissions</h3>
               <p className="text-sm sm:text-base">
-                By directly sending us any question, comment, suggestion, idea, feedback, or other information about the Services ("Submissions"), you agree to assign to us all intellectual property rights in such Submission. You agree that we shall own this Submission and be entitled to its unrestricted use and dissemination for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you.
+                By directly sending us any question, comment, suggestion, idea, feedback, or other information about the Services (&#34;Submissions&#34;), you agree to assign to us all intellectual property rights in such Submission. You agree that we shall own this Submission and be entitled to its unrestricted use and dissemination for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you.
               </p>
             </div>
           </div>
@@ -185,12 +185,12 @@ const TermsAndConditions: React.FC = () => {
                 <li>Make improper use of our support services or submit false reports of abuse or misconduct.</li>
                 <li>Use the Services in a manner inconsistent with any applicable laws or regulations.</li>
                 <li>Engage in unauthorized framing of or linking to the Services.</li>
-                <li>Upload or transmit viruses, Trojan horses, or other material that interferes with any party's uninterrupted use and enjoyment of the Services.</li>
+                <li>Upload or transmit viruses, Trojan horses, or other material that interferes with any party&#39;s uninterrupted use and enjoyment of the Services.</li>
                 <li>Engage in any automated use of the system, such as using scripts to send comments or messages.</li>
                 <li>Delete the copyright or other proprietary rights notice from any Content.</li>
                 <li>Attempt to impersonate another user or person or use the username of another user.</li>
                 <li>Interfere with, disrupt, or create an undue burden on the Services or the networks or services connected to the Services.</li>
-                <li>Copy or adapt the Services' software, including but not limited to Flash, PHP, HTML, JavaScript, or other code.</li>
+                <li>Copy or adapt the Services&apos; software, including but not limited to Flash, PHP, HTML, JavaScript, or other code.</li>
               </ul>
             </div>
           </div>
@@ -204,7 +204,7 @@ const TermsAndConditions: React.FC = () => {
           </h2>
           <div className="space-y-4 text-[#A8B2C1] leading-relaxed">
             <p>
-              The Services does not offer users to submit or post content. We may provide you with the opportunity to create, submit, post, display, transmit, perform, publish, distribute, or broadcast content and materials to us or on the Services, including but not limited to text, writings, video, audio, photographs, graphics, comments, suggestions, or personal information or other material (collectively, "Contributions").
+              The Services does not offer users to submit or post content. We may provide you with the opportunity to create, submit, post, display, transmit, perform, publish, distribute, or broadcast content and materials to us or on the Services, including but not limited to text, writings, video, audio, photographs, graphics, comments, suggestions, or personal information or other material (collectively, &quot;Contributions&quot;).
             </p>
             <p>When you create or make available any Contributions, you thereby represent and warrant that:</p>
             <ul className="list-disc list-inside space-y-2 ml-4 text-sm sm:text-base">
@@ -337,7 +337,7 @@ const TermsAndConditions: React.FC = () => {
                 If the Parties are unable to resolve a Dispute through informal negotiations, the Dispute will be finally and exclusively resolved by binding arbitration. <strong className="text-[#E4173C]">YOU UNDERSTAND THAT WITHOUT THIS PROVISION, YOU WOULD HAVE THE RIGHT TO SUE IN COURT AND HAVE A JURY TRIAL.</strong>
               </p>
               <p>
-                The arbitration shall be commenced and conducted under the Commercial Arbitration Rules of the American Arbitration Association ("AAA"). Except as otherwise provided herein, the arbitration will take place in <strong className="text-white">Miami-Dade County, Florida</strong>.
+                The arbitration shall be commenced and conducted under the Commercial Arbitration Rules of the American Arbitration Association (&quot;AAA&quot;). Except as otherwise provided herein, the arbitration will take place in <strong className="text-white">Miami-Dade County, Florida</strong>.
               </p>
             </div>
             
