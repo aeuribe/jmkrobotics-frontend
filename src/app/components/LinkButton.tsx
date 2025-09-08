@@ -60,7 +60,7 @@ const LinkButton: React.FC<LinkButtonProps> = ({ label, href = "#" }) => {
       {/* Borde animado para móvil */}
       <div className="sm:hidden absolute inset-0 rounded-lg border border-transparent 
                      group-hover:border-[#E4173C]/30 transition-colors duration-300"></div>
-    </a>
+    </Link>
   );
 };
 
