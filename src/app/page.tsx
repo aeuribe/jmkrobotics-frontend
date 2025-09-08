@@ -1,9 +1,13 @@
 import Home from "./features/Home/Home";
+import Head from "next/head";
 
 export default function HomePage() {
   return (
     <div className="">
-      <Home/>
+      <Head>
+        <title>JMK Robotics - Industrial Solutions</title>
+      </Head>
+      <Home />
     </div>
   );
 }
