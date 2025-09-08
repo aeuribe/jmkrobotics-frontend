@@ -52,12 +52,12 @@ const HeroSection = () => {
             <div className="relative">
               <p className="font-main text-xs sm:text-sm md:text-base lg:text-md xl:text-lg tracking-widest
                            opacity-90 hover:opacity-100 transition-all duration-500
-                           animate-slideInFromLeft">
+                           animate-fadeInSlide">
                 Precision <span className="text-[#E4173C] font-semibold">In</span> Motion
               </p>
               {/* Línea decorativa móvil */}
               <div className="absolute -bottom-1 left-0 w-8 h-[1px] bg-gradient-to-r from-[#E4173C] to-transparent
-                             sm:hidden animate-slideInFromLeft"></div>
+                             sm:hidden animate-fadeInSlide"></div>
             </div>
             
             {/* Título principal mejorado para móvil */}
@@ -65,7 +65,7 @@ const HeroSection = () => {
               <h1 className="font-medium font-main leading-[1.1] relative
                             text-[28px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-[80px]
                             max-w-[98%] sm:max-w-full
-                            animate-slideInFromBottom">
+                            animate-fadeInSlideUp">
                 {/* Fondo sutil para móvil que mejora legibilidad */}
                 <span className="sm:hidden absolute inset-0 bg-black/20 backdrop-blur-[1px] rounded-lg -z-10"></span>
                 
@@ -93,26 +93,26 @@ const HeroSection = () => {
         {/* Recuadro del HeroSlider - Posicionamiento Natural */}
 <div
   className="
-              absolute z-30 bg-white shadow-lg rounded-xl
-              bottom-6
+            absolute z-30 bg-white shadow-lg rounded-xl
+            bottom-6
 
-              /* Mobile (<640px): centrado */
-              left-1/2 -translate-x-1/2
-              w-[260px] h-[70px]
+            /* Mobile (<640px): centrado */
+            left-1/2 -translate-x-1/2
+            w-[260px] h-[70px]
 
-              /* >=640px: derecha */
-              sm:left-auto sm:right-6 sm:translate-x-0
-              sm:w-[320px] sm:h-[90px]
+            /* >=640px: derecha */
+            sm:left-auto sm:right-6 sm:translate-x-0
+            sm:w-[320px] sm:h-[90px]
 
-              /* >=1024px */
-              lg:w-[420px] lg:h-[130px]
+            /* >=1024px */
+            lg:w-[420px] lg:h-[130px]
 
-              /* >=1280px */
-              xl:w-[480px] xl:h-[150px]
+            /* >=1280px */
+            xl:w-[480px] xl:h-[150px]
 
-              /* >=1536px */
-              2xl:w-[520px] 2xl:h-[170px]
-            "
+            /* >=1536px */
+            2xl:w-[520px] 2xl:h-[170px]
+          "
 >
           <HeroSlider />
         </div>

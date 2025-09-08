@@ -3,7 +3,7 @@ import React from 'react'
 const ButtonExplore = () => {
   return (
             <div className="mt-8 sm:mt-6 md:mt-7 lg:mt-8 xl:mt-10
-                           animate-slideInFromBottom animation-delay-300
+                           animate-fadeInSlideUp animation-delay-300
                            flex justify-start">
               <a
                 href="/"
