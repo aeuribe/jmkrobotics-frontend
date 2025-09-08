@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Search, Globe, Mail, Menu, X, Check, MapPin } from "lucide-react";
+import { Search, Globe, Mail, Menu, X, Check } from "lucide-react";
 import Link from "next/link";
 
 interface Language {
@@ -84,12 +84,13 @@ const Header: React.FC = () => {
               <Globe size={20} />
             </button>
 
-            <Link href="/contact">
-              <button className="flex items-center gap-2 bg-[#E4173C] text-[#020C18] text-[16px] rounded-md px-3 py-1 font-medium hover:bg-[#c91534] transition-colors">
-                <Mail size={16} />
-                <span className="hidden lg:inline">Contact Us</span>
-                <span className="lg:hidden">Contact</span>
-              </button>
+            <Link
+              href="/contact"
+              className="flex items-center gap-2 bg-[#E4173C] text-[#020C18] text-[16px] rounded-md px-3 py-1 font-medium hover:bg-[#c91534] transition-colors"
+            >
+              <Mail size={16} />
+              <span className="hidden lg:inline">Contact Us</span>
+              <span className="lg:hidden">Contact</span>
             </Link>
           </div>
 
@@ -147,10 +148,14 @@ const Header: React.FC = () => {
                     <Globe size={20} />
                   </button>
                 </div>
-                <button className="flex items-center justify-center gap-2 bg-[#E4173C] text-[#020C18] text-[14px] rounded-md px-4 py-3 font-medium hover:bg-[#c91534] transition-colors w-full">
+
+                <Link
+                  href="/contact"
+                  className="flex items-center justify-center gap-2 bg-[#E4173C] text-[#020C18] text-[14px] rounded-md px-4 py-3 font-medium hover:bg-[#c91534] transition-colors w-full"
+                >
                   <Mail size={16} />
                   Contact Us
-                </button>
+                </Link>
               </div>
             </nav>
           </div>
