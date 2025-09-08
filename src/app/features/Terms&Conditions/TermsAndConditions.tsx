@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import LegalPageLayout from "./LegalPageLayout";
 
 const TermsAndConditions: React.FC = () => {
@@ -25,10 +26,10 @@ const TermsAndConditions: React.FC = () => {
               We are <strong className="text-white">Services JMK LLC</strong>, doing business as <strong className="text-white">JMK Robotics</strong> ("Company," "we," "us," "our"), a company registered in Florida, United States at <strong className="text-white">15264 SW 119TH TERRACE, Miami, FL 33196</strong>.
             </p>
             <p>
-              We operate the website <a href="http://www.jmkrobotics.com" className="text-[#E4173C] hover:text-white transition-colors">http://www.jmkrobotics.com</a> (the "Site"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").
+              We operate the website <Link href="http://www.jmkrobotics.com" className="text-[#E4173C] hover:text-white transition-colors">http://www.jmkrobotics.com</Link> (the "Site"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").
             </p>
             <p>
-              You can contact us by email at <a href="mailto:info@servicesjmk.com" className="text-[#E4173C] hover:text-white transition-colors">info@servicesjmk.com</a> or by mail to <strong className="text-white">15264 SW 119TH TERRACE, Miami, FL 33196, United States</strong>.
+              You can contact us by email at <Link href="mailto:info@servicesjmk.com" className="text-[#E4173C] hover:text-white transition-colors">info@servicesjmk.com</Link> or by mail to <strong className="text-white">15264 SW 119TH TERRACE, Miami, FL 33196, United States</strong>.
             </p>
             <div className="bg-[#E4173C]/10 border border-[#E4173C]/20 p-4 sm:p-6 mt-6">
               <p className="text-[#A8B2C1] text-sm sm:text-base">
@@ -130,7 +131,7 @@ const TermsAndConditions: React.FC = () => {
             </p>
             
             <p>
-              If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: <a href="mailto:info@servicesjmk.com" className="text-[#E4173C] hover:text-white transition-colors">info@servicesjmk.com</a>.
+              If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: <Link href="mailto:info@servicesjmk.com" className="text-[#E4173C] hover:text-white transition-colors">info@servicesjmk.com</Link>.
             </p>
 
             <div className="bg-[#E4173C]/10 border border-[#E4173C]/20 p-4 sm:p-6 mt-6">
@@ -415,7 +416,7 @@ const TermsAndConditions: React.FC = () => {
                 <p>15264 SW 119TH TERRACE</p>
                 <p>Miami, FL 33196</p>
                 <p>United States</p>
-                <p><a href="mailto:info@servicesjmk.com" className="text-[#E4173C] hover:text-white transition-colors">info@servicesjmk.com</a></p>
+                <p><Link href="mailto:info@servicesjmk.com" className="text-[#E4173C] hover:text-white transition-colors">info@servicesjmk.com</Link></p>
               </div>
             </div>
           </div>

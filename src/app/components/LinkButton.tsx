@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 interface LinkButtonProps {
   label: string;
@@ -7,7 +8,7 @@ interface LinkButtonProps {
 
 const LinkButton: React.FC<LinkButtonProps> = ({ label, href = "#" }) => {
   return (
-    <a
+    <Link
       href={href}
       className="group relative inline-flex items-center gap-2 text-sm sm:text-base md:text-md text-white 
                  transition-all duration-300 ease-out

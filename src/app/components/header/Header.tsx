@@ -56,18 +56,18 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex flex-1 justify-center">
             <div className="flex gap-6 xl:gap-10 text-white text-[16px] font-satoshi font-light tracking-wider">
-              <a href="/" className="hover:text-[#E4173C] transition-colors">
+              <Link href="/" className="hover:text-[#E4173C] transition-colors">
                 Home
-              </a>
-              <a href="/" className="hover:text-[#E4173C] transition-colors">
+              </Link>
+              <Link href="/" className="hover:text-[#E4173C] transition-colors">
                 Products
-              </a>
-              <a href="/" className="hover:text-[#E4173C] transition-colors">
+              </Link>
+              <Link href="/" className="hover:text-[#E4173C] transition-colors">
                 Solutions
-              </a>
-              <a href="/" className="hover:text-[#E4173C] transition-colors">
+              </Link>
+              <Link href="/" className="hover:text-[#E4173C] transition-colors">
                 Distributors
-              </a>
+              </Link>
             </div>
           </nav>
 
@@ -108,30 +108,30 @@ const Header: React.FC = () => {
           <div className="md:hidden absolute top-full left-0 right-0 bg-[#020C18] border-t border-gray-700 z-50">
             <nav className="px-4 py-6">
               <div className="flex flex-col gap-4 mb-6">
-                <a
+                <Link
                   href="/"
                   className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light"
                 >
                   Home
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/"
                   className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light"
                 >
                   Products
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/"
                   className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light"
                 >
                   Solutions
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/"
                   className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light"
                 >
                   Distributors
-                </a>
+                </Link>
               </div>
 
               <div className="flex flex-col gap-4 pt-4 border-t border-gray-700">

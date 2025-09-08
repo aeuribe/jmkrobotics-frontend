@@ -4,6 +4,7 @@ import React, { ReactNode } from "react";
 import Header from "@/app/components/header/Header";
 import Footer from "@/app/components/footer/Footer";
 import { ArrowLeft, FileText, Shield } from "lucide-react";
+import Link from "next/link";
 
 type LegalPageLayoutProps = {
   children: ReactNode;
@@ -132,21 +133,21 @@ const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({
                 please don't hesitate to contact us.
               </p>
               <div className="inline-flex items-center gap-4 text-sm sm:text-base">
-                <a 
+                <Link 
                   href="mailto:info@servicesjmk.com" 
                   className="text-[#E4173C] hover:text-white transition-colors duration-300"
                 >
                   info@servicesjmk.com
-                </a>
+                </Link>
 
                 {/* Descomentar cuando haya un numero telefonico disponible */}
                 {/* <span className="text-[#2E3C51]">|</span> */}
-                {/* <a 
+                {/* <Link 
                   href="tel:+1234567890" 
                   className="text-[#E4173C] hover:text-white transition-colors duration-300"
                 >
                   +1 (234) 567-890
-                </a> */}
+                </Link> */}
               </div>
             </div>
           </div>

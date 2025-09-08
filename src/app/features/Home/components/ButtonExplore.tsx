@@ -1,11 +1,12 @@
 import React from 'react'
+import Link from 'next/link'
 
 const ButtonExplore = () => {
   return (
             <div className="mt-8 sm:mt-6 md:mt-7 lg:mt-8 xl:mt-10
                            animate-fadeInSlideUp animation-delay-300
                            flex justify-start">
-              <a
+              <Link
                 href="/"
                 className="group relative inline-flex items-center gap-2 sm:gap-3
                           /* Móvil: Botón más discreto */
@@ -40,7 +41,7 @@ const ButtonExplore = () => {
                                    group-hover:w-full transition-all duration-300"></div>
                   </span>
                 </span>
-              </a>
+              </Link>
             </div>
   )
 }

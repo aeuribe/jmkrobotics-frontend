@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import { Send, Mail, Phone } from 'lucide-react';
+import Link from 'next/link';
 
 interface FormData {
   fullName: string;
@@ -240,12 +241,12 @@ const handleSubmit = async (e: React.FormEvent) => {
                     </div>
                     <div>
                       <h4 className="font-jakarta font-medium mb-1">Email</h4>
-                      <a 
+                      <Link 
                         href="mailto:info@jmkrobotics.com" 
                         className="text-gray-300 hover:text-[#E4173C] font-satoshi transition-colors"
                       >
                         info@jmkrobotics.com
-                      </a>
+                      </Link>
                     </div>
                   </div>
 
