@@ -28,27 +28,48 @@ const ContactUs: React.FC = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    setIsSubmitting(false);
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    // const response = await fetch("http://localhost:8080/enviar-correo-robotics", { // URL local para pruebas
+    const response = await fetch("https://servicesjmk-backend.onrender.com/enviar-correo-robotics", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        full_name: formData.fullName, // usamos fullName directamente                // dejamos vacío
+        email: formData.email,
+        message: formData.message
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error("Hubo un error al enviar el mensaje");
+    }
+
     setIsSubmitted(true);
-    
-    // Reset form after success
+
+    // Reset form después de mostrar confirmación
     setTimeout(() => {
-      setIsSubmitted(false);
       setFormData({
-        fullName: '',
-        email: '',
-        subject: 'General',
-        message: ''
+        fullName: "",
+        email: "",
+        subject: "General",
+        message: ""
       });
     }, 3000);
-  };
+
+  } catch (error) {
+    console.error(error);
+    alert("No se pudo enviar el mensaje, inténtalo más tarde.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   const isFormValid = formData.fullName && formData.email && formData.message;
 
@@ -220,10 +241,10 @@ const ContactUs: React.FC = () => {
                     <div>
                       <h4 className="font-jakarta font-medium mb-1">Email</h4>
                       <a 
-                        href="mailto:contact@jmkrobotics.com" 
+                        href="mailto:info@jmkrobotics.com" 
                         className="text-gray-300 hover:text-[#E4173C] font-satoshi transition-colors"
                       >
-                        contact@jmkrobotics.com
+                        info@jmkrobotics.com
                       </a>
                     </div>
                   </div>
@@ -236,10 +257,10 @@ const ContactUs: React.FC = () => {
                       <h4 className="font-jakarta font-medium mb-1">Phone</h4>
                       <div className="space-y-1">
                         <p className="text-gray-300 font-satoshi">
-                          <span className="text-gray-200 text-sm">English:</span> +1 (555) 123-4567
+                          <span className="text-gray-200 text-sm">English:</span> +1 (786) 806-1365
                         </p>
                         <p className="text-gray-300 font-satoshi">
-                          <span className="text-gray-200 text-sm">Español:</span> +1 (555) 987-6543
+                          <span className="text-gray-200 text-sm">Español:</span> +1 (786) 315-8321
                         </p>
                       </div>
                     </div>
