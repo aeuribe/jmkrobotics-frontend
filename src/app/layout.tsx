@@ -11,8 +11,21 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: "JMK Robotics - Industrial Solutions",
-  description: "Induustrial Solutions for a Smarter Future",
-  keywords: ["Robotics", "Industrial Machines", "Packaging", "Manufacturing", "Machinery", "Automation", "Technology", "Innovation"],
+  description: "Industrial Solutions for a Smarter Future",
+  keywords: [
+    "Robotics",
+    "Industrial Machines",
+    "Packaging",
+    "Manufacturing",
+    "Machinery",
+    "Automation",
+    "Technology",
+    "Innovation",
+  ],
+  icons: {
+    icon: "/favicon.ico", // Coloca tu favicon en public/
+    apple: "/apple-icon.png", // opcional para dispositivos Apple
+  },
 };
 
 export default function RootLayout({
