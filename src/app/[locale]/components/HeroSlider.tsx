@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight, Cpu, Factory, BrainCircuit, Play, Pause } from "lucide-react";
-
+import { useTranslations } from "next-intl";
 // Tipos TypeScript
 interface SlideData {
   text: string;
@@ -19,27 +19,28 @@ interface TouchPosition {
 }
 
 export default function HeroSlider() {
+  const t = useTranslations("hero.slider");
   const slides: SlideData[] = [
     {
-      text: "Advanced",
-      highlight: "AI-driven automation",
-      end: "for industrial excellence.",
+      text: t("text1"),
+      highlight: t("highlight1"),
+      end: t("end1"),
       icon: <BrainCircuit className="w-full h-full text-slate-600" />,
       bgGradient: "from-white to-white",
       accentColor: "slate"
     },
     {
-      text: "Precision",
-      highlight: "manufacturing systems",
-      end: "optimized for efficiency.",
+      text: t("text2"),
+      highlight: t("highlight2"),
+      end: t("end2"),
       icon: <Factory className="w-full h-full text-slate-600" />,
       bgGradient: "from-white to-white",
       accentColor: "blue"
     },
     {
-      text: "Next-generation",
-      highlight: "process control",
-      end: "with intelligent monitoring.",
+      text: t("text3"),
+      highlight: t("highlight3"),
+      end: t("end3"),
       icon: <Cpu className="w-full h-full text-slate-600" />,
       bgGradient: "from-white to-white",
       accentColor: "gray"

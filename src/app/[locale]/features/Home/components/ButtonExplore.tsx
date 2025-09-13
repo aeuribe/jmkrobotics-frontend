@@ -1,7 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 const ButtonExplore = () => {
+  const t = useTranslations("hero");
   return (
             <div className="mt-8 sm:mt-6 md:mt-7 lg:mt-8 xl:mt-10
                            animate-fadeInSlideUp animation-delay-300
@@ -35,7 +37,7 @@ const ButtonExplore = () => {
                   </svg>
                   
                   <span className="relative">
-                    Explore Solutions
+                    {t("explore")}
                     {/* Línea decorativa sutil */}
                     <div className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
                                    group-hover:w-full transition-all duration-300"></div>

@@ -1,7 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import { Search, Globe, Mail, Menu, X, Check } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useRouter, usePathname } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 interface Language {
   code: string;
@@ -12,7 +14,21 @@ interface Language {
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState("EN");
+
+  const t = useTranslations("header");
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Obtener el idioma actual del pathname
+  const currentLocale = (() => {
+    const segments = pathname.split("/");
+    if (segments.length > 1) {
+      const code = segments[1].toUpperCase();
+      return ["EN", "ES"].includes(code) ? code : "EN";
+    }
+    return "EN";
+  })();
+  const [selectedLanguage, setSelectedLanguage] = useState(currentLocale);
 
   const languages: Language[] = [
     { code: "EN", name: "English", flag: "🇺🇸" },
@@ -31,9 +47,12 @@ const Header: React.FC = () => {
     setIsLanguageModalOpen(false);
   };
 
-  const handleLanguageSelect = (languageCode: string): void => {
+  const handleLanguageSelect = (languageCode: string) => {
     setSelectedLanguage(languageCode);
     setIsLanguageModalOpen(false);
+
+    // Navegar a la misma ruta pero con el idioma seleccionado
+    router.push(pathname, { locale: languageCode.toLowerCase() });
   };
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>): void => {
@@ -57,17 +76,17 @@ const Header: React.FC = () => {
           <nav className="hidden lg:flex flex-1 justify-center">
             <div className="flex gap-6 xl:gap-10 text-white text-[16px] font-satoshi font-light tracking-wider">
               <Link href="/" className="hover:text-[#E4173C] transition-colors">
-                Home
+                {t("nav.home")}
               </Link>
               <Link href="/" className="hover:text-[#E4173C] transition-colors">
-                Products
+                {t("nav.products")}
               </Link>
               <Link href="/" className="hover:text-[#E4173C] transition-colors">
-                Solutions
+                {t("nav.solutions")}
               </Link>
-              <Link href="/" className="hover:text-[#E4173C] transition-colors">
+              {/* <Link href="/" className="hover:text-[#E4173C] transition-colors">
                 Distributors
-              </Link>
+              </Link> */}
             </div>
           </nav>
 
@@ -89,8 +108,8 @@ const Header: React.FC = () => {
               className="flex items-center gap-2 bg-[#E4173C] text-[#020C18] text-[16px] rounded-md px-3 py-1 font-medium hover:bg-[#c91534] transition-colors"
             >
               <Mail size={16} />
-              <span className="hidden lg:inline">Contact Us</span>
-              <span className="lg:hidden">Contact</span>
+              <span className="hidden lg:inline">{t("shortContact")}</span>
+              <span className="lg:hidden">{t("contact")}</span>
             </Link>
           </div>
 
@@ -113,26 +132,26 @@ const Header: React.FC = () => {
                   href="/"
                   className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light"
                 >
-                  Home
+                  {t("nav.home")}
                 </Link>
                 <Link
                   href="/"
                   className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light"
                 >
-                  Products
+                  {t("nav.products")}
                 </Link>
                 <Link
                   href="/"
                   className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light"
                 >
-                  Solutions
+                  {t("nav.solutions")}
                 </Link>
-                <Link
+                {/* <Link
                   href="/"
                   className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light"
                 >
                   Distributors
-                </Link>
+                </Link> */}
               </div>
 
               <div className="flex flex-col gap-4 pt-4 border-t border-gray-700">
@@ -154,7 +173,7 @@ const Header: React.FC = () => {
                   className="flex items-center justify-center gap-2 bg-[#E4173C] text-[#020C18] text-[14px] rounded-md px-4 py-3 font-medium hover:bg-[#c91534] transition-colors w-full"
                 >
                   <Mail size={16} />
-                  Contact Us
+                  {t("shortContact")}
                 </Link>
               </div>
             </nav>
@@ -172,7 +191,7 @@ const Header: React.FC = () => {
             <div className="px-6 py-4 border-b border-gray-200">
               <div className="flex items-center justify-between">
                 <h2 className="text-lg font-semibold text-gray-900">
-                  Select Language
+                  {t("modal.selectLanguage")}
                 </h2>
                 <button
                   onClick={closeLanguageModal}
@@ -194,7 +213,7 @@ const Header: React.FC = () => {
                       <span className="text-xl">{language.flag}</span>
                       <span className="text-gray-900">{language.name}</span>
                     </div>
-                    {selectedLanguage === language.code && (
+                    {currentLocale === language.code && (
                       <Check size={16} className="text-[#E4173C]" />
                     )}
                   </button>

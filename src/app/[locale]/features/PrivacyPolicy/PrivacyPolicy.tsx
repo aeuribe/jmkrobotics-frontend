@@ -1,8 +1,8 @@
 "use client";   
 
 import React from "react";
-import Link from "next/link";
-import LegalPageLayout from "@/app/features/Terms&Conditions/LegalPageLayout";
+import {Link} from '@/i18n/navigation';
+import LegalPageLayout from "@/app/[locale]/features/Terms&Conditions/LegalPageLayout";
 import { Shield, Database, Eye, Users, Lock, Clock, FileText } from "lucide-react";
 
 const PrivacyPolicy: React.FC = () => {
@@ -23,13 +23,13 @@ const PrivacyPolicy: React.FC = () => {
               This Privacy Notice for <strong className="text-white">Services JMK LLC</strong> (&#34;we,&#34; &#34;us,&#34; or &#34;our&#34;), describes how and why we might access, collect, store, use, and/or share (&#34;process&#34;) your personal information when you use our services (&#34;Services&#34;), including when you:
             </p>
             <ul className="list-disc list-inside space-y-2 ml-4">
-              <li>Visit our website at <Link href="http://www.jmkrobotics.com" className="text-[#E4173C] hover:text-white transition-colors">http://www.jmkrobotics.com</Link> or any website of ours that links to this Privacy Notice</li>
+              <li>Visit our website at <a href="http://www.jmkrobotics.com" className="text-[#E4173C] hover:text-white transition-colors">http://www.jmkrobotics.com</a> or any website of ours that links to this Privacy Notice</li>
               <li>Engage with us in other related ways, including any sales, marketing, or events</li>
             </ul>
             <div className="bg-[#E4173C]/10 border border-[#E4173C]/20 p-4 sm:p-6 mt-6">
               <h3 className="text-[#E4173C] font-semibold mb-2">Questions or concerns?</h3>
               <p className="text-[#A8B2C1] text-sm sm:text-base">
-                Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <Link href="mailto:info@servicesjmk.com" className="text-[#E4173C] hover:text-white transition-colors">info@servicesjmk.com</Link>.
+                Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <a href="mailto:info@servicesjmk.com" className="text-[#E4173C] hover:text-white transition-colors">info@servicesjmk.com</a>.
               </p>
             </div>
           </div>
@@ -85,7 +85,7 @@ const PrivacyPolicy: React.FC = () => {
               <div className="bg-[#0A1220]/30 border border-[#2E3C51] p-4 sm:p-6">
                 <h3 className="text-[#E4173C] font-semibold mb-2">How do you exercise your rights?</h3>
                 <p className="text-sm sm:text-base">
-                  The easiest way to exercise your rights is by visiting <Link href="http://www.jmkrobotics.com/contact" className="text-[#E4173C] hover:text-white transition-colors">http://www.jmkrobotics.com/contact</Link>, or by contacting us. We will consider and act upon any request in accordance with applicable data protection laws.
+                  The easiest way to exercise your rights is by visiting <a href="http://www.jmkrobotics.com/contact" className="text-[#E4173C] hover:text-white transition-colors">http://www.jmkrobotics.com/contact</a>, or by contacting us. We will consider and act upon any request in accordance with applicable data protection laws.
                 </p>
               </div>
             </div>
@@ -165,7 +165,7 @@ const PrivacyPolicy: React.FC = () => {
                 This information is primarily needed to maintain the security and operation of our Services, and for our internal analytics and reporting purposes.
               </p>
               <p className="mb-4">
-                Like many businesses, we also collect information through cookies and similar technologies. You can find out more about this in our Cookie Notice: <Link href="http://www.jmkrobotics.com/cookie-policy" className="text-[#E4173C] hover:text-white transition-colors">www.jmkrobotics/cookie-policy</Link>.
+                Like many businesses, we also collect information through cookies and similar technologies. You can find out more about this in our Cookie Notice: <a href="http://www.jmkrobotics.com/cookie-policy" className="text-[#E4173C] hover:text-white transition-colors">www.jmkrobotics/cookie-policy</a>.
               </p>
               
               <div className="bg-[#E4173C]/10 border border-[#E4173C]/20 p-4 mt-4">
@@ -227,7 +227,7 @@ const PrivacyPolicy: React.FC = () => {
               We also permit third parties and service providers to use online tracking technologies on our Services for analytics and advertising, including to help manage and display advertisements, to tailor advertisements to your interests, or to send abandoned shopping cart reminders (depending on your communication preferences). The third parties and service providers use their technology to provide advertising about products and services tailored to your interests which may appear either on our Services or on other websites.
             </p>
             <p>
-              Specific information about how we use such technologies and how you can refuse certain cookies is set out in our Cookie Notice: <Link href="http://www.jmkrobotics.com/cookie-policy" className="text-[#E4173C] hover:text-white transition-colors">www.jmkrobotics/cookie-policy</Link>.
+              Specific information about how we use such technologies and how you can refuse certain cookies is set out in our Cookie Notice: <a href="http://www.jmkrobotics.com/cookie-policy" className="text-[#E4173C] hover:text-white transition-colors">www.jmkrobotics/cookie-policy</a>.
             </p>
           </div>
         </section>
@@ -282,7 +282,7 @@ const PrivacyPolicy: React.FC = () => {
               We do not knowingly collect, solicit data from, or market to children under 18 years of age, nor do we knowingly sell such personal information. By using the Services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent&#39;s use of the Services.
             </p>
             <p>
-              If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 18, please contact us at <Link href="mailto:info@servicesjmk.com" className="text-[#E4173C] hover:text-white transition-colors">info@servicesjmk.com</Link>.
+              If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 18, please contact us at <a href="mailto:info@servicesjmk.com" className="text-[#E4173C] hover:text-white transition-colors">info@servicesjmk.com</a>.
             </p>
           </div>
         </section>
@@ -310,13 +310,13 @@ const PrivacyPolicy: React.FC = () => {
               <div className="bg-[#0A1220]/30 border border-[#2E3C51] p-4 sm:p-6">
                 <h3 className="text-[#E4173C] font-semibold mb-2">Cookies and similar technologies:</h3>
                 <p>
-                  Most Web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove cookies and to reject cookies. If you choose to remove cookies or reject cookies, this could affect certain features or services of our Services. For further information, please see our Cookie Notice: <Link href="http://www.jmkrobotics.com/cookie-policy" className="text-[#E4173C] hover:text-white transition-colors">www.jmkrobotics/cookie-policy</Link>.
+                  Most Web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove cookies and to reject cookies. If you choose to remove cookies or reject cookies, this could affect certain features or services of our Services. For further information, please see our Cookie Notice: <a href="http://www.jmkrobotics.com/cookie-policy" className="text-[#E4173C] hover:text-white transition-colors">www.jmkrobotics/cookie-policy</a>.
                 </p>
               </div>
             </div>
 
             <p>
-              If you have questions or comments about your privacy rights, you may email us at <Link href="mailto:info@servicesjmk.com" className="text-[#E4173C] hover:text-white transition-colors">info@servicesjmk.com</Link>.
+              If you have questions or comments about your privacy rights, you may email us at <a href="mailto:info@servicesjmk.com" className="text-[#E4173C] hover:text-white transition-colors">info@servicesjmk.com</a>.
             </p>
           </div>
         </section>
@@ -363,7 +363,7 @@ const PrivacyPolicy: React.FC = () => {
           </h2>
           <div className="space-y-4 text-[#A8B2C1] leading-relaxed">
             <p>
-              If you have questions or comments about this notice, you may email us at <Link href="mailto:info@servicesjmk.com" className="text-[#E4173C] hover:text-white transition-colors">info@servicesjmk.com</Link> or contact us by post at:
+              If you have questions or comments about this notice, you may email us at <a href="mailto:info@servicesjmk.com" className="text-[#E4173C] hover:text-white transition-colors">info@servicesjmk.com</a> or contact us by post at:
             </p>
             <div className="bg-[#0A1220]/50 border border-[#2E3C51] p-4 sm:p-6">
               <div className="space-y-2">
@@ -387,7 +387,7 @@ const PrivacyPolicy: React.FC = () => {
               Based on the applicable laws of your country, you may have the right to request access to the personal information we collect from you, details about how we have processed it, correct inaccuracies, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information.
             </p>
             <p>
-              These rights may be limited in some circumstances by applicable law. To request to review, update, or delete your personal information, please visit: <Link href="http://www.jmkrobotics.com/contact" className="text-[#E4173C] hover:text-white transition-colors">http://www.jmkrobotics.com/contact</Link>.
+              These rights may be limited in some circumstances by applicable law. To request to review, update, or delete your personal information, please visit: <a href="http://www.jmkrobotics.com/contact" className="text-[#E4173C] hover:text-white transition-colors">http://www.jmkrobotics.com/contact</a>.
             </p>
           </div>
         </section>

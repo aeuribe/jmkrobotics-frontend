@@ -1,9 +1,11 @@
 import React from "react";
-import HeroSlider from "@/app/components/HeroSlider";
+import HeroSlider from "@/app/[locale]/components/HeroSlider";
 import ButtonExplore from "./ButtonExplore";
+import { useTranslations } from "next-intl";
 
 
 const HeroSection = () => {
+  const t = useTranslations("hero");
   return (
     <div className="h-screen">
       <section className="relative w-full h-[calc(100vh-6rem)] overflow-hidden">
@@ -52,7 +54,7 @@ const HeroSection = () => {
               <p className="font-main text-xs sm:text-sm md:text-base lg:text-md xl:text-lg tracking-widest
                            opacity-90 hover:opacity-100 transition-all duration-500
                            animate-fadeInSlide">
-                Precision <span className="text-[#E4173C] font-semibold">In</span> Motion
+                {t("precision")} <span className="text-[#E4173C] font-semibold">{t("in")}</span> {t("motion")}
               </p>
               {/* Línea decorativa móvil */}
               <div className="absolute -bottom-1 left-0 w-8 h-[1px] bg-gradient-to-r from-[#E4173C] to-transparent
@@ -68,15 +70,15 @@ const HeroSection = () => {
                 {/* Fondo sutil para móvil que mejora legibilidad */}
                 <span className="sm:hidden absolute inset-0 bg-black/20 backdrop-blur-[1px] rounded-lg -z-10"></span>
                 
-                Industrial Solutions for a{" "}
+                {t("h1-part1")}{" "}
                 <span className="relative text-[#E4173C] font-semibold">
-                  Smarter
+                  {t("h1-part2")}
                   {/* Efecto de brillo sutil en móvil */}
                   <span className="sm:hidden absolute inset-0 text-[#E4173C] opacity-40 blur-[2px]">
-                    Smarter
+                    {t("h1-part2")}
                   </span>
                 </span>{" "}
-                Future
+                {t("h1-part3")}
               </h1>
               
               {/* Decoración geométrica sutil para móvil */}

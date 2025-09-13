@@ -1,7 +1,8 @@
 "use client"
 import React, { useState } from 'react';
 import { Send, Mail, Phone } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 
 interface FormData {
   fullName: string;
@@ -20,6 +21,8 @@ const ContactUs: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const t = useTranslations('contact');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -88,14 +91,14 @@ const handleSubmit = async (e: React.FormEvent) => {
         <div className="max-w-7xl mx-auto">
           <div className="text-left text-white">
             <p className="font-jakarta text-md tracking-wide mb-4">
-              Connect <span className="text-[#E4173C]">With</span> Us
+              {t("hero.preTitle1")} <span className="text-[#E4173C]">{t("hero.preTitle2")}</span> {t("hero.preTitle3")}
             </p>
             <h1 className="font-jakarta font-medium text-5xl md:text-7xl lg:text-8xl leading-tight mb-6">
-              Let&apos;s Build the{" "}
-              <span className="text-[#E4173C]">Future</span> Together
+              {t("hero.title1")}{" "}
+              <span className="text-[#E4173C]">{t("hero.title2")}</span> {t("hero.title3")}
             </h1>
             <p className="text-lg text-gray-300 font-satoshi max-w-2xl leading-relaxed">
-              Ready to transform your operations with cutting-edge robotics? Our experts are here to help you find the perfect automation solution.
+              {t("hero.subtitle")}
             </p>
           </div>
         </div>
@@ -115,21 +118,21 @@ const handleSubmit = async (e: React.FormEvent) => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-jakarta font-semibold text-[#020C18] mb-2">Message Sent Successfully!</h3>
-                  <p className="text-gray-600 font-satoshi">Thank you for contacting us. We&#39;ll get back to you within 24 hours.</p>
+                  <h3 className="text-xl font-jakarta font-semibold text-[#020C18] mb-2">{t("form.sucess.title")}</h3>
+                  <p className="text-gray-600 font-satoshi">{t("form.sucess.text")}</p>
                 </div>
               ) : (
                 <>
                   <div className="mb-8">
-                    <h2 className="text-2xl font-jakarta font-semibold text-[#020C18] mb-2">Send us a message</h2>
-                    <p className="text-gray-600 font-satoshi">Fill out the form below and we&apos;ll get back to you as soon as possible.</p>
+                    <h2 className="text-2xl font-jakarta font-semibold text-[#020C18] mb-2">{t("form.title")}</h2>
+                    <p className="text-gray-600 font-satoshi">{t("form.subtitle")}</p>
                   </div>
                   
                   <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Full Name */}
                     <div>
                       <label htmlFor="fullName" className="block text-sm font-jakarta font-medium text-[#020C18] mb-2">
-                        Full Name *
+                        {t("form.fields.fullName.label")}
                       </label>
                       <input
                         type="text"
@@ -139,14 +142,14 @@ const handleSubmit = async (e: React.FormEvent) => {
                         onChange={handleInputChange}
                         required
                         className="w-full px-4 py-3 border border-gray-300 bg-gray-50/50 text-[#020C18] font-satoshi focus:ring-2 focus:ring-[#E4173C] focus:border-transparent transition-all duration-200 placeholder:text-gray-500"
-                        placeholder="Enter your full name"
+                        placeholder={t("form.fields.fullName.placeholder")}
                       />
                     </div>
 
                     {/* Email */}
                     <div>
                       <label htmlFor="email" className="block text-sm font-jakarta font-medium text-[#020C18] mb-2">
-                        Email Address *
+                        {t("form.fields.email.label")}
                       </label>
                       <input
                         type="email"
@@ -156,14 +159,14 @@ const handleSubmit = async (e: React.FormEvent) => {
                         onChange={handleInputChange}
                         required
                         className="w-full px-4 py-3 border border-gray-300 bg-gray-50/50 text-[#020C18] font-satoshi focus:ring-2 focus:ring-[#E4173C] focus:border-transparent transition-all duration-200 placeholder:text-gray-500"
-                        placeholder="Enter your email address"
+                        placeholder={t("form.fields.email.placeholder")}
                       />
                     </div>
 
                     {/* Subject */}
                     <div>
                       <label htmlFor="subject" className="block text-sm font-jakarta font-medium text-[#020C18] mb-2">
-                        Subject *
+                        {t("form.fields.subject.label")}
                       </label>
                       <select
                         id="subject"
@@ -172,16 +175,16 @@ const handleSubmit = async (e: React.FormEvent) => {
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-gray-300 bg-gray-50/50 text-[#020C18] font-satoshi focus:ring-2 focus:ring-[#E4173C] focus:border-transparent transition-all duration-200"
                       >
-                        <option value="General">General Inquiry</option>
-                        <option value="Product Inquiry">Product Inquiry</option>
-                        <option value="Support">Technical Support</option>
+                        <option value="General">{t("form.fields.subject.options.general")}</option>
+                        <option value="Product Inquiry">{t("form.fields.subject.options.product")}</option>
+                        <option value="Support">{t("form.fields.subject.options.support")}</option>
                       </select>
                     </div>
 
                     {/* Message */}
                     <div>
                       <label htmlFor="message" className="block text-sm font-jakarta font-medium text-[#020C18] mb-2">
-                        Message *
+                        {t("form.fields.message.label")}
                       </label>
                       <textarea
                         id="message"
@@ -191,7 +194,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                         required
                         rows={6}
                         className="w-full px-4 py-3 border border-gray-300 bg-gray-50/50 text-[#020C18] font-satoshi focus:ring-2 focus:ring-[#E4173C] focus:border-transparent transition-all duration-200 placeholder:text-gray-500 resize-none"
-                        placeholder="Tell us about your project or inquiry..."
+                        placeholder={t("form.fields.message.placeholder")}
                       />
                     </div>
 
@@ -208,12 +211,12 @@ const handleSubmit = async (e: React.FormEvent) => {
                               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                             </svg>
-                            Sending...
+                            {t("form.submit.loading")}
                           </>
                         ) : (
                           <>
                             <Send size={16} />
-                            Send Message
+                            {t("form.submit.idle")}
                           </>
                         )}
                       </button>
@@ -227,10 +230,9 @@ const handleSubmit = async (e: React.FormEvent) => {
             <div className="text-white order-1 lg:order-2">
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-2xl font-jakarta font-semibold mb-6">Get in Touch</h3>
+                  <h3 className="text-2xl font-jakarta font-semibold mb-6">{t("info.title")}</h3>
                   <p className="text-gray-300 font-satoshi text-lg leading-relaxed">
-                    Whether you&apos;re looking to automate your manufacturing process, implement robotic solutions, 
-                    or explore our cutting-edge technology, we&apos;re here to help you achieve your goals.
+                  {t("info.text")}
                   </p>
                 </div>
 
@@ -240,13 +242,13 @@ const handleSubmit = async (e: React.FormEvent) => {
                       <Mail size={20} className="text-white" />
                     </div>
                     <div>
-                      <h4 className="font-jakarta font-medium mb-1">Email</h4>
-                      <Link 
+                      <h4 className="font-jakarta font-medium mb-1">{t("info.email.label")}</h4>
+                      <a 
                         href="mailto:info@servicesjmk.com" 
                         className="text-gray-300 hover:text-[#E4173C] font-satoshi transition-colors"
                       >
                         info@servicesjmk.com
-                      </Link>
+                      </a>
                     </div>
                   </div>
 
@@ -255,7 +257,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                       <Phone size={20} className="text-white" />
                     </div>
                     <div>
-                      <h4 className="font-jakarta font-medium mb-1">Phone</h4>
+                      <h4 className="font-jakarta font-medium mb-1">{t("info.phone.label")}</h4>
                       <div className="space-y-1">
                         <p className="text-gray-300 font-satoshi">
                           <span className="text-gray-200 text-sm">English:</span> +1 (786) 806-1365
@@ -271,10 +273,9 @@ const handleSubmit = async (e: React.FormEvent) => {
                 </div>
 
                 <div className="pt-8 border-t border-gray-700">
-                  <h4 className="font-jakarta font-medium mb-4">Response Time</h4>
+                  <h4 className="font-jakarta font-medium mb-4">{t("info.responseTime.title")}</h4>
                   <p className="text-gray-300 font-satoshi">
-                    We typically respond to all inquiries within 24 hours during business days. 
-                    For urgent matters, please call us directly.
+                  {t("info.responseTime.text")}
                   </p>
                 </div>
               </div>
@@ -287,7 +288,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       <footer className="relative z-10 border-t border-gray-700 py-8 px-4 sm:px-6 lg:px-20">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-400 font-satoshi text-sm">
-            © 2025 JMK Robotics. All rights reserved.
+            {t("footer.text")}
           </p>
         </div>
       </footer>

@@ -1,8 +1,8 @@
 "use client";
 
 import React, { ReactNode } from "react";
-import Header from "@/app/components/header/Header";
-import Footer from "@/app/components/footer/Footer";
+import Header from "@/app/[locale]/components/header/Header";
+import Footer from "@/app/[locale]/components/footer/Footer";
 import { ArrowLeft, FileText, Shield } from "lucide-react";
 import Link from "next/link";
 

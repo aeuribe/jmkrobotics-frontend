@@ -3,41 +3,43 @@
 import React, { useEffect, useRef, useState } from "react";
 import ProductFrame from "./ProductFrame";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const ProductSection = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const t = useTranslations("productSection");
 
   const products = [
     {
-      title: "Capping Machine",
+      title: t("capping"),
       icon: "/bottle_icon.png",
       image: "/capping_image.jpg"
     },
     {
-      title: "Sealing Machine", 
+      title: t("sealing"), 
       icon: "/sealed_bag_icon.png",
       image: "/sealing_machine.jpg"
     },
     {
-      title: "Filling Machine",
+      title: t("filling"),
       icon: "/filling_machine.svg", 
       image: "/filling_machine.jpg"
     },
     {
-      title: "Labeling Machine",
+      title: t("labeling"),
       icon: "/label_icon.png",
       image: "/labeling-machine.jpg"
     },
     {
-      title: "Wrapping Machine",
+      title: t("wrapping"),
       icon: "/wrapping_icon.png", 
       image: "/wraping_machine.jpg"
     },
     {
-      title: "Metal Detector",
+      title: t("metalDetector"),
       icon: "/metal_detector.png",
       image: "/metal_detector.jpg"
     }
@@ -130,7 +132,7 @@ useEffect(() => {
                               bg-[#E4173C]/10 border border-[#E4173C]/20
                               text-[#E4173C] text-sm sm:text-base font-medium
                               backdrop-blur-sm">
-                Industrial Solutions
+                {t("subtitle")}
               </span>
             </div>
             
@@ -138,14 +140,13 @@ useEffect(() => {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 
                           font-semibold text-white mb-4 sm:mb-6
                           leading-tight tracking-tight">
-              Our <span className="text-[#E4173C]">Machines</span>
+              {t("title1")} <span className="text-[#E4173C]">{t("title2")}</span>
             </h2>
             
             {/* Descripción */}
             <p className="text-[#6E7784] text-base sm:text-lg lg:text-xl 
                          max-w-2xl mx-auto leading-relaxed">
-              Cutting-edge automation solutions designed for efficiency, 
-              precision, and reliability in modern industrial environments.
+              {t("description")}.
             </p>
           </div>
         </div>
@@ -241,7 +242,7 @@ useEffect(() => {
           <div className="inline-flex items-center gap-2 text-[#6E7784] hover:text-white 
                          transition-colors duration-300 cursor-pointer group">
             <span className="text-sm sm:text-base">
-              Explore all industrial solutions
+              {t("cta")}
             </span>
             <svg 
               className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" 

@@ -1,8 +1,10 @@
-import Link from "next/link";
+import { Link } from '@/i18n/navigation';
 import React from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
+  const t = useTranslations("footer");
   return (
     <footer className="bg-[#1A2330] text-white">
       {/* Main Footer Content */}
@@ -20,7 +22,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-[#6E7784] text-xs sm:text-sm leading-relaxed max-w-xs">
-              Reliable machines, intelligent results.
+              {t("slogan")}
             </p>
           </div>
 
@@ -28,7 +30,7 @@ const Footer = () => {
           <div className="flex flex-col">
             <h3 className="text-white font-semibold mb-3 sm:mb-4 
                           text-sm sm:text-base lg:text-base">
-              Products
+              {t("products")}
             </h3>
             <div className="flex flex-col space-y-2 sm:space-y-2.5">
               <Link 
@@ -37,7 +39,7 @@ const Footer = () => {
                 href="/"
               >
                 <span className="relative">
-                  Capping Machine
+                  {t("capping")}
                   <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
@@ -48,7 +50,7 @@ const Footer = () => {
                 href="/"
               >
                 <span className="relative">
-                  Sealing Machine
+                  {t("sealing")}
                   <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
@@ -59,7 +61,7 @@ const Footer = () => {
                 href="/"
               >
                 <span className="relative">
-                  Filling Machine
+                  {t("filling")}
                   <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
@@ -70,7 +72,7 @@ const Footer = () => {
                 href="/"
               >
                 <span className="relative">
-                  Labeling Machine
+                  {t("labeling")}
                   <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
@@ -81,7 +83,7 @@ const Footer = () => {
                 href="/"
               >
                 <span className="relative">
-                  Wrapping Machine
+                  {t("wrapping")}
                   <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
@@ -92,7 +94,7 @@ const Footer = () => {
                 href="/"
               >
                 <span className="relative">
-                  Metal Detector
+                  {t("metalDetector")}
                   <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
@@ -104,7 +106,7 @@ const Footer = () => {
           <div className="flex flex-col">
             <h3 className="text-white font-semibold mb-3 sm:mb-4 
                           text-sm sm:text-base lg:text-base">
-              Solutions
+              {t("solutions")}
             </h3>
             <div className="flex flex-col space-y-2 sm:space-y-2.5">
               <Link
@@ -113,7 +115,7 @@ const Footer = () => {
                 href="/"
               >
                 <span className="relative">
-                  Packaging
+                  {t("packaging")}
                   <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
@@ -124,7 +126,7 @@ const Footer = () => {
                 href="/"
               >
                 <span className="relative">
-                  Manufacturing
+                  {t("manufacturing")}
                   <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
@@ -135,7 +137,7 @@ const Footer = () => {
                 href="/"
               >
                 <span className="relative">
-                  Process Control
+                  {t("process")}
                   <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
@@ -146,7 +148,7 @@ const Footer = () => {
                 href="/"
               >
                 <span className="relative">
-                  Quality Control
+                  {t("quality")}
                   <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
@@ -158,7 +160,7 @@ const Footer = () => {
           <div className="flex flex-col">
             <h3 className="text-white font-semibold mb-3 sm:mb-4 
                           text-sm sm:text-base lg:text-base">
-              Support
+              {t("support")}
             </h3>
             <div className="flex flex-col space-y-2 sm:space-y-2.5">
 
@@ -168,7 +170,7 @@ const Footer = () => {
                 href="/"
               >
                 <span className="relative">
-                  Technical Support
+                  {t("technical")}
                   <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
@@ -179,7 +181,7 @@ const Footer = () => {
                 href="/"
               >
                 <span className="relative">
-                  FAQs
+                  {t("faq")}
                   <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
@@ -190,7 +192,7 @@ const Footer = () => {
                 href="/"
               >
                 <span className="relative">
-                  Documentation
+                  {t("doc")}
                   <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
@@ -207,7 +209,7 @@ const Footer = () => {
             {/* Copyright */}
             <div className="text-center sm:text-left">
               <p className="text-[#6E7784] text-xs sm:text-sm">
-                © 2025 JMK Robotics. All rights reserved.
+                {t("rights")}
               </p>
             </div>
 
@@ -219,7 +221,7 @@ const Footer = () => {
                           text-xs sm:text-sm group relative"
               >
                 <span className="relative">
-                  Privacy Policy
+                  {t("privacy")}
                   <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
@@ -230,7 +232,7 @@ const Footer = () => {
                           text-xs sm:text-sm group relative"
               >
                 <span className="relative">
-                  Terms of Service
+                  {t("terms")}
                   <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
@@ -241,7 +243,7 @@ const Footer = () => {
                           text-xs sm:text-sm group relative"
               >
                 <span className="relative">
-                  Contact
+                  {t("contact")}
                   <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>

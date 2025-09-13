@@ -1,0 +1,141 @@
+{
+  "footer": {
+    "capping": "Capping Machine",
+    "contact": "Contact",
+    "doc": "Documentation",
+    "faq": "FQAs",
+    "filling": "Filling Machine",
+    "labeling": "Labeling Machine",
+    "manufacturing": "Manufacturing",
+    "metalDetector": "Metal Detector",
+    "packaging": "Packaging",
+    "privacy": "Privacy Policy",
+    "process": "Process Control",
+    "products": "Products",
+    "quality": "Quality Control",
+    "rights": "© 2025 JMK Robotics. All rights reserved.",
+    "sealing": "Sealing Machine",
+    "slogan": "Reliable machines, intelligent results.",
+    "solutions": "Solutions",
+    "support": "Support",
+    "technical": "Technical Support",
+    "terms": "Terms of Service",
+    "wrapping": "Wrapping Machine"
+  },
+  "header": {
+    "contact": "Contact",
+    "modal": {
+      "selectLanguage": "Select Language"
+    },
+    "nav": {
+      "home": "Home",
+      "products": "Products",
+      "solutions": "Solutions"
+    },
+    "shortContact": "Contact Us"
+  },
+  "hero": {
+    "explore": "Explore Solutions",
+    "h1-part1": "Industrial Solutions for a",
+    "h1-part2": "Smarter",
+    "h1-part3": "Future",
+    "in": "In",
+    "motion": "Motion",
+    "precision": "Precision",
+    "slider": {
+      "end1": "for industrial excellence.",
+      "end2": "optimized for efficiency.",
+      "end3": "with intelligent monitoring.",
+      "highlight1": "AI-driven automation",
+      "highlight2": "manufacturing systems",
+      "highlight3": "process control",
+      "text1": "Advanced",
+      "text2": "Precision",
+      "text3": "Next-generation"
+    }
+  },
+  "productSection": {
+    "capping": "Capping Machine",
+    "cta": "Explore all industrial solutions",
+    "description": "Cutting-edge automation solutions designed for efficiency, precision, and reliability in modern industrial environments.",
+    "filling": "Filling Machine",
+    "labeling": "Labeling Machine",
+    "metalDetector": "Metal Detector",
+    "sealing": "Sealing Machine",
+    "subtitle": "Industrial Solutions",
+    "title1": "Our",
+    "title2": "Machines",
+    "wrapping": "Wrapping Machine"
+  },
+  "metadata": {
+    "title": "JMK Robotics - Industrial Solutions",
+    "description": "Industrial Solutions for a Smarter Future"
+  },
+  "contact": {
+    "hero": {
+      "preTitle1": "Conect",
+      "preTitle2": "With",
+      "preTitle3": "Us",
+      "title1": "Let's Build the",
+      "title2": "Future",
+      "title3": "Together",
+      "subtitle": "Ready to transform your operations with cutting-edge robotics? Our experts are here to help you find the perfect automation solution."
+    },
+    "form": {
+      "title": "Send us a message",
+      "subtitle": "Fill out the form below and we'll get back to you as soon as possible.",
+      "fields": {
+        "fullName": {
+          "label": "Full Name *",
+          "placeholder": "Enter your full name"
+        },
+        "email": {
+          "label": "Email Address *",
+          "placeholder": "Enter your email address"
+        },
+        "subject": {
+          "label": "Subject *",
+          "options": {
+            "general": "General Inquiry",
+            "product": "Product Inquiry",
+            "support": "Technical Support"
+          }
+        },
+        "message": {
+          "label": "Message *",
+          "placeholder": "Tell us about your project or inquiry..."
+        }
+      },
+      "submit": {
+        "idle": "Send Message",
+        "loading": "Sending..."
+      },
+      "success": {
+        "title": "Message Sent Successfully!",
+        "text": "Thank you for contacting us. We'll get back to you within 24 hours."
+      },
+      "error": {
+        "text": "There was an error sending the message. Please try again later."
+      }
+    },
+    "info": {
+      "title": "Get in Touch",
+      "text": "Whether you're looking to automate your manufacturing process, implement robotic solutions, or explore our cutting-edge technology, we're here to help you achieve your goals.",
+      "email": {
+        "label": "Email"
+      },
+      "phone": {
+        "label": "Phone",
+        "english": "English:",
+        "spanish": "Español:"
+      },
+      "responseTime": {
+        "title": "Response Time",
+        "text": "We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly."
+      }
+    },
+    "footer": {
+      "text": "© 2025 JMK Robotics. All rights reserved."
+    }
+  }
+}
