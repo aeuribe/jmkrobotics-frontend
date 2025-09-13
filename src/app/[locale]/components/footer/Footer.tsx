@@ -227,7 +227,7 @@ const Footer = () => {
                 </span>
               </Link>
               <Link
-                href="/terms"
+                href="terms"
                 className="text-[#6E7784] hover:text-white transition-colors duration-200
                           text-xs sm:text-sm group relative"
               >
