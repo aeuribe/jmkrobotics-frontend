@@ -51,7 +51,7 @@ const handleSubmit = async (e: React.FormEvent) => {
     });
 
     if (!response.ok) {
-      throw new Error("Hubo un error al enviar el mensaje");
+      throw new Error(t("form.error.text"));
     }
 
     setIsSubmitted(true);
@@ -118,8 +118,8 @@ const handleSubmit = async (e: React.FormEvent) => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-jakarta font-semibold text-[#020C18] mb-2">{t("form.sucess.title")}</h3>
-                  <p className="text-gray-600 font-satoshi">{t("form.sucess.text")}</p>
+                  <h3 className="text-xl font-jakarta font-semibold text-[#020C18] mb-2">{t("form.success.title")}</h3>
+                  <p className="text-gray-600 font-satoshi">{t("form.success.text")}</p>
                 </div>
               ) : (
                 <>
