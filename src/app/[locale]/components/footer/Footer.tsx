@@ -40,7 +40,7 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("capping")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
               </Link>
@@ -51,7 +51,7 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("sealing")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
               </Link>
@@ -62,7 +62,7 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("filling")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
               </Link>
@@ -73,7 +73,7 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("labeling")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
               </Link>
@@ -84,7 +84,7 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("wrapping")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
               </Link>
@@ -95,7 +95,7 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("metalDetector")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
               </Link>
@@ -116,7 +116,7 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("packaging")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
               </Link>
@@ -127,7 +127,7 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("manufacturing")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
               </Link>
@@ -138,7 +138,7 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("process")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
               </Link>
@@ -149,7 +149,7 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("quality")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
               </Link>
@@ -171,7 +171,7 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("technical")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
               </Link>
@@ -182,7 +182,7 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("faq")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
               </Link>
@@ -193,7 +193,7 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("doc")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
               </Link>
@@ -222,7 +222,7 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("privacy")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
               </Link>
@@ -233,7 +233,7 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("terms")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
               </Link>
@@ -244,7 +244,7 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("contact")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
                                  group-hover:w-full transition-all duration-300"></span>
                 </span>
               </Link>

@@ -10,9 +10,11 @@ const ButtonExplore = () => {
                            flex justify-start">
               <Link
                 href="/"
+                role="button"
+                aria-label={t("explore")}
                 className="group relative inline-flex items-center gap-2 sm:gap-3
                           /* Móvil: Botón más discreto */
-                          bg-white/10 hover:bg-white/15 active:bg-white/20
+                          bg-white/30 hover:bg-white/15 active:bg-white/20
                           backdrop-blur-sm
                           text-white font-medium
                           px-5 py-3 sm:px-4 sm:py-2 md:px-6 md:py-3 lg:px-7 lg:py-3 xl:px-8 xl:py-4
@@ -39,7 +41,7 @@ const ButtonExplore = () => {
                   <span className="relative">
                     {t("explore")}
                     {/* Línea decorativa sutil */}
-                    <div className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#E4173C] 
+                    <div className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
                                    group-hover:w-full transition-all duration-300"></div>
                   </span>
                 </span>

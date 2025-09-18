@@ -27,7 +27,7 @@ const LinkButton: React.FC<LinkButtonProps> = ({ label, href = "#" }) => {
                  justify-start sm:justify-start"
     >
       {/* Fondo de hover para móvil */}
-      <div className="sm:hidden absolute inset-0 bg-gradient-to-r from-[#E4173C]/10 to-transparent 
+      <div className="sm:hidden absolute inset-0 bg-gradient-to-r from-[#ff002f]/10 to-transparent 
                      opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
       
       <span className="relative flex items-center gap-2 sm:gap-1.5 font-medium sm:font-normal">
@@ -36,7 +36,7 @@ const LinkButton: React.FC<LinkButtonProps> = ({ label, href = "#" }) => {
           <svg 
             className="w-4 h-4 sm:w-3 sm:h-3 md:w-4 md:h-4 transition-all duration-300 
                        group-hover:translate-x-0.5 group-hover:-translate-y-0.5
-                       text-[#E4173C] sm:text-white group-hover:text-[#E4173C]" 
+                       text-[#ff002f] sm:text-white group-hover:text-[#ff002f]" 
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"
@@ -45,21 +45,21 @@ const LinkButton: React.FC<LinkButtonProps> = ({ label, href = "#" }) => {
           </svg>
           
           {/* Efecto de brillo en móvil */}
-          <div className="sm:hidden absolute inset-0 bg-[#E4173C]/20 rounded-full blur-sm 
+          <div className="sm:hidden absolute inset-0 bg-[#ff002f]/20 rounded-full blur-sm 
                          opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
         
         <span className="relative">
           {label}
           {/* Línea decorativa móvil */}
-          <div className="sm:hidden absolute -bottom-1 left-0 w-0 h-[1px] bg-[#E4173C] 
+          <div className="sm:hidden absolute -bottom-1 left-0 w-0 h-[1px] bg-[#ff002f] 
                          group-hover:w-full transition-all duration-300"></div>
         </span>
       </span>
       
       {/* Borde animado para móvil */}
       <div className="sm:hidden absolute inset-0 rounded-lg border border-transparent 
-                     group-hover:border-[#E4173C]/30 transition-colors duration-300"></div>
+                     group-hover:border-[#ff002f]/30 transition-colors duration-300"></div>
     </Link>
   );
 };

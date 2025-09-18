@@ -129,8 +129,8 @@ useEffect(() => {
             {/* Subtítulo */}
             <div className="mb-4 sm:mb-6">
               <span className="inline-block px-4 py-2 
-                              bg-[#E4173C]/10 border border-[#E4173C]/20
-                              text-[#E4173C] text-sm sm:text-base font-medium
+                              bg-[#ff002f]/10 border border-[#ff002f]/20
+                              text-[#ff002f] text-sm sm:text-base font-medium
                               backdrop-blur-sm">
                 {t("subtitle")}
               </span>
@@ -140,7 +140,7 @@ useEffect(() => {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 
                           font-semibold text-white mb-4 sm:mb-6
                           leading-tight tracking-tight">
-              {t("title1")} <span className="text-[#E4173C]">{t("title2")}</span>
+              {t("title1")} <span className="text-[#ff002f]">{t("title2")}</span>
             </h2>
             
             {/* Descripción */}
@@ -160,10 +160,11 @@ useEffect(() => {
                        w-12 h-12 bg-[#020C18]/80 backdrop-blur-sm
                        border border-[#2E3C51] text-white
                        flex items-center justify-center
-                       transition-all duration-300 hover:bg-[#E4173C] hover:border-[#E4173C]
+                       transition-all duration-300 hover:bg-[#ff002f] hover:border-[#ff002f]
                        opacity-0 group-hover:opacity-100
                        ${canScrollLeft ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'}`}
             disabled={!canScrollLeft}
+            aria-label="Scroll left"
           >
             <ChevronLeft size={20} />
           </button>
@@ -174,10 +175,11 @@ useEffect(() => {
                        w-12 h-12 bg-[#020C18]/80 backdrop-blur-sm
                        border border-[#2E3C51] text-white
                        flex items-center justify-center
-                       transition-all duration-300 hover:bg-[#E4173C] hover:border-[#E4173C]
+                       transition-all duration-300 hover:bg-[#ff002f] hover:border-[#ff002f]
                        opacity-0 group-hover:opacity-100
                        ${canScrollRight ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'}`}
             disabled={!canScrollRight}
+            aria-label="Scroll right"
           >
             <ChevronRight size={20} />
           </button>
@@ -230,7 +232,7 @@ useEffect(() => {
         <div className="text-center pb-8">
           <div className="inline-flex items-center gap-2 text-[#6E7784] text-xs sm:text-sm">
             <div className={`w-2 h-2 rounded-full transition-colors duration-300 
-                            ${isAutoScrolling ? 'bg-[#E4173C] animate-pulse' : 'bg-[#6E7784]'}`}></div>
+                            ${isAutoScrolling ? 'bg-[#ff002f] animate-pulse' : 'bg-[#6E7784]'}`}></div>
             <span>
               {isAutoScrolling ? 'Auto-scrolling' : 'Manual control'}
             </span>

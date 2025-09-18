@@ -68,23 +68,23 @@ const Header: React.FC = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <p className="text-white font-jakarta font-bold text-lg">
-              <span className="text-[#E4173C]">JMK</span> ROBOTICS
+              <span className="text-[#ff002f]">JMK</span> ROBOTICS
             </p>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex flex-1 justify-center">
             <div className="flex gap-6 xl:gap-10 text-white text-[16px] font-satoshi font-light tracking-wider">
-              <Link href="/" className="hover:text-[#E4173C] transition-colors">
+              <Link href="/" className="hover:text-[#ff002f] transition-colors">
                 {t("nav.home")}
               </Link>
-              <Link href="/" className="hover:text-[#E4173C] transition-colors">
+              <Link href="/" className="hover:text-[#ff002f] transition-colors">
                 {t("nav.products")}
               </Link>
-              <Link href="/" className="hover:text-[#E4173C] transition-colors">
+              <Link href="/" className="hover:text-[#ff002f] transition-colors">
                 {t("nav.solutions")}
               </Link>
-              {/* <Link href="/" className="hover:text-[#E4173C] transition-colors">
+              {/* <Link href="/" className="hover:text-[#ff002f] transition-colors">
                 Distributors
               </Link> */}
             </div>
@@ -92,20 +92,26 @@ const Header: React.FC = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-3 lg:gap-4 flex-shrink-0">
-            <button className="text-white hover:text-[#E4173C] transition-colors">
+            <button
+              className="text-white hover:text-[#ff002f] transition-colors"
+              aria-label="Search"
+              title="Search"
+            >
               <Search size={20} />
             </button>
 
             <button
               onClick={openLanguageModal}
-              className="text-white hover:text-[#E4173C] transition-colors"
+              className="text-white hover:text-[#ff002f] transition-colors"
+              aria-label="Change language"
+              title="Change language"
             >
               <Globe size={20} />
             </button>
 
             <Link
               href="/contact"
-              className="flex items-center gap-2 bg-[#E4173C] text-[#020C18] text-[16px] rounded-md px-3 py-1 font-medium hover:bg-[#c91534] transition-colors"
+              className="flex items-center gap-2 bg-[#ff002f] text-[#020C18] text-[16px] rounded-md px-3 py-1 font-medium hover:bg-[#c91534] transition-colors"
             >
               <Mail size={16} />
               <span className="hidden lg:inline">{t("shortContact")}</span>
@@ -130,25 +136,25 @@ const Header: React.FC = () => {
               <div className="flex flex-col gap-4 mb-6">
                 <Link
                   href="/"
-                  className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light"
+                  className="text-white hover:text-[#ff002f] transition-colors py-2 font-satoshi font-light"
                 >
                   {t("nav.home")}
                 </Link>
                 <Link
                   href="/"
-                  className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light"
+                  className="text-white hover:text-[#ff002f] transition-colors py-2 font-satoshi font-light"
                 >
                   {t("nav.products")}
                 </Link>
                 <Link
                   href="/"
-                  className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light"
+                  className="text-white hover:text-[#ff002f] transition-colors py-2 font-satoshi font-light"
                 >
                   {t("nav.solutions")}
                 </Link>
                 {/* <Link
                   href="/"
-                  className="text-white hover:text-[#E4173C] transition-colors py-2 font-satoshi font-light"
+                  className="text-white hover:text-[#ff002f] transition-colors py-2 font-satoshi font-light"
                 >
                   Distributors
                 </Link> */}
@@ -156,13 +162,19 @@ const Header: React.FC = () => {
 
               <div className="flex flex-col gap-4 pt-4 border-t border-gray-700">
                 <div className="flex items-center gap-4">
-                  <button className="text-white hover:text-[#E4173C] transition-colors p-2">
+                  <button
+                    className="text-white hover:text-[#ff002f] transition-colors p-2 "
+                    aria-label="Search"
+                    title="Search"
+                  >
                     <Search size={20} />
                   </button>
 
                   <button
                     onClick={openLanguageModal}
-                    className="text-white hover:text-[#E4173C] transition-colors p-2"
+                    className="text-white hover:text-[#ff002f] transition-colors p-2"
+                    aria-label="Change language"
+                    title="Change language"
                   >
                     <Globe size={20} />
                   </button>
@@ -170,7 +182,7 @@ const Header: React.FC = () => {
 
                 <Link
                   href="/contact"
-                  className="flex items-center justify-center gap-2 bg-[#E4173C] text-[#020C18] text-[14px] rounded-md px-4 py-3 font-medium hover:bg-[#c91534] transition-colors w-full"
+                  className="flex items-center justify-center gap-2 bg-[#ff002f] text-[#020C18] text-[14px] rounded-md px-4 py-3 font-medium hover:bg-[#c91534] transition-colors w-full"
                 >
                   <Mail size={16} />
                   {t("shortContact")}
@@ -196,6 +208,8 @@ const Header: React.FC = () => {
                 <button
                   onClick={closeLanguageModal}
                   className="text-gray-400 hover:text-gray-600 transition-colors"
+                  aria-label="Close language selection modal"
+                  title="Close"
                 >
                   <X size={20} />
                 </button>
@@ -208,13 +222,23 @@ const Header: React.FC = () => {
                     key={language.code}
                     onClick={() => handleLanguageSelect(language.code)}
                     className="flex items-center justify-between w-full p-3 text-left hover:bg-gray-50 rounded-lg transition-colors"
+                    aria-label={`Select ${language.name} language`}
+                    aria-current={
+                      currentLocale === language.code ? "true" : undefined
+                    }
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-xl">{language.flag}</span>
+                      <span className="text-xl" aria-hidden="true">
+                        {language.flag}
+                      </span>
                       <span className="text-gray-900">{language.name}</span>
                     </div>
                     {currentLocale === language.code && (
-                      <Check size={16} className="text-[#E4173C]" />
+                      <Check
+                        size={16}
+                        className="text-[#ff002f]"
+                        aria-hidden="true"
+                      />
                     )}
                   </button>
                 ))}

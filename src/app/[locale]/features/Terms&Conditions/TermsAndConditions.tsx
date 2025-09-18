@@ -26,14 +26,14 @@ const TermsAndConditions: React.FC = () => {
               We are <strong className="text-white">Services JMK LLC</strong>, doing business as <strong className="text-white">JMK Robotics</strong> (&quot;Company,&quot; &quot;we,&quot; &quot;us,&quot; &quot;our&quot;), a company registered in Florida, United States at <strong className="text-white">15264 SW 119TH TERRACE, Miami, FL 33196</strong>.
             </p>
             <p>
-              We operate the website <Link href="http://www.jmkrobotics.com" className="text-[#E4173C] hover:text-white transition-colors">http://www.jmkrobotics.com</Link> (the &#34;Site&#34;), as well as any other related products and services that refer or link to these legal terms (the &quot;Legal Terms&quot;) (collectively, the &quot;Services&quot;).
+              We operate the website <Link href="http://www.jmkrobotics.com" className="text-[#ff002f] hover:text-white transition-colors">http://www.jmkrobotics.com</Link> (the &#34;Site&#34;), as well as any other related products and services that refer or link to these legal terms (the &quot;Legal Terms&quot;) (collectively, the &quot;Services&quot;).
             </p>
             <p>
-              You can contact us by email at <Link href="mailto:info@servicesjmk.com" className="text-[#E4173C] hover:text-white transition-colors">info@servicesjmk.com</Link> or by mail to <strong className="text-white">15264 SW 119TH TERRACE, Miami, FL 33196, United States</strong>.
+              You can contact us by email at <Link href="mailto:info@servicesjmk.com" className="text-[#ff002f] hover:text-white transition-colors">info@servicesjmk.com</Link> or by mail to <strong className="text-white">15264 SW 119TH TERRACE, Miami, FL 33196, United States</strong>.
             </p>
-            <div className="bg-[#E4173C]/10 border border-[#E4173C]/20 p-4 sm:p-6 mt-6">
+            <div className="bg-[#ff002f]/10 border border-[#ff002f]/20 p-4 sm:p-6 mt-6">
               <p className="text-[#A8B2C1] text-sm sm:text-base">
-                These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity (&#34;you&#34;), and Services JMK LLC, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. <strong className="text-[#E4173C]">IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.</strong>
+                These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity (&#34;you&#34;), and Services JMK LLC, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. <strong className="text-[#ff002f]">IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.</strong>
               </p>
             </div>
             <p>
@@ -103,7 +103,7 @@ const TermsAndConditions: React.FC = () => {
           </h2>
           <div className="space-y-4 text-[#A8B2C1] leading-relaxed">
             <div className="bg-[#0A1220]/30 border border-[#2E3C51] p-4 sm:p-6">
-              <h3 className="text-[#E4173C] font-semibold mb-3">Our intellectual property</h3>
+              <h3 className="text-[#ff002f] font-semibold mb-3">Our intellectual property</h3>
               <p>
                 We are the owner or the licensee of all intellectual property rights in our Services, including all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics in the Services (collectively, the &quot;Content&quot;), as well as the trademarks, service marks, and logos contained therein (the &quot;Marks&quot;).
               </p>
@@ -116,7 +116,7 @@ const TermsAndConditions: React.FC = () => {
             </p>
             
             <div className="bg-[#0A1220]/30 border border-[#2E3C51] p-4 sm:p-6 mt-6">
-              <h3 className="text-[#E4173C] font-semibold mb-3">Your use of our Services</h3>
+              <h3 className="text-[#ff002f] font-semibold mb-3">Your use of our Services</h3>
               <p className="mb-4">
                 Subject to your compliance with these Legal Terms, including the &quot;PROHIBITED ACTIVITIES&quot; section below, we grant you a non-exclusive, non-transferable, revocable license to:
               </p>
@@ -131,11 +131,11 @@ const TermsAndConditions: React.FC = () => {
             </p>
             
             <p>
-              If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: <Link href="mailto:info@servicesjmk.com" className="text-[#E4173C] hover:text-white transition-colors">info@servicesjmk.com</Link>.
+              If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: <Link href="mailto:info@servicesjmk.com" className="text-[#ff002f] hover:text-white transition-colors">info@servicesjmk.com</Link>.
             </p>
 
-            <div className="bg-[#E4173C]/10 border border-[#E4173C]/20 p-4 sm:p-6 mt-6">
-              <h3 className="text-[#E4173C] font-semibold mb-2">Your submissions</h3>
+            <div className="bg-[#ff002f]/10 border border-[#ff002f]/20 p-4 sm:p-6 mt-6">
+              <h3 className="text-[#ff002f] font-semibold mb-2">Your submissions</h3>
               <p className="text-sm sm:text-base">
                 By directly sending us any question, comment, suggestion, idea, feedback, or other information about the Services (&#34;Submissions&#34;), you agree to assign to us all intellectual property rights in such Submission. You agree that we shall own this Submission and be entitled to its unrestricted use and dissemination for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you.
               </p>
@@ -277,9 +277,9 @@ const TermsAndConditions: React.FC = () => {
             9. Term and Termination
           </h2>
           <div className="space-y-4 text-[#A8B2C1] leading-relaxed">
-            <div className="bg-[#E4173C]/10 border border-[#E4173C]/20 p-4 sm:p-6">
+            <div className="bg-[#ff002f]/10 border border-[#ff002f]/20 p-4 sm:p-6">
               <p className="text-sm sm:text-base">
-                <strong className="text-[#E4173C]">WITHOUT LIMITING ANY OTHER PROVISION OF THESE LEGAL TERMS, WE RESERVE THE RIGHT TO, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE SERVICES TO ANY PERSON FOR ANY REASON OR FOR NO REASON, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY REPRESENTATION, WARRANTY, OR COVENANT CONTAINED IN THESE LEGAL TERMS.</strong>
+                <strong className="text-[#ff002f]">WITHOUT LIMITING ANY OTHER PROVISION OF THESE LEGAL TERMS, WE RESERVE THE RIGHT TO, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE SERVICES TO ANY PERSON FOR ANY REASON OR FOR NO REASON, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY REPRESENTATION, WARRANTY, OR COVENANT CONTAINED IN THESE LEGAL TERMS.</strong>
               </p>
             </div>
             <p>
@@ -325,16 +325,16 @@ const TermsAndConditions: React.FC = () => {
           </h2>
           <div className="space-y-4 text-[#A8B2C1] leading-relaxed">
             <div className="bg-[#0A1220]/30 border border-[#2E3C51] p-4 sm:p-6">
-              <h3 className="text-[#E4173C] font-semibold mb-3">Informal Negotiations</h3>
+              <h3 className="text-[#ff002f] font-semibold mb-3">Informal Negotiations</h3>
               <p>
                 To expedite resolution and control the cost of any dispute, controversy, or claim related to these Legal Terms, the Parties agree to first attempt to negotiate any Dispute informally for at least thirty (30) days before initiating arbitration.
               </p>
             </div>
             
             <div className="bg-[#0A1220]/30 border border-[#2E3C51] p-4 sm:p-6">
-              <h3 className="text-[#E4173C] font-semibold mb-3">Binding Arbitration</h3>
+              <h3 className="text-[#ff002f] font-semibold mb-3">Binding Arbitration</h3>
               <p className="mb-4">
-                If the Parties are unable to resolve a Dispute through informal negotiations, the Dispute will be finally and exclusively resolved by binding arbitration. <strong className="text-[#E4173C]">YOU UNDERSTAND THAT WITHOUT THIS PROVISION, YOU WOULD HAVE THE RIGHT TO SUE IN COURT AND HAVE A JURY TRIAL.</strong>
+                If the Parties are unable to resolve a Dispute through informal negotiations, the Dispute will be finally and exclusively resolved by binding arbitration. <strong className="text-[#ff002f]">YOU UNDERSTAND THAT WITHOUT THIS PROVISION, YOU WOULD HAVE THE RIGHT TO SUE IN COURT AND HAVE A JURY TRIAL.</strong>
               </p>
               <p>
                 The arbitration shall be commenced and conducted under the Commercial Arbitration Rules of the American Arbitration Association (&quot;AAA&quot;). Except as otherwise provided herein, the arbitration will take place in <strong className="text-white">Miami-Dade County, Florida</strong>.
@@ -366,9 +366,9 @@ const TermsAndConditions: React.FC = () => {
             14. Disclaimer
           </h2>
           <div className="space-y-4 text-[#A8B2C1] leading-relaxed">
-            <div className="bg-[#E4173C]/10 border border-[#E4173C]/20 p-4 sm:p-6">
+            <div className="bg-[#ff002f]/10 border border-[#ff002f]/20 p-4 sm:p-6">
               <p className="text-sm sm:text-base">
-                <strong className="text-[#E4173C]">THE SERVICES ARE PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SERVICES.</strong>
+                <strong className="text-[#ff002f]">THE SERVICES ARE PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SERVICES.</strong>
               </p>
             </div>
           </div>
@@ -380,9 +380,9 @@ const TermsAndConditions: React.FC = () => {
             15. Limitations of Liability
           </h2>
           <div className="space-y-4 text-[#A8B2C1] leading-relaxed">
-            <div className="bg-[#E4173C]/10 border border-[#E4173C]/20 p-4 sm:p-6">
+            <div className="bg-[#ff002f]/10 border border-[#ff002f]/20 p-4 sm:p-6">
               <p className="text-sm sm:text-base">
-                <strong className="text-[#E4173C]">IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SERVICES.</strong>
+                <strong className="text-[#ff002f]">IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SERVICES.</strong>
               </p>
             </div>
           </div>
@@ -416,7 +416,7 @@ const TermsAndConditions: React.FC = () => {
                 <p>15264 SW 119TH TERRACE</p>
                 <p>Miami, FL 33196</p>
                 <p>United States</p>
-                <p><Link href="mailto:info@servicesjmk.com" className="text-[#E4173C] hover:text-white transition-colors">info@servicesjmk.com</Link></p>
+                <p><Link href="mailto:info@servicesjmk.com" className="text-[#ff002f] hover:text-white transition-colors">info@servicesjmk.com</Link></p>
               </div>
             </div>
           </div>

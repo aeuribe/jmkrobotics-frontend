@@ -103,7 +103,7 @@ const ProductFrame: React.FC<ProductFrameProps> = ({ title, icon, image, classNa
               {/* Glow effect en el icono */}
               <div 
                 className="absolute inset-0 rounded-full 
-                           bg-[#E4173C]/20 blur-xl 
+                           bg-[#ff002f]/20 blur-xl 
                            transition-all duration-700"
                 style={{
                   opacity: isHovered ? 1 : 0,
@@ -133,7 +133,7 @@ const ProductFrame: React.FC<ProductFrameProps> = ({ title, icon, image, classNa
             
             {/* Línea decorativa animada */}
             <div 
-              className="h-[2px] bg-gradient-to-r from-[#E4173C] to-[#ff6b6b] 
+              className="h-[2px] bg-gradient-to-r from-[#ff002f] to-[#ff6b6b] 
                          transition-all duration-700 ease-out"
               style={{
                 width: isHovered ? '64px' : '0px',
@@ -151,10 +151,10 @@ const ProductFrame: React.FC<ProductFrameProps> = ({ title, icon, image, classNa
                     flex items-center justify-center
                     text-[#6E7784] 
                     transition-all duration-500 ease-out
-                    focus:outline-none focus:ring-2 focus:ring-[#E4173C] focus:ring-offset-2 focus:ring-offset-[#020C18]"
+                    focus:outline-none focus:ring-2 focus:ring-[#ff002f] focus:ring-offset-2 focus:ring-offset-[#020C18]"
           style={{
-            backgroundColor: isHovered ? '#E4173C' : 'rgba(2,12,24,0.8)',
-            borderColor: isHovered ? '#E4173C' : '#2E3C51',
+            backgroundColor: isHovered ? '#ff002f' : 'rgba(2,12,24,0.8)',
+            borderColor: isHovered ? '#ff002f' : '#2E3C51',
             color: isHovered ? '#ffffff' : '#6E7784',
             transform: isHovered ? 'scale(1.1)' : 'scale(1)',
             boxShadow: isHovered ? '0 20px 40px rgba(228,23,60,0.3)' : 'none',
@@ -193,7 +193,7 @@ const ProductFrame: React.FC<ProductFrameProps> = ({ title, icon, image, classNa
         }}
       >
         <div 
-          className="w-2 h-2 bg-[#E4173C] rounded-full"
+          className="w-2 h-2 bg-[#ff002f] rounded-full"
           style={{
             animation: isHovered ? 'pulse 2s infinite' : 'none',
           }}

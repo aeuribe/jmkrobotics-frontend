@@ -83,7 +83,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-96 h-96 border border-white/20 rotate-45"></div>
         <div className="absolute bottom-20 right-10 w-64 h-64 border border-white/10 rotate-12"></div>
-        <div className="absolute top-1/2 left-1/4 w-32 h-32 border border-[#E4173C]/30 rotate-45"></div>
+        <div className="absolute top-1/2 left-1/4 w-32 h-32 border border-[#ff002f]/30 rotate-45"></div>
       </div>
 
       {/* Hero Header Section */}
@@ -91,11 +91,11 @@ const handleSubmit = async (e: React.FormEvent) => {
         <div className="max-w-7xl mx-auto">
           <div className="text-left text-white">
             <p className="font-jakarta text-md tracking-wide mb-4">
-              {t("hero.preTitle1")} <span className="text-[#E4173C]">{t("hero.preTitle2")}</span> {t("hero.preTitle3")}
+              {t("hero.preTitle1")} <span className="text-[#ff002f]">{t("hero.preTitle2")}</span> {t("hero.preTitle3")}
             </p>
             <h1 className="font-jakarta font-medium text-5xl md:text-7xl lg:text-8xl leading-tight mb-6">
               {t("hero.title1")}{" "}
-              <span className="text-[#E4173C]">{t("hero.title2")}</span> {t("hero.title3")}
+              <span className="text-[#ff002f]">{t("hero.title2")}</span> {t("hero.title3")}
             </h1>
             <p className="text-lg text-gray-300 font-satoshi max-w-2xl leading-relaxed">
               {t("hero.subtitle")}
@@ -113,8 +113,8 @@ const handleSubmit = async (e: React.FormEvent) => {
             <div className="bg-white shadow-2xl p-8 lg:p-12 order-2 lg:order-1">
               {isSubmitted ? (
                 <div className="text-center py-8">
-                  <div className="w-16 h-16 bg-[#E4173C]/10 flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-[#E4173C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-16 h-16 bg-[#ff002f]/10 flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-[#ff002f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
@@ -141,7 +141,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                         value={formData.fullName}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 bg-gray-50/50 text-[#020C18] font-satoshi focus:ring-2 focus:ring-[#E4173C] focus:border-transparent transition-all duration-200 placeholder:text-gray-500"
+                        className="w-full px-4 py-3 border border-gray-300 bg-gray-50/50 text-[#020C18] font-satoshi focus:ring-2 focus:ring-[#ff002f] focus:border-transparent transition-all duration-200 placeholder:text-gray-500"
                         placeholder={t("form.fields.fullName.placeholder")}
                       />
                     </div>
@@ -158,7 +158,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 bg-gray-50/50 text-[#020C18] font-satoshi focus:ring-2 focus:ring-[#E4173C] focus:border-transparent transition-all duration-200 placeholder:text-gray-500"
+                        className="w-full px-4 py-3 border border-gray-300 bg-gray-50/50 text-[#020C18] font-satoshi focus:ring-2 focus:ring-[#ff002f] focus:border-transparent transition-all duration-200 placeholder:text-gray-500"
                         placeholder={t("form.fields.email.placeholder")}
                       />
                     </div>
@@ -173,7 +173,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                         name="subject"
                         value={formData.subject}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 bg-gray-50/50 text-[#020C18] font-satoshi focus:ring-2 focus:ring-[#E4173C] focus:border-transparent transition-all duration-200"
+                        className="w-full px-4 py-3 border border-gray-300 bg-gray-50/50 text-[#020C18] font-satoshi focus:ring-2 focus:ring-[#ff002f] focus:border-transparent transition-all duration-200"
                       >
                         <option value="General">{t("form.fields.subject.options.general")}</option>
                         <option value="Product Inquiry">{t("form.fields.subject.options.product")}</option>
@@ -193,7 +193,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                         onChange={handleInputChange}
                         required
                         rows={6}
-                        className="w-full px-4 py-3 border border-gray-300 bg-gray-50/50 text-[#020C18] font-satoshi focus:ring-2 focus:ring-[#E4173C] focus:border-transparent transition-all duration-200 placeholder:text-gray-500 resize-none"
+                        className="w-full px-4 py-3 border border-gray-300 bg-gray-50/50 text-[#020C18] font-satoshi focus:ring-2 focus:ring-[#ff002f] focus:border-transparent transition-all duration-200 placeholder:text-gray-500 resize-none"
                         placeholder={t("form.fields.message.placeholder")}
                       />
                     </div>
@@ -203,7 +203,8 @@ const handleSubmit = async (e: React.FormEvent) => {
                       <button
                         type="submit"
                         disabled={!isFormValid || isSubmitting}
-                        className="w-full bg-[#E4173C] text-white font-jakarta font-medium py-3 px-6 hover:bg-[#c91534] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center gap-2"
+                        aria-label={isSubmitting ? t("form.submit.loading") : t("form.submit.idle")}
+                        className="w-full bg-[#ff002f] text-white font-jakarta font-medium py-3 px-6 hover:bg-[#c91534] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center gap-2"
                       >
                         {isSubmitting ? (
                           <>
@@ -238,14 +239,14 @@ const handleSubmit = async (e: React.FormEvent) => {
 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#E4173C] flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-[#ff002f] flex items-center justify-center flex-shrink-0">
                       <Mail size={20} className="text-white" />
                     </div>
                     <div>
                       <h4 className="font-jakarta font-medium mb-1">{t("info.email.label")}</h4>
                       <a 
                         href="mailto:info@servicesjmk.com" 
-                        className="text-gray-300 hover:text-[#E4173C] font-satoshi transition-colors"
+                        className="text-gray-300 hover:text-[#ff002f] font-satoshi transition-colors"
                       >
                         info@servicesjmk.com
                       </a>
@@ -253,7 +254,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#E4173C] flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-[#ff002f] flex items-center justify-center flex-shrink-0">
                       <Phone size={20} className="text-white" />
                     </div>
                     <div>

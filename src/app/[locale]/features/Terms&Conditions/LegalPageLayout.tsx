@@ -39,7 +39,7 @@ const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({
 
       {/* Subtle gradient overlay */}
       <div className="fixed inset-0 opacity-10 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#E4173C]/20 via-transparent to-[#2E3C51]/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#ff002f]/20 via-transparent to-[#2E3C51]/20"></div>
       </div>
       
       <div className="relative z-10">
@@ -55,6 +55,7 @@ const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({
                 onClick={onBack}
                 className="inline-flex items-center gap-2 text-[#6E7784] hover:text-white
                           transition-colors duration-300 group"
+                aria-label="Go back to main site"
               >
                 <ArrowLeft 
                   size={20} 
@@ -69,10 +70,10 @@ const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({
             {/* Icon */}
             <div className="mb-6 sm:mb-8">
               <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20
-                             bg-[#E4173C]/10 border border-[#E4173C]/20 rounded-full">
+                             bg-[#ff002f]/10 border border-[#ff002f]/20 rounded-full">
                 <IconComponent 
                   size={32} 
-                  className="text-[#E4173C]" 
+                  className="text-[#ff002f]" 
                 />
               </div>
             </div>
@@ -99,8 +100,8 @@ const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({
           </div>
 
           {/* Decorative elements */}
-          <div className="absolute top-1/2 left-4 w-1 h-16 bg-gradient-to-b from-transparent via-[#E4173C] to-transparent opacity-30"></div>
-          <div className="absolute top-1/2 right-4 w-1 h-16 bg-gradient-to-b from-transparent via-[#E4173C] to-transparent opacity-30"></div>
+          <div className="absolute top-1/2 left-4 w-1 h-16 bg-gradient-to-b from-transparent via-[#ff002f] to-transparent opacity-30"></div>
+          <div className="absolute top-1/2 right-4 w-1 h-16 bg-gradient-to-b from-transparent via-[#ff002f] to-transparent opacity-30"></div>
         </section>
 
         {/* Content Section */}
@@ -115,7 +116,7 @@ const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({
               </div>
 
               {/* Bottom border accent */}
-              <div className="h-1 bg-gradient-to-r from-transparent via-[#E4173C] to-transparent"></div>
+              <div className="h-1 bg-gradient-to-r from-transparent via-[#ff002f] to-transparent"></div>
             </div>
           </div>
         </section>
@@ -135,7 +136,7 @@ const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({
               <div className="inline-flex items-center gap-4 text-sm sm:text-base">
                 <Link 
                   href="mailto:info@servicesjmk.com" 
-                  className="text-[#E4173C] hover:text-white transition-colors duration-300"
+                  className="text-[#ff002f] hover:text-white transition-colors duration-300"
                 >
                   info@servicesjmk.com
                 </Link>
@@ -144,7 +145,7 @@ const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({
                 {/* <span className="text-[#2E3C51]">|</span> */}
                 {/* <Link 
                   href="tel:+1234567890" 
-                  className="text-[#E4173C] hover:text-white transition-colors duration-300"
+                  className="text-[#ff002f] hover:text-white transition-colors duration-300"
                 >
                   +1 (234) 567-890
                 </Link> */}

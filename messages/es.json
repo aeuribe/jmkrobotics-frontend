@@ -69,7 +69,7 @@
   },
   "metadata": {
     "title": "JMK Robotics - Soluciones Industriales",
-    "description": "Soluciones Industriales para un Futuro más Inteligente"
+    "description": "JMK Robotics fabrica y distribuye checkweighers industriales de alta precisión y soluciones de automatización de pesaje. Visita nuestra web oficial para conocer nuestros productos y servicios."
   },
   "contact": {
     "hero": {
@@ -136,6 +136,10 @@
     },
     "footer": {
       "text": "© 2025 JMK Robotics. Todos los derechos reservados."
+    },
+    "metadata": {
+      "contactTitle": "Contacto – JMK Robotics",
+      "contactDescription": "Ponte en contacto con JMK Robotics para cualquier consulta. Visita nuestra web oficial para más información."
     }
   }
 }
