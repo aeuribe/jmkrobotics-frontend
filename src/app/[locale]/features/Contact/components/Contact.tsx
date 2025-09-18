@@ -1,7 +1,6 @@
 "use client"
 import React, { useState } from 'react';
 import { Send, Mail, Phone } from 'lucide-react';
-import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 
 interface FormData {

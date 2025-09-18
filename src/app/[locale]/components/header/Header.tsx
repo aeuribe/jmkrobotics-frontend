@@ -61,6 +61,10 @@ const Header: React.FC = () => {
     }
   };
 
+  React.useEffect(() => {
+    setSelectedLanguage(currentLocale);
+  }, [currentLocale]);
+
   return (
     <>
       <header className="relative bg-[#020C18]">
@@ -224,7 +228,7 @@ const Header: React.FC = () => {
                     className="flex items-center justify-between w-full p-3 text-left hover:bg-gray-50 rounded-lg transition-colors"
                     aria-label={`Select ${language.name} language`}
                     aria-current={
-                      currentLocale === language.code ? "true" : undefined
+                      selectedLanguage === language.code ? "true" : undefined
                     }
                   >
                     <div className="flex items-center gap-3">
@@ -233,7 +237,7 @@ const Header: React.FC = () => {
                       </span>
                       <span className="text-gray-900">{language.name}</span>
                     </div>
-                    {currentLocale === language.code && (
+                    {selectedLanguage === language.code && (
                       <Check
                         size={16}
                         className="text-[#ff002f]"

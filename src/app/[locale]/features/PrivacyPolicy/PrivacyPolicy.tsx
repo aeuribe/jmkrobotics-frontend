@@ -1,7 +1,6 @@
 "use client";   
 
 import React from "react";
-import {Link} from '@/i18n/navigation';
 import LegalPageLayout from "@/app/[locale]/features/Terms&Conditions/LegalPageLayout";
 import { Shield, Database, Eye, Users, Lock, Clock, FileText } from "lucide-react";
 

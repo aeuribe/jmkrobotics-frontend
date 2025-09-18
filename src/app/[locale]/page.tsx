@@ -1,6 +1,5 @@
 import Home from "./features/Home/Home";
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({
   params,
@@ -8,7 +7,6 @@ export async function generateMetadata({
   params: { locale: string };
 }): Promise<Metadata> {
   const { locale } = params;
-  const t = await getTranslations({ locale, namespace: "metadata" });
 
   return {
     title: "JMK Robotics – Industrial Automation & Packaging Solutions",
