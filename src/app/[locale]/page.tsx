@@ -1,16 +1,27 @@
 import Home from "./features/Home/Home";
-import Head from "next/head";
-import { useTranslations } from "next-intl";
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+
+type GenerateMetadataProps = {
+  params: {
+    locale: string;
+  };
+};
+
+export async function generateMetadata({
+  params,
+}: GenerateMetadataProps): Promise<Metadata> {
+  const { locale } = params;
+  const t = await getTranslations({ locale, namespace: "metadata" });
+
+  return {
+    title: "JMK Robotics – Industrial Automation & Packaging Solutions",
+    description:
+      "JMK Robotics specializes in advanced industrial machines and automation solutions for manufacturing, packaging, and technology innovation.",
+  };
+}
+
 
 export default function HomePage() {
-  const t = useTranslations("metadata");
-  return (
-    <div className="">
-      <Head>
-        <title>{t("title")}</title>
-        <meta name="description" content={t("description")} />
-      </Head>
-      <Home />
-    </div>
-  );
+  return <Home />;
 }
