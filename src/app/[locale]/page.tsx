@@ -5,8 +5,9 @@ import { getTranslations } from "next-intl/server";
 type GenerateMetadataProps = {
   params: {
     locale: string;
-  };
+  } & Record<string, string | string[]>;
 };
+
 
 export async function generateMetadata({
   params,
