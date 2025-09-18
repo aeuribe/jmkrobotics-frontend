@@ -2,16 +2,11 @@ import Home from "./features/Home/Home";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
-type GenerateMetadataProps = {
-  params: {
-    locale: string;
-  } & Record<string, string | string[]>;
-};
-
-
 export async function generateMetadata({
   params,
-}: GenerateMetadataProps): Promise<Metadata> {
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
   const { locale } = params;
   const t = await getTranslations({ locale, namespace: "metadata" });
 
@@ -21,7 +16,6 @@ export async function generateMetadata({
       "JMK Robotics specializes in advanced industrial machines and automation solutions for manufacturing, packaging, and technology innovation.",
   };
 }
-
 
 export default function HomePage() {
   return <Home />;
