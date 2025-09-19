@@ -10,7 +10,7 @@ const HeroSection = () => {
       <section className="relative w-full h-[calc(100vh-6rem)] overflow-hidden">
         {/* Video de fondo alineado a la derecha con mejoras móvil */}
         <video
-          // @ts-ignore
+          // @ts-expect-error fetchpriority is not in React types but is valid in HTML
           fetchpriority="high"
           src="/video-hero.webm"
           poster="/hero-portrait.webp" // <-- aquí agregas la portada
