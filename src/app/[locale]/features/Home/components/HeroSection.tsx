@@ -10,6 +10,8 @@ const HeroSection = () => {
       <section className="relative w-full h-[calc(100vh-6rem)] overflow-hidden">
         {/* Video de fondo alineado a la derecha con mejoras móvil */}
         <video
+          // @ts-ignore
+          fetchpriority="high"
           src="/video-hero.webm"
           poster="/hero-portrait.webp" // <-- aquí agregas la portada
           autoPlay
