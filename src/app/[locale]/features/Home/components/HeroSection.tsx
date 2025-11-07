@@ -11,7 +11,7 @@ const HeroSection = () => {
         {/* Video de fondo alineado a la derecha con mejoras móvil */}
         <video
           // @ts-expect-error fetchpriority is not in React types but is valid in HTML
-          fetchpriority="high"
+          fetchPriority="high"
           src="/video-hero.webm"
           poster="/hero-portrait.webp" // <-- aquí agregas la portada
           autoPlay

@@ -4,6 +4,7 @@ import { Search, Globe, Mail, Menu, X, Check } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { useRouter, usePathname } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
+import { MachinesDropdown } from "./MachinesDropdown";
 
 interface Language {
   code: string;
@@ -11,8 +12,9 @@ interface Language {
   flag: string;
 }
 
-const Header: React.FC = () => {
+export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
 
   const t = useTranslations("header");
@@ -82,15 +84,12 @@ const Header: React.FC = () => {
               <Link href="/" className="hover:text-[#ff002f] transition-colors">
                 {t("nav.home")}
               </Link>
-              <Link href="/" className="hover:text-[#ff002f] transition-colors">
-                {t("nav.products")}
-              </Link>
+              {/* Machines Megamenu Dropdown */}
+              <MachinesDropdown />
+
               <Link href="/" className="hover:text-[#ff002f] transition-colors">
                 {t("nav.solutions")}
               </Link>
-              {/* <Link href="/" className="hover:text-[#ff002f] transition-colors">
-                Distributors
-              </Link> */}
             </div>
           </nav>
 
@@ -144,24 +143,17 @@ const Header: React.FC = () => {
                 >
                   {t("nav.home")}
                 </Link>
-                <Link
-                  href="/"
-                  className="text-white hover:text-[#ff002f] transition-colors py-2 font-satoshi font-light"
-                >
-                  {t("nav.products")}
-                </Link>
+                {/* Mobile Machines Submenu */}
+                <MachinesDropdown
+                  isMobile={true}
+                  onMobileMenuClose={() => setIsMobileMenuOpen(false)}
+                />
                 <Link
                   href="/"
                   className="text-white hover:text-[#ff002f] transition-colors py-2 font-satoshi font-light"
                 >
                   {t("nav.solutions")}
                 </Link>
-                {/* <Link
-                  href="/"
-                  className="text-white hover:text-[#ff002f] transition-colors py-2 font-satoshi font-light"
-                >
-                  Distributors
-                </Link> */}
               </div>
 
               <div className="flex flex-col gap-4 pt-4 border-t border-gray-700">
@@ -253,6 +245,6 @@ const Header: React.FC = () => {
       )}
     </>
   );
-};
+}
 
 export default Header;

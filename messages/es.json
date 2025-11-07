@@ -30,7 +30,8 @@
     "nav": {
       "home": "Inicio",
       "products": "Productos",
-      "solutions": "Soluciones"
+      "solutions": "Soluciones",
+      "machines": "Máquinas"
     },
     "shortContact": "Contáctanos"
   },
@@ -141,5 +142,126 @@
       "contactTitle": "Contacto – JMK Robotics",
       "contactDescription": "Ponte en contacto con JMK Robotics para cualquier consulta. Visita nuestra web oficial para más información."
     }
+  },
+    "machines": {
+    "linearWeightFiller": {
+      "name": "Llenadora Lineal por Peso",
+      "description": "Llenado de alta precisión basado en peso para productos granulares y en polvo"
+    },
+    "liquidFillingMachine": {
+      "name": "Máquina de Llenado de Líquidos",
+      "description": "Llenado volumétrico y gravimétrico para todas las viscosidades de líquidos"
+    },
+    "powderFillingMachine": {
+      "name": "Máquina de Llenado de Polvos",
+      "description": "Llenado de polvo sin polvo con control de dosificación preciso"
+    },
+    "caseSealer": {
+      "name": "Selladora de Cajas",
+      "description": "Sellado automático superior e inferior de cajas de cartón corrugado"
+    },
+    "verticalFormFillSeal": {
+      "name": "Máquina Vertical de Formado, Llenado y Sellado (VFFS)",
+      "description": "Fabricación, llenado y sellado automatizado de bolsas desde rollo"
+    },
+    "pillowPackMachine": {
+      "name": "Máquina de Empaque Almohadilla",
+      "description": "Envoltura horizontal de flujo de alta velocidad para productos sólidos"
+    },
+    "labelingMachine": {
+      "name": "Máquina Etiquetadora",
+      "description": "Sistema de etiquetado multifunción para diversas formas de contenedores"
+    },
+    "bottleLabeler": {
+      "name": "Etiquetadora de Botellas",
+      "description": "Sistema especializado para aplicación de etiquetas en botellas redondas"
+    },
+    "boxLabeler": {
+      "name": "Etiquetadora de Cajas",
+      "description": "Etiquetado de precisión para cartones, cajas y superficies planas"
+    },
+    "beltConveyorSystems": {
+      "name": "Sistemas de Transporte por Banda",
+      "description": "Sistemas de transporte de banda modulares para transporte de productos"
+    },
+    "accumulationTables": {
+      "name": "Mesas de Acumulación",
+      "description": "Acumulación rotativa y lineal para zonas de amortiguación"
+    },
+    "productElevators": {
+      "name": "Elevadores de Producto",
+      "description": "Transferencia vertical de productos entre niveles de producción"
+    },
+    "metalDetectorSystems": {
+      "name": "Sistemas Detectores de Metales",
+      "description": "Detección de metales multifrecuencia para prevención de contaminantes"
+    },
+    "checkweigherScales": {
+      "name": "Básculas Verificadoras de Peso",
+      "description": "Pesaje dinámico de alta velocidad para verificación de peso"
+    },
+    "visionInspectionSystems": {
+      "name": "Sistemas de Inspección por Visión",
+      "description": "Inspección visual de calidad impulsada por IA"
+    },
+    "roboticPalletizers": {
+      "name": "Paletizadores Robóticos",
+      "description": "Brazos robóticos articulados para paletizado flexible"
+    },
+    "layerPalletizers": {
+      "name": "Paletizadores por Capas",
+      "description": "Sistemas de formación y colocación de capas de alta velocidad"
+    },
+    "palletDispensers": {
+      "name": "Dispensadores de Paletas",
+      "description": "Revista y dispensador automático de paletas"
+    },
+    "inkjetPrinters": {
+      "name": "Impresoras de Inyección de Tinta",
+      "description": "Inyección de tinta continua (CIJ) para codificación de alta velocidad"
+    },
+    "laserMarkingSystems": {
+      "name": "Sistemas de Marcado Láser",
+      "description": "Grabado láser permanente para metales y plásticos"
+    },
+    "thermalTransferPrinters": {
+      "name": "Impresoras de Transferencia Térmica",
+      "description": "Impresión de etiquetas y paquetes de alta calidad"
+    },
+    "cipSystems": {
+      "name": "Sistemas CIP (Limpieza en Sitio)",
+      "description": "Limpieza automatizada de equipo sin desmontar"
+    },
+    "containerRinser": {
+      "name": "Enjuagadora de Contenedores",
+      "description": "Enjuague de botellas y contenedores antes del llenado"
+    },
+    "airKnifeDryers": {
+      "name": "Secadores de Cuchilla de Aire",
+      "description": "Secado con aire de alta velocidad para productos lavados"
+    }
+  },
+    "machinesDropdown": {
+    "title": "Soluciones de Automatización Industrial",
+    "subtitle": "Haga clic en cualquier categoría para explorar nuestras máquinas",
+    "categoriesAvailable": "Categorías Disponibles",
+    "customSolution": "¿Necesita una solución personalizada?",
+    "contactEngineering": "Contacte a nuestro equipo de ingeniería →"
+  },
+  "categories": {
+    "fillingDosing": "Sistemas de Llenado y Dosificación",
+    "sealingPackaging": "Sistemas de Sellado y Empaque",
+    "labelingIdentification": "Etiquetado e Identificación",
+    "conveyorHandling": "Transporte y Manejo de Materiales",
+    "qualityInspection": "Control de Calidad e Inspección",
+    "palletizing": "Paletizado y Despaletizado",
+    "codingMarking": "Sistemas de Codificación y Marcaje",
+    "cleaningSanitation": "Limpieza y Sanitización"
+  },
+  "categoryPage": {
+    "viewDetails": "Ver Detalles",
+    "ctaTitle": "¿Listo para Actualizar su Línea de Producción?",
+    "ctaSubtitle": "Contacte a nuestro equipo para discutir sus requisitos específicos y obtener una solución personalizada.",
+    "ctaButton": "Solicitar Consulta"
   }
 }

@@ -30,7 +30,8 @@
     "nav": {
       "home": "Home",
       "products": "Products",
-      "solutions": "Solutions"
+      "solutions": "Solutions",
+      "machines": "Machines"
     },
     "shortContact": "Contact Us"
   },
@@ -141,5 +142,126 @@
       "contactTitle": "Contact – JMK Robotics",
       "contactDescription": "Get in touch with JMK Robotics for any inquiries. Visit our official website for more information."
     }
+  },
+  "machines": {
+    "linearWeightFiller": {
+      "name": "Automatic Weight Filler",
+      "description": "High-precision weight-based filling for granular and powder products"
+    },
+    "liquidFillingMachine": {
+      "name": "Vial Liquid Filler",
+      "description": "Volumetric and gravimetric filling for all liquid viscosities"
+    },
+    "powderFillingMachine": {
+      "name": "Powder Filling Machine",
+      "description": "Dust-free powder filling with precise dosing control"
+    },
+    "caseSealer": {
+      "name": "Case Sealer",
+      "description": "Automatic top and bottom case sealing for corrugated boxes"
+    },
+    "verticalFormFillSeal": {
+      "name": "Vertical Form Fill Seal Machine (VFFS)",
+      "description": "Automated bag making, filling, and sealing from roll stock"
+    },
+    "pillowPackMachine": {
+      "name": "Pillow Pack Machine",
+      "description": "High-speed horizontal flow wrapping for solid products"
+    },
+    "labelingMachine": {
+      "name": "Labeling Machine",
+      "description": "Multi-function labeling system for various container shapes"
+    },
+    "bottleLabeler": {
+      "name": "Bottle Labeler",
+      "description": "Specialized system for round bottle label application"
+    },
+    "boxLabeler": {
+      "name": "Box Labeler",
+      "description": "Precision labeling for cartons, boxes, and flat surfaces"
+    },
+    "beltConveyorSystems": {
+      "name": "Belt Conveyor Systems",
+      "description": "Modular belt conveyor systems for product transport"
+    },
+    "accumulationTables": {
+      "name": "Accumulation Tables",
+      "description": "Rotary and linear accumulation for buffer zones"
+    },
+    "productElevators": {
+      "name": "Product Elevators",
+      "description": "Vertical product transfer between production levels"
+    },
+    "metalDetectorSystems": {
+      "name": "Metal Detector Systems",
+      "description": "Multi-frequency metal detection for contaminant prevention"
+    },
+    "checkweigherScales": {
+      "name": "Checkweigher Scales",
+      "description": "High-speed dynamic weighing for weight verification"
+    },
+    "visionInspectionSystems": {
+      "name": "Vision Inspection Systems",
+      "description": "AI-powered visual quality inspection"
+    },
+    "roboticPalletizers": {
+      "name": "Robotic Palletizers",
+      "description": "Articulated robot arms for flexible palletizing"
+    },
+    "layerPalletizers": {
+      "name": "Layer Palletizers",
+      "description": "High-speed layer forming and placing systems"
+    },
+    "palletDispensers": {
+      "name": "Pallet Dispensers",
+      "description": "Automatic pallet magazine and dispenser"
+    },
+    "inkjetPrinters": {
+      "name": "Inkjet Printers",
+      "description": "Continuous inkjet (CIJ) for high-speed coding"
+    },
+    "laserMarkingSystems": {
+      "name": "Laser Marking Systems",
+      "description": "Permanent laser engraving for metals and plastics"
+    },
+    "thermalTransferPrinters": {
+      "name": "Thermal Transfer Printers",
+      "description": "High-quality label and package printing"
+    },
+    "cipSystems": {
+      "name": "CIP (Clean-In-Place) Systems",
+      "description": "Automated equipment cleaning without disassembly"
+    },
+    "containerRinser": {
+      "name": "Container Rinser",
+      "description": "Bottle and container rinsing before filling"
+    },
+    "airKnifeDryers": {
+      "name": "Air Knife Dryers",
+      "description": "High-velocity air drying for washed products"
+    }
+  },
+    "machinesDropdown": {
+    "title": "Industrial Automation Solutions",
+    "subtitle": "Click on any category to explore our machines",
+    "categoriesAvailable": "Categories Available",
+    "customSolution": "Need a custom solution?",
+    "contactEngineering": "Contact our engineering team →"
+  },
+    "categories": {
+    "fillingDosing": "Filling & Dosing Systems",
+    "sealingPackaging": "Sealing & Packaging Systems",
+    "labelingIdentification": "Labeling & Identification",
+    "conveyorHandling": "Conveyor & Material Handling",
+    "qualityInspection": "Quality Control & Inspection",
+    "palletizing": "Palletizing & Depalletizing",
+    "codingMarking": "Coding & Marking Systems",
+    "cleaningSanitation": "Cleaning & Sanitation"
+  },
+  "categoryPage": {
+    "viewDetails": "View Details",
+    "ctaTitle": "Ready to Upgrade Your Production Line?",
+    "ctaSubtitle": "Contact our team to discuss your specific requirements and get a customized solution.",
+    "ctaButton": "Request Consultation"
   }
 }

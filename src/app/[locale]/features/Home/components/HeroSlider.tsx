@@ -27,7 +27,7 @@ export default function HeroSlider() {
       end: t("end1"),
       icon: <BrainCircuit className="w-full h-full text-slate-600" />,
       bgGradient: "from-white to-white",
-      accentColor: "slate"
+      accentColor: "slate",
     },
     {
       text: t("text2"),
@@ -35,7 +35,7 @@ export default function HeroSlider() {
       end: t("end2"),
       icon: <Factory className="w-full h-full text-slate-600" />,
       bgGradient: "from-white to-white",
-      accentColor: "blue"
+      accentColor: "blue",
     },
     {
       text: t("text3"),
@@ -43,7 +43,7 @@ export default function HeroSlider() {
       end: t("end3"),
       icon: <Cpu className="w-full h-full text-slate-600" />,
       bgGradient: "from-white to-white",
-      accentColor: "gray"
+      accentColor: "gray",
     },
   ];
 
@@ -56,20 +56,23 @@ export default function HeroSlider() {
   const touchStartRef = useRef<TouchPosition>({ x: 0, y: 0 });
   const touchEndRef = useRef<TouchPosition>({ x: 0, y: 0 });
 
-  const goToSlide = useCallback((slideIndex: number) => {
-    if (isTransitioning || slideIndex === currentSlide) return;
+  const goToSlide = useCallback(
+    (slideIndex: number) => {
+      if (isTransitioning || slideIndex === currentSlide) return;
 
-    setIsTransitioning(true);
-    setShowText(false);
+      setIsTransitioning(true);
+      setShowText(false);
 
-    setTimeout(() => {
-      setCurrentSlide(slideIndex);
       setTimeout(() => {
-        setShowText(true);
-        setIsTransitioning(false);
-      }, 100);
-    }, 150);
-  }, [currentSlide, isTransitioning]);
+        setCurrentSlide(slideIndex);
+        setTimeout(() => {
+          setShowText(true);
+          setIsTransitioning(false);
+        }, 100);
+      }, 150);
+    },
+    [currentSlide, isTransitioning]
+  );
 
   const nextSlide = useCallback(() => {
     const next = currentSlide === slides.length - 1 ? 0 : currentSlide + 1;
@@ -135,48 +138,58 @@ export default function HeroSlider() {
           className="absolute inset-0"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(71 85 105 / 0.2)'%3e%3cpath d='M0 16h32M16 0v32'/%3e%3c/svg%3e")`,
-            backgroundSize: '16px 16px'
+            backgroundSize: "16px 16px",
           }}
         />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-between px-6 py-2">
+      <div className="relative z-10 h-full flex items-center justify-between px-4 sm:px-6 py-2 sm:py-4">
         {/* icon */}
         <div className="flex items-center flex-shrink-0">
           <div
             className={`
-              flex items-center justify-center rounded-md bg-white shadow-sm border border-slate-200
-              transition-all duration-500 ease-out
-              w-7 h-7 ${showText ? "scale-100 opacity-100" : "scale-90 opacity-0"}
-            `}
+        flex items-center justify-center rounded-md bg-white shadow-sm border border-slate-200
+        transition-all duration-500 ease-out
+        w-6 h-6 sm:w-8 sm:h-8 ${
+          showText ? "scale-100 opacity-100" : "scale-90 opacity-0"
+        }
+      `}
           >
-            <div className="w-4 h-4">{currentSlideData.icon}</div>
+            <div className="w-3 h-3 sm:w-4 sm:h-4">{currentSlideData.icon}</div>
           </div>
         </div>
 
         {/* text */}
-        <div className="flex-1 px-3">
+        <div className="flex-1 px-2 sm:px-3">
           <div
-            className={`transition-all duration-500 ease-out ${showText ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"}`}
+            className={`transition-all duration-500 ease-out ${
+              showText ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
+            }`}
           >
-            <h2 className="leading-tight text-slate-800 text-base">
-              <span className="font-medium text-slate-600">{currentSlideData.text}</span>{" "}
-              <span className="text-[#ff002f] font-semibold">{currentSlideData.highlight}</span>{" "}
-              <span className="font-medium text-slate-600">{currentSlideData.end}</span>
+            <h2 className="leading-tight text-slate-800 text-[12px] sm:text-sm md:text-base text-center sm:text-left">
+              <span className="font-medium text-slate-600">
+                {currentSlideData.text}
+              </span>{" "}
+              <span className="text-[#ff002f] font-semibold">
+                {currentSlideData.highlight}
+              </span>{" "}
+              <span className="font-medium text-slate-600">
+                {currentSlideData.end}
+              </span>
             </h2>
             <div
               className={`
-                h-0.5 bg-gradient-to-r from-[#ff002f] to-red-400 rounded-full w-12 mt-2
-                transition-all duration-500 ease-out delay-200
-                ${showText ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"}
-              `}
+          h-0.5 bg-gradient-to-r from-[#ff002f] to-red-400 rounded-full w-8 sm:w-12 mt-1 sm:mt-2 mx-auto sm:mx-0
+          transition-all duration-500 ease-out delay-200
+          ${showText ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"}
+        `}
             ></div>
           </div>
         </div>
 
         {/* indicators */}
-        <div className="flex items-center space-x-1">
+        <div className="hidden sm:flex items-center space-x-1">
           {slides.map((_, idx) => {
             const active = currentSlide === idx;
             return (
@@ -185,9 +198,13 @@ export default function HeroSlider() {
                 onClick={() => goToSlide(idx)}
                 disabled={isTransitioning}
                 className={`
-                  rounded-full transition-all duration-300 ease-out
-                  ${active ? "w-4 h-2 bg-slate-700" : "w-2 h-2 bg-slate-300 hover:bg-slate-400"}
-                `}
+            rounded-full transition-all duration-300 ease-out
+            ${
+              active
+                ? "w-4 h-2 bg-slate-700"
+                : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
+            }
+          `}
                 aria-label={`Go to slide ${idx + 1}`}
               />
             );

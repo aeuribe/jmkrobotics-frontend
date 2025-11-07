@@ -14,16 +14,16 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 type Props = {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: { locale: string }; // ✅ Ya no es una promesa
 };
 
 // 🔹 Metadata dinámica según idioma
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>; // 👈 Tipo corregido
 }): Promise<Metadata> {
-  const { locale } = params;
+  const { locale } = await params; // ✅ await necesario
   const t = await getTranslations({ locale, namespace: "metadata" });
 
   return {
@@ -52,8 +52,14 @@ export async function generateMetadata({
   };
 }
 
-export default async function LocaleLayout({ children, params }: Props) {
-  const { locale } = await params;
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>; // 👈 Tipo corregido
+}) {
+  const { locale } = await params; // ✅ await necesario
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
