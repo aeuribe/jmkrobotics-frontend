@@ -143,14 +143,14 @@
       "contactDescription": "Ponte en contacto con JMK Robotics para cualquier consulta. Visita nuestra web oficial para más información."
     }
   },
-    "machines": {
+  "machines": {
     "linearWeightFiller": {
-      "name": "Llenadora Lineal por Peso",
-      "description": "Llenado de alta precisión basado en peso para productos granulares y en polvo"
+      "name": "Llenadora Automática por Peso",
+      "description": "Dosificación precisa para productos granulados y en polvo, ideal para líneas de empaque eficientes"
     },
     "liquidFillingMachine": {
-      "name": "Máquina de Llenado de Líquidos",
-      "description": "Llenado volumétrico y gravimétrico para todas las viscosidades de líquidos"
+      "name": "Llenadora de Líquidos para Viales",
+      "description": "Versátil y confiable: llena líquidos de cualquier viscosidad con control volumétrico y gravimétrico"
     },
     "powderFillingMachine": {
       "name": "Máquina de Llenado de Polvos",
@@ -241,7 +241,7 @@
       "description": "Secado con aire de alta velocidad para productos lavados"
     }
   },
-    "machinesDropdown": {
+  "machinesDropdown": {
     "title": "Soluciones de Automatización Industrial",
     "subtitle": "Haga clic en cualquier categoría para explorar nuestras máquinas",
     "categoriesAvailable": "Categorías Disponibles",
