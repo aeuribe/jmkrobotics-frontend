@@ -1,13 +1,82 @@
 @import "tailwindcss";
 
 @theme inline {
- --font-main: var(--font-satoshi)
+  --font-main: var(--font-satoshi);
 }
-@theme inline {
- --font-jakarta: var(--font-plus-jakarta-sans)
-}   
 
+@theme inline {
+  --font-jakarta: var(--font-plus-jakarta-sans);
+}
+
+/* =========================================================
+   🎨 COLORES Y VARIABLES GLOBALES (modo claro y oscuro)
+   ========================================================= */
+:root {
+  /* Fondos y capas */
+  --bg-dark: #020c18;
+  --frame-overlay-dark: rgba(2, 12, 24, 0.95);
+  --frame-overlay-mid: rgba(2, 12, 24, 0.7);
+  --frame-overlay-end: rgba(2, 12, 24, 0.9);
+
+  /* Colores principales */
+  --accent-main: #ff002f;
+  --accent-soft: #ff6b6b;
+  --accent-light: rgba(228, 23, 60, 0.15);
+  --accent-mid: rgba(228, 23, 60, 0.3);
+  --accent-blue: rgba(68, 123, 181, 0.2);
+
+  /* Textos y bordes */
+  --text-hover: #ffffff;
+  --text-muted: #6e7784;
+  --border-color: #2e3c51;
+
+  /* Botones y sombras */
+  --button-bg: rgba(2, 12, 24, 0.8);
+  --accent-shadow: rgba(228, 23, 60, 0.3);
+
+  /* Tipografía global */
+  --font-primary: var(--font-main);
+  --font-secondary: var(--font-jakarta);
+}
+
+/* =========================================================
+   🌙 MODO OSCURO AUTOMÁTICO
+   ========================================================= */
+[data-theme="dark"], .dark {
+  --bg-dark: #000610;
+  --frame-overlay-dark: rgba(0, 0, 0, 0.95);
+  --frame-overlay-mid: rgba(10, 10, 10, 0.7);
+  --frame-overlay-end: rgba(0, 0, 0, 0.9);
+
+  --accent-main: #ff0044;
+  --accent-soft: #ff7b7b;
+  --accent-light: rgba(255, 60, 90, 0.2);
+  --accent-mid: rgba(255, 60, 90, 0.35);
+  --accent-blue: rgba(110, 160, 220, 0.25);
+
+  --text-hover: #f8f9fa;
+  --text-muted: #8a94a6;
+  --border-color: #3a4a5e;
+
+  --button-bg: rgba(5, 10, 18, 0.85);
+  --accent-shadow: rgba(255, 0, 47, 0.35);
+}
+
+/* =========================================================
+   🌈 EFECTO DE PULSO Y UTILIDADES ANIMADAS
+   ========================================================= */
 @layer utilities {
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.4);
+    }
+  }
+
   @keyframes fadeInSlide {
     0% { opacity: 0; transform: translateX(-20px); }
     100% { opacity: 1; transform: translateX(0); }

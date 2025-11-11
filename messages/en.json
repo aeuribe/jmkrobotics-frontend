@@ -66,7 +66,9 @@
     "subtitle": "Industrial Solutions",
     "title1": "Our",
     "title2": "Machines",
-    "wrapping": "Wrapping Machine"
+    "wrapping": "Wrapping Machine",
+    "automaticWeighFiller": "Automatic Weight Filler",
+    "vialLiquidFiller": "Vial Liquid Filler"
   },
   "metadata": {
     "title": "JMK Robotics - Industrial Solutions",
@@ -241,14 +243,14 @@
       "description": "High-velocity air drying for washed products"
     }
   },
-    "machinesDropdown": {
+  "machinesDropdown": {
     "title": "Industrial Automation Solutions",
     "subtitle": "Click on any category to explore our machines",
     "categoriesAvailable": "Categories Available",
     "customSolution": "Need a custom solution?",
     "contactEngineering": "Contact our engineering team →"
   },
-    "categories": {
+  "categories": {
     "fillingDosing": "Filling & Dosing Systems",
     "sealingPackaging": "Sealing & Packaging Systems",
     "labelingIdentification": "Labeling & Identification",
@@ -263,5 +265,75 @@
     "ctaTitle": "Ready to Upgrade Your Production Line?",
     "ctaSubtitle": "Contact our team to discuss your specific requirements and get a customized solution.",
     "ctaButton": "Request Consultation"
+  },
+  "individualMachinePage": {
+    "industrialEquiment": "Industrial Equipment",
+    "whatItDoes": "What It Does",
+    "idealFor": "Ideal For:",
+    "realInstallations": "Real Installations",
+    "description":"See this machine in action at client facilities worldwide",
+    "commonApplications": "Common Applications",
+    "footer":{
+      "title": "Ready to Integrate This Solution?",
+      "description": "Our team will help you assess your needs and configure the perfect system for your production line.",
+      "button": "Schedule a Consultation"
+    }
+  },
+  "automatic-weight-filler": {
+    "machineName": "Automatic Weigh Filler",
+    "description": "An automatic weigh filler utilizing a high-precision linear weighing system. It is designed to efficiently dose and fill granular and free-flowing products, such as nuts, grains, and small parts, into various containers like jars, bottles, or bags.",
+    "primaryUse": "This machine automates the process of precisely weighing and dispensing products. It uses a linear weighing system to measure a target weight with high accuracy, then fills the product into containers. It is a key component for automating packaging lines for granular products, small parts, and free-flowing items.",
+    "idealFor": [
+      "Filling dry goods, snacks, grains, coffee beans, cereals, and confectionery",
+      "Precise dosing of tablets, capsules, pills, and granular supplements",
+      "Packaging plastic pellets, granular detergents, salts, and other dry chemicals",
+      "Bagging or filling small parts, fasteners, fittings, and electronic or plastic components",
+      "Dosing seeds, pet food, and granular fertilizers"
+    ],
+    "commonApplications": [
+      "Snack Foods",
+      "Nuts & Dried Fruits",
+      "Coffee Beans & Tea",
+      "Pet Food",
+      "Grains & Cereals",
+      "Seeds",
+      "Confectionery",
+      "Hardware & Small Parts"
+    ],
+    "installationVideos": [
+      {
+        "title": "Automatic Weigh Filling into Jars",
+        "application": "Granular Product Filling"
+      }
+    ]
+  },
+  "liquid-filling-machine": {
+    "machineName": "Vial Liquid Filler",
+    "description": "Advanced vial filling machine designed for precise, hygienic, and efficient liquid dispensing across multiple industries.",
+    "primaryUse": "Engineered to automate the liquid filling process with exceptional accuracy and control. The Vial Liquid Filler handles everything from thin solutions to viscous fluids, ensuring consistent results and eliminating product waste. Its modular design allows seamless adaptation to different vial sizes and production needs.",
+    "idealFor": [
+      "Pharmaceutical and biotech production lines",
+      "Cosmetic and personal care manufacturing",
+      "Food and beverage filling operations",
+      "Chemical and laboratory applications"
+    ],
+    "commonApplications": [
+      "Injectable liquids",
+      "Essential oils",
+      "Serums and lotions",
+      "Nutritional supplements",
+      "Chemical reagents",
+      "Laboratory samples"
+    ],
+    "installationVideos": [
+      {
+        "title": "Automatic Vial Filling Machine",
+        "application": "Precision filling for pharmaceutical, cosmetic, and laboratory industries."
+      },
+      {
+        "title": "Automatic Vial Filling Line Integration",
+        "application": "Integrated vial filling and capping line showcasing seamless automation and precision performance."
+      }
+    ]
   }
 }

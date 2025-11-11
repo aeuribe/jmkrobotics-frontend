@@ -66,7 +66,9 @@
     "subtitle": "Soluciones Industriales",
     "title1": "Nuestras",
     "title2": "Máquinas",
-    "wrapping": "Máquina de Envoltura"
+    "wrapping": "Máquina de Envoltura",
+    "automaticWeighFiller": "Dosificadora Automática por Peso",
+    "vialLiquidFiller": "Dosificadora de Líquidos para Viales"
   },
   "metadata": {
     "title": "JMK Robotics - Soluciones Industriales",
@@ -263,5 +265,76 @@
     "ctaTitle": "¿Listo para Actualizar su Línea de Producción?",
     "ctaSubtitle": "Contacte a nuestro equipo para discutir sus requisitos específicos y obtener una solución personalizada.",
     "ctaButton": "Solicitar Consulta"
+  },
+
+  "automatic-weight-filler": {
+    "machineName": "Llenadora Automática por Peso",
+    "description": "Llenadora automática que utiliza un sistema de pesaje lineal de alta precisión. Diseñada para dosificar y llenar de manera eficiente productos granulares o de flujo libre, como frutos secos, granos y piezas pequeñas, en distintos tipos de envases como frascos, botellas o bolsas.",
+    "primaryUse": "Esta máquina automatiza el proceso de pesaje y dispensado preciso de productos. Utiliza un sistema de pesaje lineal para alcanzar un peso objetivo con alta exactitud, y luego llena el producto en los envases. Es un componente clave en la automatización de líneas de empaque para productos granulares, piezas pequeñas y materiales de flujo libre.",
+    "idealFor": [
+      "Llenado de productos secos, snacks, granos, granos de café, cereales y confitería",
+      "Dosificación precisa de tabletas, cápsulas, píldoras y suplementos granulados",
+      "Empaque de pellets plásticos, detergentes granulados, sales y otros productos químicos secos",
+      "Empaque o llenado de piezas pequeñas, tornillos, conectores y componentes electrónicos o plásticos",
+      "Dosificación de semillas, alimento para mascotas y fertilizantes granulares"
+    ],
+    "commonApplications": [
+      "Snacks",
+      "Frutos secos y deshidratados",
+      "Granos de café y té",
+      "Alimento para mascotas",
+      "Cereales y granos",
+      "Semillas",
+      "Confitería",
+      "Herrajes y piezas pequeñas"
+    ],
+    "installationVideos": [
+      {
+        "title": "Llenado Automático por Peso en Frascos",
+        "application": "Llenado de productos granulares"
+      }
+    ]
+  },
+  "individualMachinePage": {
+    "industrialEquiment": "Equipo Industrial",
+    "whatItDoes": "Descripción",
+    "idealFor": "Ideal Para:",
+    "description": "Ve esta máquina en funcionamiento en instalaciones de clientes alrededor del mundo",
+    "realInstallations": "Instalaciones Reales",
+    "commonApplications": "Aplicaciones Comunes",
+    "footer": {
+      "title": "¿Listo para integrar esta solución?",
+      "description": "Nuestro equipo te ayudará a evaluar tus necesidades y configurar el sistema ideal para tu línea de producción.",
+      "button": "Agendar Una Consulta"
+    }
+  },
+  "liquid-filling-machine": {
+    "machineName": "Llenadora de Viales Líquidos",
+    "description": "Máquina avanzada de llenado de viales diseñada para una dosificación precisa, higiénica y eficiente de líquidos en múltiples industrias.",
+    "primaryUse": "Diseñada para automatizar el proceso de llenado de líquidos con una precisión y control excepcionales. La Llenadora de Viales maneja desde soluciones ligeras hasta fluidos viscosos, garantizando resultados uniformes y eliminando el desperdicio de producto. Su diseño modular permite una adaptación perfecta a distintos tamaños de viales y necesidades de producción.",
+    "idealFor": [
+      "Líneas de producción farmacéuticas y biotecnológicas",
+      "Fabricación de cosméticos y productos de cuidado personal",
+      "Operaciones de llenado en alimentos y bebidas",
+      "Aplicaciones químicas y de laboratorio"
+    ],
+    "commonApplications": [
+      "Líquidos inyectables",
+      "Aceites esenciales",
+      "Sueros y lociones",
+      "Suplementos nutricionales",
+      "Reactivos químicos",
+      "Muestras de laboratorio"
+    ],
+    "installationVideos": [
+      {
+        "title": "Máquina Automática de Llenado de Viales",
+        "application": "Llenado de precisión para industrias farmacéuticas, cosméticas y de laboratorio."
+      },
+      {
+        "title": "Línea Automática de Llenado y Tapado de Viales",
+        "application": "Integración de línea automática que demuestra una automatización fluida y un rendimiento de alta precisión."
+      }
+    ]
   }
 }

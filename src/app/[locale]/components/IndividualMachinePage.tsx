@@ -9,10 +9,10 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 import Header from "./header/Header";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 interface IndividualMachinePageProps {
   machineName: string;
@@ -20,7 +20,6 @@ interface IndividualMachinePageProps {
   description: string;
   primaryUse: string;
   idealFor: string[];
-  keyBenefits: string[];
   commonApplications: string[];
   installationVideos: {
     title: string;
@@ -174,7 +173,6 @@ export function IndividualMachinePage({
   description,
   primaryUse,
   idealFor,
-  keyBenefits,
   commonApplications,
   installationVideos,
 }: IndividualMachinePageProps) {
@@ -184,6 +182,7 @@ export function IndividualMachinePage({
   );
 
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const t = useTranslations("individualMachinePage");
 
   return (
     <div className="min-h-screen bg-[#020C18]">
@@ -203,7 +202,7 @@ export function IndividualMachinePage({
 
         <div className="container mx-auto max-w-6xl relative z-10">
           <Badge className="bg-red-500/20 text-red-400 border-red-500/30 mb-6 rounded-none">
-            Industrial Equipment
+            {t("industrialEquiment")}
           </Badge>
           <h1 className="text-4xl md:text-6xl lg:text-7xl text-white mb-6 max-w-4xl">
             {machineName}
@@ -248,13 +247,13 @@ export function IndividualMachinePage({
             {/* Primary Use */}
             <div>
               <h2 className="text-3xl md:text-4xl text-white mb-6">
-                What It Does
+                {t('whatItDoes')}
               </h2>
               <p className="text-gray-300 text-lg leading-relaxed mb-8">
                 {primaryUse}
               </p>
 
-              <h3 className="text-xl text-white mb-4">Ideal For:</h3>
+              <h3 className="text-xl text-white mb-4">{t("idealFor")}</h3>
               <div className="space-y-3">
                 {idealFor.map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3">
@@ -274,10 +273,10 @@ export function IndividualMachinePage({
           <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl text-white mb-4">
-                Real Installations
+                {t("realInstallations")}
               </h2>
               <p className="text-gray-400 text-lg">
-                See this machine in action at client facilities worldwide
+                 {t("description")}
               </p>
             </div>
 
@@ -378,7 +377,7 @@ export function IndividualMachinePage({
       <section className="py-12 md:py-20 px-6 bg-gradient-to-b from-transparent to-gray-900/20">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl md:text-4xl text-white mb-12 text-center">
-            Common Applications
+            {t("commonApplications")}
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {commonApplications.map((app, idx) => (
@@ -397,15 +396,14 @@ export function IndividualMachinePage({
       <section className="py-16 md:py-24 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl md:text-5xl text-white mb-6">
-            Ready to Integrate This Solution?
+            {t("footer.title")}
           </h2>
           <p className="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">
-            Our team will help you assess your needs and configure the perfect
-            system for your production line.
+            {t("footer.description")}
           </p>
           <Link href="/contact" passHref>
             <Button className="bg-red-500 hover:bg-red-600 text-white px-10 py-7 text-lg rounded-none">
-              Schedule a Consultation
+              {t("footer.button")}
               <ArrowRight className="ml-2 w-6 h-6" />
             </Button>
           </Link>
