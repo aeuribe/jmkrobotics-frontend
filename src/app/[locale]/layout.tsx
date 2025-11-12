@@ -12,11 +12,6 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
-type Props = {
-  children: React.ReactNode;
-  params: { locale: string }; // ✅ Ya no es una promesa
-};
-
 // 🔹 Metadata dinámica según idioma
 export async function generateMetadata({
   params,

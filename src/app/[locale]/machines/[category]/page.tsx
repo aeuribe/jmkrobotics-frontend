@@ -1,26 +1,25 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { CategoryPage } from "../../components/CategoryPage";
 import {
   createFillingDosingCategory,
-  createSealingPackagingCategory,
-  createLabelingIdentificationCategory,
-  createConveyorHandlingCategory,
-  createQualityInspectionCategory,
   // palletizingCategory,
   // codingMarkingCategory,
   // cleaningSanitationCategory,
 } from "@/data/categories";
+
 // No-op function for categories (navigation handled by Link)
 const noOp = () => {};
 
 export default function MachineCategoryPage() {
   const params = useParams();
   const category = params?.category as string;
+  const t = useTranslations(); // 👈 Añadimos traducción
 
   // Map category slug to category data
-  const categoryData = getCategoryData(category);
+  const categoryData = getCategoryData(category, t);
 
   if (!categoryData) {
     return (
@@ -33,26 +32,11 @@ export default function MachineCategoryPage() {
   return <CategoryPage {...categoryData} />;
 }
 
-function getCategoryData(category: string) {
+// 👇 Pasamos `t` a la función del category
+function getCategoryData(category: string, t: ReturnType<typeof useTranslations>) {
   switch (category) {
     case "filling-dosing":
-      return createFillingDosingCategory(noOp);
-    case "sealing-packaging":
-      return createSealingPackagingCategory(noOp);
-    case "labeling-identification":
-      return createLabelingIdentificationCategory(noOp);
-    case "conveyor-handling":
-      return createConveyorHandlingCategory(noOp);
-    case "quality-inspection":
-      return createQualityInspectionCategory(noOp);
-    // case "palletizing":
-    //   return palletizingCategory;
-    // case "coding-marking":
-    //   return codingMarkingCategory;
-    // case "cleaning-sanitation":
-    //   return cleaningSanitationCategory;
-    // case "robotics-automation":
-    //   return roboticsAutomationCategory;
+      return createFillingDosingCategory(t, noOp);
     default:
       return null;
   }

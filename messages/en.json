@@ -271,9 +271,9 @@
     "whatItDoes": "What It Does",
     "idealFor": "Ideal For:",
     "realInstallations": "Real Installations",
-    "description":"See this machine in action at client facilities worldwide",
+    "description": "See this machine in action at client facilities worldwide",
     "commonApplications": "Common Applications",
-    "footer":{
+    "footer": {
       "title": "Ready to Integrate This Solution?",
       "description": "Our team will help you assess your needs and configure the perfect system for your production line.",
       "button": "Schedule a Consultation"
@@ -335,5 +335,33 @@
         "application": "Integrated vial filling and capping line showcasing seamless automation and precision performance."
       }
     ]
+  },
+  "categorySection": {
+    "filling-dosing": {
+      "categoryName": "Filling & Dosing Systems",
+      "categoryDescription": "Precision filling and dosing solutions for liquids, powders, and granular products.",
+      "machines": {
+        "automatic-weight-filler": {
+          "name": "Automatic Weight Filler",
+          "description": "Efficient and reliable filling solution for granular and powdered products.",
+          "features": {
+            "1": "Automated weight-based filling",
+            "2": "Adaptable to various product types",
+            "3": "Consistent performance and output",
+            "4": "Ideal for medium to high-volume operations"
+          }
+        },
+        "liquid-filling-machine": {
+          "name": "Vial Liquid Filler",
+          "description": "High-precision liquid filling system for vials and bottles.",
+          "features": {
+            "1": "Supports a wide range of liquid viscosities",
+            "2": "Compatible with automatic capping and labeling lines",
+            "3": "Designed for easy cleaning and maintenance",
+            "4": "Delivers consistent, high-speed filling performance"
+          }
+        }
+      }
+    }
   }
 }

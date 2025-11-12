@@ -336,5 +336,33 @@
         "application": "Integración de línea automática que demuestra una automatización fluida y un rendimiento de alta precisión."
       }
     ]
+  },
+  "categorySection": {
+    "filling-dosing": {
+      "categoryName": "Sistemas de Dosificación y Llenado",
+      "categoryDescription": "Soluciones de dosificación y llenado de precisión para líquidos, polvos y productos granulados.",
+      "machines": {
+        "automatic-weight-filler": {
+          "name": "Dosificadora Automática con Pesaje",
+          "description": "Solución de llenado eficiente y confiable para productos granulados y en polvo.",
+          "features": {
+            "1": "Llenado automatizado basado en peso",
+            "2": "Adaptable a diversos tipos de producto",
+            "3": "Rendimiento y salida consistentes",
+            "4": "Ideal para operaciones de volumen medio a alto"
+          }
+        },
+        "liquid-filling-machine": {
+          "name": "Llenadora de Líquidos para Viales",
+          "description": "Sistema de llenado de líquidos de alta precisión para viales y botellas.",
+          "features": {
+            "1": "Compatible con una amplia gama de viscosidades",
+            "2": "Integrable con líneas automáticas de tapado y etiquetado",
+            "3": "Diseñada para facilitar la limpieza y el mantenimiento",
+            "4": "Rendimiento de llenado constante y a alta velocidad"
+          }
+        }
+      }
+    }
   }
 }
