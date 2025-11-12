@@ -24,6 +24,10 @@ export const routing = defineRouting({
     'terms':{
       en: '/terms-of-service',
       es: '/terminos-de-servicio'
+    },
+    '/solutions': {
+      en: '/solutions',
+      es: '/soluciones' 
     }
   }
 });

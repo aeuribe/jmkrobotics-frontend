@@ -103,7 +103,7 @@ const HeroSection = () => {
             </div>
 
             {/* Botón Explore sutil */}
-            <ButtonExplore />
+              <ButtonExplore />
           </div>
         </div>
 

@@ -9,7 +9,7 @@ const ButtonExplore = () => {
                            animate-fadeInSlideUp animation-delay-300
                            flex justify-start">
               <Link
-                href="/"
+                href="/solutions"
                 role="button"
                 aria-label={t("explore")}
                 className="group relative inline-flex items-center gap-2 sm:gap-3

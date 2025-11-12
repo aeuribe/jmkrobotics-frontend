@@ -1,9 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Search, Globe, Mail, Menu, X, Check } from "lucide-react";
-import { Link } from "@/i18n/navigation";
-import { useRouter, usePathname } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
+import { Link, useRouter, usePathname } from "@/i18n/navigation";
+import { useTranslations, useLocale } from "next-intl";
 import { MachinesDropdown } from "./MachinesDropdown";
 
 interface Language {
@@ -14,58 +13,38 @@ interface Language {
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
 
   const t = useTranslations("header");
   const router = useRouter();
   const pathname = usePathname();
+  const locale = useLocale(); // <-- idioma real de next-intl
 
-  // Obtener el idioma actual del pathname
-  const currentLocale = (() => {
-    const segments = pathname.split("/");
-    if (segments.length > 1) {
-      const code = segments[1].toUpperCase();
-      return ["EN", "ES"].includes(code) ? code : "EN";
-    }
-    return "EN";
-  })();
-  const [selectedLanguage, setSelectedLanguage] = useState(currentLocale);
+  const [selectedLanguage, setSelectedLanguage] = useState(locale.toUpperCase());
 
   const languages: Language[] = [
     { code: "EN", name: "English", flag: "🇺🇸" },
     { code: "ES", name: "Español", flag: "🇪🇸" },
   ];
 
-  const toggleMobileMenu = (): void => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  const toggleMobileMenu = (): void => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const openLanguageModal = (): void => setIsLanguageModalOpen(true);
+  const closeLanguageModal = (): void => setIsLanguageModalOpen(false);
 
-  const openLanguageModal = (): void => {
-    setIsLanguageModalOpen(true);
-  };
-
-  const closeLanguageModal = (): void => {
-    setIsLanguageModalOpen(false);
-  };
+  // sincroniza el check del modal con el idioma actual
+  useEffect(() => {
+    setSelectedLanguage(locale.toUpperCase());
+  }, [locale]);
 
   const handleLanguageSelect = (languageCode: string) => {
-    setSelectedLanguage(languageCode);
     setIsLanguageModalOpen(false);
-
-    // Navegar a la misma ruta pero con el idioma seleccionado
     router.push(pathname, { locale: languageCode.toLowerCase() });
+    // no necesitas setSelectedLanguage aquí, useEffect lo actualizará automáticamente
   };
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>): void => {
-    if (e.target === e.currentTarget) {
-      closeLanguageModal();
-    }
+    if (e.target === e.currentTarget) closeLanguageModal();
   };
-
-  React.useEffect(() => {
-    setSelectedLanguage(currentLocale);
-  }, [currentLocale]);
 
   return (
     <>
@@ -81,25 +60,15 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex flex-1 justify-center">
             <div className="flex gap-6 xl:gap-10 text-white text-[16px] font-satoshi font-light tracking-wider">
-              <Link href="/" className="hover:text-[#ff002f] transition-colors">
-                {t("nav.home")}
-              </Link>
-              {/* Machines Megamenu Dropdown */}
+              <Link href="/" className="hover:text-[#ff002f] transition-colors">{t("nav.home")}</Link>
               <MachinesDropdown />
-
-              <Link href="/" className="hover:text-[#ff002f] transition-colors">
-                {t("nav.solutions")}
-              </Link>
+              <Link href="/solutions" className="hover:text-[#ff002f] transition-colors">{t("nav.solutions")}</Link>
             </div>
           </nav>
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-3 lg:gap-4 flex-shrink-0">
-            <button
-              className="text-white hover:text-[#ff002f] transition-colors"
-              aria-label="Search"
-              title="Search"
-            >
+            <button className="text-white hover:text-[#ff002f] transition-colors" aria-label="Search" title="Search">
               <Search size={20} />
             </button>
 
@@ -112,10 +81,7 @@ export function Header() {
               <Globe size={20} />
             </button>
 
-            <Link
-              href="/contact"
-              className="flex items-center gap-2 bg-[#ff002f] text-[#020C18] text-[16px] rounded-md px-3 py-1 font-medium hover:bg-[#c91534] transition-colors"
-            >
+            <Link href="/contact" className="flex items-center gap-2 bg-[#ff002f] text-[#020C18] text-[16px] rounded-md px-3 py-1 font-medium hover:bg-[#c91534] transition-colors">
               <Mail size={16} />
               <span className="hidden lg:inline">{t("shortContact")}</span>
               <span className="lg:hidden">{t("contact")}</span>
@@ -137,49 +103,16 @@ export function Header() {
           <div className="md:hidden absolute top-full left-0 right-0 bg-[#020C18] border-t border-gray-700 z-50">
             <nav className="px-4 py-6">
               <div className="flex flex-col gap-4 mb-6">
-                <Link
-                  href="/"
-                  className="text-white hover:text-[#ff002f] transition-colors py-2 font-satoshi font-light"
-                >
-                  {t("nav.home")}
-                </Link>
-                {/* Mobile Machines Submenu */}
-                <MachinesDropdown
-                  isMobile={true}
-                  onMobileMenuClose={() => setIsMobileMenuOpen(false)}
-                />
-                <Link
-                  href="/"
-                  className="text-white hover:text-[#ff002f] transition-colors py-2 font-satoshi font-light"
-                >
-                  {t("nav.solutions")}
-                </Link>
+                <Link href="/" className="text-white hover:text-[#ff002f] transition-colors py-2 font-satoshi font-light">{t("nav.home")}</Link>
+                <MachinesDropdown isMobile onMobileMenuClose={() => setIsMobileMenuOpen(false)} />
+                <Link href="/solutions" className="text-white hover:text-[#ff002f] transition-colors py-2 font-satoshi font-light">{t("nav.solutions")}</Link>
               </div>
-
               <div className="flex flex-col gap-4 pt-4 border-t border-gray-700">
                 <div className="flex items-center gap-4">
-                  <button
-                    className="text-white hover:text-[#ff002f] transition-colors p-2 "
-                    aria-label="Search"
-                    title="Search"
-                  >
-                    <Search size={20} />
-                  </button>
-
-                  <button
-                    onClick={openLanguageModal}
-                    className="text-white hover:text-[#ff002f] transition-colors p-2"
-                    aria-label="Change language"
-                    title="Change language"
-                  >
-                    <Globe size={20} />
-                  </button>
+                  <button className="text-white hover:text-[#ff002f] transition-colors p-2" aria-label="Search" title="Search"><Search size={20} /></button>
+                  <button onClick={openLanguageModal} className="text-white hover:text-[#ff002f] transition-colors p-2" aria-label="Change language" title="Change language"><Globe size={20} /></button>
                 </div>
-
-                <Link
-                  href="/contact"
-                  className="flex items-center justify-center gap-2 bg-[#ff002f] text-[#020C18] text-[14px] rounded-md px-4 py-3 font-medium hover:bg-[#c91534] transition-colors w-full"
-                >
+                <Link href="/contact" className="flex items-center justify-center gap-2 bg-[#ff002f] text-[#020C18] text-[14px] rounded-md px-4 py-3 font-medium hover:bg-[#c91534] transition-colors w-full">
                   <Mail size={16} />
                   {t("shortContact")}
                 </Link>
@@ -192,21 +125,15 @@ export function Header() {
       {/* Language Modal */}
       {isLanguageModalOpen && (
         <div
+          key={selectedLanguage} // fuerza repaint cuando cambia el idioma
           className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={handleBackdropClick}
         >
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full mx-auto">
             <div className="px-6 py-4 border-b border-gray-200">
               <div className="flex items-center justify-between">
-                <h2 className="text-lg font-semibold text-gray-900">
-                  {t("modal.selectLanguage")}
-                </h2>
-                <button
-                  onClick={closeLanguageModal}
-                  className="text-gray-400 hover:text-gray-600 transition-colors"
-                  aria-label="Close language selection modal"
-                  title="Close"
-                >
+                <h2 className="text-lg font-semibold text-gray-900">{t("modal.selectLanguage")}</h2>
+                <button onClick={closeLanguageModal} className="text-gray-400 hover:text-gray-600 transition-colors" aria-label="Close language selection modal" title="Close">
                   <X size={20} />
                 </button>
               </div>
@@ -219,23 +146,13 @@ export function Header() {
                     onClick={() => handleLanguageSelect(language.code)}
                     className="flex items-center justify-between w-full p-3 text-left hover:bg-gray-50 rounded-lg transition-colors"
                     aria-label={`Select ${language.name} language`}
-                    aria-current={
-                      selectedLanguage === language.code ? "true" : undefined
-                    }
+                    aria-current={selectedLanguage === language.code ? "true" : undefined}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-xl" aria-hidden="true">
-                        {language.flag}
-                      </span>
+                      <span className="text-xl">{language.flag}</span>
                       <span className="text-gray-900">{language.name}</span>
                     </div>
-                    {selectedLanguage === language.code && (
-                      <Check
-                        size={16}
-                        className="text-[#ff002f]"
-                        aria-hidden="true"
-                      />
-                    )}
+                    {selectedLanguage === language.code && <Check size={16} className="text-[#ff002f]" />}
                   </button>
                 ))}
               </div>
