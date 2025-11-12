@@ -27,13 +27,18 @@ export const createFillingDosingCategory = (
   t: { (key: string): string; raw: (key: string) => unknown },
   onMachineSelect: (machine: string) => void
 ): Category => {
-  const autoWeightFillerFeatures = t.raw(
-    "categorySection.filling-dosing.machines.automatic-weight-filler.features"
-  ) as string[];
+  // ✅ Aseguramos que siempre sean arrays
+  const autoWeightFillerFeatures = Array.isArray(
+    t.raw("categorySection.filling-dosing.machines.automatic-weight-filler.features")
+  )
+    ? (t.raw("categorySection.filling-dosing.machines.automatic-weight-filler.features") as string[])
+    : [];
 
-  const liquidFillingMachineFeatures = t.raw(
-    "categorySection.filling-dosing.machines.liquid-filling-machine.features"
-  ) as string[];
+  const liquidFillingMachineFeatures = Array.isArray(
+    t.raw("categorySection.filling-dosing.machines.liquid-filling-machine.features")
+  )
+    ? (t.raw("categorySection.filling-dosing.machines.liquid-filling-machine.features") as string[])
+    : [];
 
   return {
     categoryName: t("categorySection.filling-dosing.categoryName"),
