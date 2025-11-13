@@ -28,6 +28,14 @@ export const routing = defineRouting({
     '/solutions': {
       en: '/solutions',
       es: '/soluciones' 
+    },
+    '/machines/filling-dosing/automatic-weight-filler': {
+      en: '/machines/filling-dosing/automatic-weight-filler',
+      es: '/maquinas/llenado-dosificacion/llenadora-automatica-por-peso'
+    },
+    '/machines/filling-dosing/liquid-filling-machine': {
+      en: '/machines/filling-dosing/liquid-filling-machine',
+      es: '/maquinas/llenado-dosificacion/llenadora-liquidos-para-viales'
     }
   }
 });

@@ -1,4 +1,4 @@
-import { Link } from '@/i18n/navigation';
+import { Link } from "@/i18n/navigation";
 import React from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -28,75 +28,37 @@ const Footer = () => {
 
           {/* Products Section */}
           <div className="flex flex-col">
-            <h3 className="text-white font-semibold mb-3 sm:mb-4 
-                          text-sm sm:text-base lg:text-base">
+            <h3
+              className="text-white font-semibold mb-3 sm:mb-4 
+                          text-sm sm:text-base lg:text-base"
+            >
               {t("products")}
             </h3>
             <div className="flex flex-col space-y-2 sm:space-y-2.5">
-              <Link 
+              <Link
                 className="text-[#6E7784] hover:text-white transition-colors duration-200
-                          text-xs sm:text-sm group relative" 
-                href="/"
+                          text-xs sm:text-sm group relative"
+                href="/machines/filling-dosing/automatic-weight-filler"
               >
                 <span className="relative">
-                  {t("capping")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
-                                 group-hover:w-full transition-all duration-300"></span>
+                  {t("automatic-weight-filler")}
+                  <span
+                    className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
+                                 group-hover:w-full transition-all duration-300"
+                  ></span>
                 </span>
               </Link>
-              <Link 
+              <Link
                 className="text-[#6E7784] hover:text-white transition-colors duration-200
-                          text-xs sm:text-sm group relative" 
-                href="/"
+                          text-xs sm:text-sm group relative"
+                href="/machines/filling-dosing/liquid-filling-machine"
               >
                 <span className="relative">
-                  {t("sealing")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
-                                 group-hover:w-full transition-all duration-300"></span>
-                </span>
-              </Link>
-              <Link 
-                className="text-[#6E7784] hover:text-white transition-colors duration-200
-                          text-xs sm:text-sm group relative" 
-                href="/"
-              >
-                <span className="relative">
-                  {t("filling")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
-                                 group-hover:w-full transition-all duration-300"></span>
-                </span>
-              </Link>
-              <Link 
-                className="text-[#6E7784] hover:text-white transition-colors duration-200
-                          text-xs sm:text-sm group relative" 
-                href="/"
-              >
-                <span className="relative">
-                  {t("labeling")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
-                                 group-hover:w-full transition-all duration-300"></span>
-                </span>
-              </Link>
-              <Link 
-                className="text-[#6E7784] hover:text-white transition-colors duration-200
-                          text-xs sm:text-sm group relative" 
-                href="/"
-              >
-                <span className="relative">
-                  {t("wrapping")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
-                                 group-hover:w-full transition-all duration-300"></span>
-                </span>
-              </Link>
-              <Link 
-                className="text-[#6E7784] hover:text-white transition-colors duration-200
-                          text-xs sm:text-sm group relative" 
-                href="/"
-              >
-                <span className="relative">
-                  {t("metalDetector")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
-                                 group-hover:w-full transition-all duration-300"></span>
+                  {t("vial-liquid-filler")}
+                  <span
+                    className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
+                                 group-hover:w-full transition-all duration-300"
+                  ></span>
                 </span>
               </Link>
             </div>
@@ -104,10 +66,21 @@ const Footer = () => {
 
           {/* Solutions Section */}
           <div className="flex flex-col">
-            <h3 className="text-white font-semibold mb-3 sm:mb-4 
-                          text-sm sm:text-base lg:text-base">
-              {t("solutions")}
-            </h3>
+            <Link href="/solutions" className="group">
+              <h3
+                className="text-white font-semibold mb-3 sm:mb-4 
+                          text-sm sm:text-base lg:text-base"
+              >
+                <span className="relative">
+                  {t("solutions")}
+                  <span
+                    className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
+                                 group-hover:w-full transition-all duration-300"
+                  ></span>
+                </span>
+              </h3>
+            </Link>
+
             <div className="flex flex-col space-y-2 sm:space-y-2.5">
               <Link
                 className="text-[#6E7784] hover:text-white transition-colors duration-200
@@ -115,64 +88,36 @@ const Footer = () => {
                 href="/"
               >
                 <span className="relative">
-                  {t("packaging")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
-                                 group-hover:w-full transition-all duration-300"></span>
-                </span>
-              </Link>
-              <Link
-                className="text-[#6E7784] hover:text-white transition-colors duration-200
-                          text-xs sm:text-sm group relative"
-                href="/"
-              >
-                <span className="relative">
-                  {t("manufacturing")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
-                                 group-hover:w-full transition-all duration-300"></span>
-                </span>
-              </Link>
-              <Link
-                className="text-[#6E7784] hover:text-white transition-colors duration-200
-                          text-xs sm:text-sm group relative"
-                href="/"
-              >
-                <span className="relative">
-                  {t("process")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
-                                 group-hover:w-full transition-all duration-300"></span>
-                </span>
-              </Link>
-              <Link
-                className="text-[#6E7784] hover:text-white transition-colors duration-200
-                          text-xs sm:text-sm group relative"
-                href="/"
-              >
-                <span className="relative">
-                  {t("quality")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
-                                 group-hover:w-full transition-all duration-300"></span>
+                  {t("automatic-vial-line")}
+                  <span
+                    className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
+                                 group-hover:w-full transition-all duration-300"
+                  ></span>
                 </span>
               </Link>
             </div>
           </div>
-
+                
           {/* Support & Contact Section */}
           <div className="flex flex-col">
-            <h3 className="text-white font-semibold mb-3 sm:mb-4 
-                          text-sm sm:text-base lg:text-base">
+            <h3
+              className="text-white font-semibold mb-3 sm:mb-4 
+                          text-sm sm:text-base lg:text-base"
+            >
               {t("support")}
             </h3>
             <div className="flex flex-col space-y-2 sm:space-y-2.5">
-
               <Link
                 className="text-[#6E7784] hover:text-white transition-colors duration-200
                           text-xs sm:text-sm group relative"
-                href="/"
+                href="/solutions"
               >
                 <span className="relative">
                   {t("technical")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
-                                 group-hover:w-full transition-all duration-300"></span>
+                  <span
+                    className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
+                                 group-hover:w-full transition-all duration-300"
+                  ></span>
                 </span>
               </Link>
               <Link
@@ -182,8 +127,10 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("faq")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
-                                 group-hover:w-full transition-all duration-300"></span>
+                  <span
+                    className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
+                                 group-hover:w-full transition-all duration-300"
+                  ></span>
                 </span>
               </Link>
               <Link
@@ -193,8 +140,10 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("doc")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
-                                 group-hover:w-full transition-all duration-300"></span>
+                  <span
+                    className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
+                                 group-hover:w-full transition-all duration-300"
+                  ></span>
                 </span>
               </Link>
             </div>
@@ -208,9 +157,7 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
             {/* Copyright */}
             <div className="text-center sm:text-left">
-              <p className="text-[#6E7784] text-xs sm:text-sm">
-                {t("rights")}
-              </p>
+              <p className="text-[#6E7784] text-xs sm:text-sm">{t("rights")}</p>
             </div>
 
             {/* Additional Links */}
@@ -222,8 +169,10 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("privacy")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
-                                 group-hover:w-full transition-all duration-300"></span>
+                  <span
+                    className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
+                                 group-hover:w-full transition-all duration-300"
+                  ></span>
                 </span>
               </Link>
               <Link
@@ -233,8 +182,10 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("terms")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
-                                 group-hover:w-full transition-all duration-300"></span>
+                  <span
+                    className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
+                                 group-hover:w-full transition-all duration-300"
+                  ></span>
                 </span>
               </Link>
               <Link
@@ -244,8 +195,10 @@ const Footer = () => {
               >
                 <span className="relative">
                   {t("contact")}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
-                                 group-hover:w-full transition-all duration-300"></span>
+                  <span
+                    className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff002f] 
+                                 group-hover:w-full transition-all duration-300"
+                  ></span>
                 </span>
               </Link>
             </div>
