@@ -20,8 +20,8 @@ export interface ProductionLine {
   subtitle: string;
   description: string;
   industry: string;
-  machines: string[]; // List of machines included in the line
-  benefits: string[];
+  machines: string; // List of machines included in the line
+  benefits: string;
   media: ProductionLineMedia[];
   capacity?: string;
   location?: string;
@@ -35,25 +35,12 @@ export interface ProductionLine {
 export const productionLines: ProductionLine[] = [
   {
   id: "automatic-vial-filling-line",
-  title: "Automatic Vial Bottling Line",
-  subtitle: "Complete process from infeed to labeling",
-  description: "An integrated production line solution that handles small bottle or vial infeed, performs liquid filling via multiple nozzles, applies and tightens caps, seals the caps by induction, and applies wrap-around labels. The process finishes with the collection of finished products on a rotary table.",
-  industry: "Pharmaceutical / Cosmetics",
-  machines: [
-    "Rotary Infeed Table (Unscrambler)",
-    "Transport System (Conveyor Belt)",
-    "Liquid Filling Machine (4 nozzles)",
-    "Automatic Capping Machine (Screw capper)",
-    "Induction Sealing Machine",
-    "Labeling System (Wrap-around labeler)",
-    "Rotary Accumulation Table (Collection)"
-  ],
-  benefits: [
-    "Fully automated packaging process",
-    "Precise and uniform filling across all vials",
-    "Integration of multiple stages (filling, capping, sealing, labeling) in one line",
-    "Ensures product integrity with capping and induction sealing"
-  ],
+  title: "productionLines.automatic-vial-filling-line.title",
+  subtitle: "productionLines.automatic-vial-filling-line.subtitle",
+  description: "productionLines.automatic-vial-filling-line.description",
+  industry: "productionLines.automatic-vial-filling-line.industry",
+  machines: "productionLines.automatic-vial-filling-line.machines",
+  benefits: "productionLines.automatic-vial-filling-line.benefits",
   capacity: "",
   location: "",
     media: [

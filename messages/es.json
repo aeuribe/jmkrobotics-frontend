@@ -358,5 +358,56 @@
         }
       }
     }
-  }
+  },
+  "productionLines": {
+    "automatic-vial-filling-line": {
+      "title": "Línea Automática de Embotellado de Viales",
+      "subtitle": "Proceso completo desde alimentación hasta etiquetado",
+      "description": "Solución integrada de línea de producción que gestiona la alimentación de frascos o viales pequeños, realiza el llenado de líquidos mediante múltiples boquillas, coloca y ajusta tapas, sella por inducción y aplica etiquetas envolventes. El proceso finaliza con la recolección de productos terminados en una mesa rotativa.",
+      "industry": "Farmacéutica / Cosmética",
+      "capacity": "",
+      "location": "",
+      "machines": [
+        "Mesa Rotativa de Alimentación (orientador)",
+        "Sistema de Transporte (cinta transportadora)",
+        "Máquina de Llenado de Líquidos (4 boquillas)",
+        "Máquina Automática de Tapado (rosca)",
+        "Máquina de Sellado por Inducción",
+        "Sistema de Etiquetado (etiquetadora envolvente)",
+        "Mesa Rotativa de Acumulación (recolección)"
+      ],
+      "benefits": [
+        "Proceso de envasado completamente automatizado",
+        "Llenado preciso y uniforme en todos los viales",
+        "Integración de múltiples etapas (llenado, tapado, sellado, etiquetado) en una sola línea",
+        "Garantiza la integridad del producto con tapado y sellado por inducción"
+      ],
+      "media": [
+        {
+          "type": "video",
+          "url": "https://youtu.be/rViD59cijCU",
+          "thumbnail": "/thumbnails/automatic_vial_filling_line_thumbnail.jpg",
+          "title": "Línea automática completa de embotellado | Llenado, tapado, sellado y etiquetado de viales",
+          "description": "Línea completa procesando botellas de jugo a máxima velocidad"
+        },
+        {
+          "type": "video",
+          "url": "https://youtube.com/shorts/HGPz9mJf7Qw",
+          "title": "Mesa rotativa - Línea automática de embotellado de viales",
+          "description": "Mesa rotativa de acumulación recolectando viales terminados al final de la línea automática de embotellado."
+        }
+      ]
+    }
+  },
+"solutionsPage": {
+  "title": "Descubre Nuestras Líneas de Producción en Acción",
+  "subtitle": "Instalaciones reales que muestran cómo múltiples máquinas trabajan juntas de forma fluida para crear líneas de producción eficientes y automatizadas.",
+  "badge": "Soluciones completas de producción",
+  "allIndustries": "Todas las industrias",
+      "card":{
+      "machinesIncluded": "Máquinas Incluidas",
+      "benefits": "Beneficios Clave"
+    }
+}
+
 }

@@ -237,43 +237,6 @@ const ProductSection = () => {
           ></div>
         </div>
 
-        {/* Auto-scroll indicator */}
-        <div className="text-center pb-8">
-          <div className="inline-flex items-center gap-2 text-[#6E7784] text-xs sm:text-sm">
-            <div
-              className={`w-2 h-2 rounded-full transition-colors duration-300 
-                            ${
-                              isAutoScrolling
-                                ? "bg-[#ff002f] animate-pulse"
-                                : "bg-[#6E7784]"
-                            }`}
-            ></div>
-            <span>{isAutoScrolling ? "Auto-scrolling" : "Manual control"}</span>
-          </div>
-        </div>
-
-        {/* Call to action */}
-        <div className="text-center pb-16 sm:pb-20 lg:pb-24">
-          <div
-            className="inline-flex items-center gap-2 text-[#6E7784] hover:text-white 
-                         transition-colors duration-300 cursor-pointer group"
-          >
-            <span className="text-sm sm:text-base">{t("cta")}</span>
-            <svg
-              className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
-            </svg>
-          </div>
-        </div>
       </div>
     </section>
   );
