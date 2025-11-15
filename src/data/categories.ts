@@ -64,3 +64,31 @@ export const createFillingDosingCategory = (
     onMachineSelect,
   };
 };
+
+export const createLabelingIdentificationCategory = (
+  t: { (key: string): string; raw: (key: string) => unknown },
+  onMachineSelect: (machine: string) => void
+): Category => {
+  // ✅ Aseguramos que siempre sean arrays
+  const vialLabelingFeatures = Array.isArray(
+    t.raw("categorySection.labeling-identification.machines.automatic-vial-labeling-machine.features")
+  )
+    ? (t.raw("categorySection.labeling-identification.machines.automatic-vial-labeling-machine.features") as string[])
+    : [];
+
+  return {
+    categoryName: t("categorySection.labeling-identification.categoryName"),
+    categoryDescription: t("categorySection.labeling-identification.categoryDescription"),
+    machines: [
+      {
+        id: "automatic-vial-labeling-machine",
+        name: t("categorySection.labeling-identification.machines.automatic-vial-labeling-machine.name"),
+        description: t("categorySection.labeling-identification.machines.automatic-al-labeling-machine.description"),
+        features: vialLabelingFeatures,
+        image: "/automatic_vial_labeling_machine.png",
+        link: "/machines/labeling-identification/automatic-vial-labeling-machine",
+      },
+    ],
+    onMachineSelect,
+  };
+};

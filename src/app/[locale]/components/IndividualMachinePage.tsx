@@ -29,6 +29,23 @@ interface IndividualMachinePageProps {
   }[];
 }
 
+//Get thumbnail from Youtube URL
+function getYoutubeThumbnail(url: string): string {
+  if (!url) return "/fallback_thumbnail.jpg"; // cualquier placeholder tuyo
+
+  const regex =
+    /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/;
+
+  const match = url.match(regex);
+
+  if (!match) return "/fallback_thumbnail.jpg";
+
+  const videoId = match[1];
+
+  // Thumbnail oficial de YouTube (HQ)
+  return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+}
+
 // Internal Badge Component
 function Badge({
   children,
@@ -291,7 +308,7 @@ export function IndividualMachinePage({
                   >
                     <div className="relative aspect-video bg-gray-950 overflow-hidden">
                       <Image
-                        src={video.thumbnail}
+                        src={video.thumbnail || getYoutubeThumbnail(video.videoUrl)}
                         alt={video.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         fill

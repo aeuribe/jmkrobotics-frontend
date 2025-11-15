@@ -62,7 +62,8 @@
     "title2": "Máquinas",
     "wrapping": "Máquina de Envoltura",
     "automaticWeighFiller": "Dosificadora Automática por Peso",
-    "vialLiquidFiller": "Dosificadora de Líquidos para Viales"
+    "vialLiquidFiller": "Dosificadora de Líquidos para Viales",
+    "automativVialLabelingMachine": "Etiquetadora Automática de Viales"
   },
   "metadata": {
     "title": "JMK Robotics - Soluciones Industriales",
@@ -357,8 +358,63 @@
           }
         }
       }
+    },
+    "labeling-identification": {
+      "categoryName": "Sistemas de Dosificación y Llenado",
+      "categoryDescription": "Soluciones de etiquetado e identificación de precisión para garantizar la trazabilidad, el cumplimiento normativo y la seguridad en sus productos finales.",
+      "machines": {
+        "automatic-vial-labeling-machine": {
+          "name": "Etiquetadora Automática de Viales",
+          "description": "Sistema automatizado de alta precisión para el etiquetado envolvente de viales y frascos pequeños.",
+          "features": {
+            "1": "Asegura la aplicación de etiquetas envolventes completas con una precisión excepcional.",
+            "2": "Sistema de sensores integrado para una colocación exacta de la etiqueta y detección de fallos.",
+            "3": "Construcción en acero inoxidable (cumple cGMP) para facilitar la validación y limpieza.",
+            "4": "Diseñada para una integración perfecta en líneas de llenado y taponado existentes."
+          }
+        },
+        "liquid-filling-machine": {
+          "name": "Llenadora de Líquidos para Viales",
+          "description": "Sistema de llenado de líquidos de alta precisión para viales y botellas.",
+          "features": {
+            "1": "Compatible con una amplia gama de viscosidades",
+            "2": "Integrable con líneas automáticas de tapado y etiquetado",
+            "3": "Diseñada para facilitar la limpieza y el mantenimiento",
+            "4": "Rendimiento de llenado constante y a alta velocidad"
+          }
+        }
+      }
     }
   },
+  "automatic-vial-labeling-machine": {
+    "machineName": "Máquina Etiquetadora Automática de Viales",
+    "description": "Sistema automatizado de alta precisión diseñado para aplicar etiquetas envolventes a viales y pequeños envases cilíndricos.",
+    "primaryUse": "Diseñada para automatizar el proceso de etiquetado con una precisión y velocidad excepcionales.",
+    "idealFor": [
+      "Líneas de producción farmacéuticas y biotecnológicas (entornos cGMP)",
+      "Empaque de nutracéuticos y vitaminas",
+      "Envasado de cosméticos y aceites esenciales",
+      "Operaciones de laboratorio y muestreo químico"
+    ],
+    "commonApplications": [
+      "Etiquetado de viales y ampollas inyectables",
+      "Serialización y codificación",
+      "Etiquetado envolvente (wrap-around)",
+      "Impresión de lote y fecha de vencimiento",
+      "Sellado a prueba de manipulaciones"
+    ],
+    "installationVideos": [
+      {
+        "title": "Máquina Etiquetadora Automática de Viales",
+        "application": "Demostración de carga de etiquetas y calibración de sensores."
+      },
+      {
+        "title": "Línea Integrada con Etiquetadora de Viales",
+        "application": "Rendimiento a alta velocidad en una línea completa de llenado y taponado."
+      }
+    ]
+  },
+
   "productionLines": {
     "automatic-vial-filling-line": {
       "title": "Línea Automática de Embotellado de Viales",
@@ -399,15 +455,14 @@
       ]
     }
   },
-"solutionsPage": {
-  "title": "Descubre Nuestras Líneas de Producción en Acción",
-  "subtitle": "Instalaciones reales que muestran cómo múltiples máquinas trabajan juntas de forma fluida para crear líneas de producción eficientes y automatizadas.",
-  "badge": "Soluciones completas de producción",
-  "allIndustries": "Todas las industrias",
-      "card":{
+  "solutionsPage": {
+    "title": "Descubre Nuestras Líneas de Producción en Acción",
+    "subtitle": "Instalaciones reales que muestran cómo múltiples máquinas trabajan juntas de forma fluida para crear líneas de producción eficientes y automatizadas.",
+    "badge": "Soluciones completas de producción",
+    "allIndustries": "Todas las industrias",
+    "card": {
       "machinesIncluded": "Máquinas Incluidas",
       "benefits": "Beneficios Clave"
     }
-}
-
+  }
 }

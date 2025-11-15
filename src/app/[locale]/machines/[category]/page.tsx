@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { CategoryPage } from "../../components/CategoryPage";
 import {
   createFillingDosingCategory,
+  createLabelingIdentificationCategory,
   // palletizingCategory,
   // codingMarkingCategory,
   // cleaningSanitationCategory,
@@ -37,6 +38,8 @@ function getCategoryData(category: string, t: ReturnType<typeof useTranslations>
   switch (category) {
     case "filling-dosing":
       return createFillingDosingCategory(t, noOp);
+    case "labeling-identification":
+      return createLabelingIdentificationCategory(t, noOp);
     default:
       return null;
   }

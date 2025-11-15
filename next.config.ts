@@ -9,7 +9,13 @@ const nextConfig: NextConfig = {
         hostname: 'images.unsplash.com',
         pathname: '/**',
       },
-      // Puedes agregar más dominios aquí si lo necesitas
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+        pathname: '/**',
+      },
+      // Si en algún momento usas estos, también puedes añadir:
+      // { protocol: 'https', hostname: 'i.ytimg.com', pathname: '/**' },
     ],
   },
 };

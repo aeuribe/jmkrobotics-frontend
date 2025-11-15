@@ -40,41 +40,34 @@ export const machinesData: MachinesDataRecord = {
       { title: "Automatic Weigh Filling into Jars", application: "Granular Product Filling", thumbnail: "/thumbnails/automatic_weigh_filling_thumbnail.png", videoUrl:"/videos/automatic_weigh_filler.mp4" },
     ]
   },
-  "liquid-filling-machine": {
-    machineName: "Vial Liquid Filler",
-    machineImage: "/vial_liquid_filler_2.png",
+  "automatic-vial-labeling-machine": {
+    machineName: "Automatic Vial Labeling Machine",
+    machineImage: "/automatic_vial_labeling_machine_2.png",
     description:
-      "Advanced vial filling machine designed for precise, hygienic, and efficient liquid dispensing across multiple industries.",
+      "High-precision automated system designed for applying wrap-around (circumferential) labels to vials and small cylindrical containers.",
     primaryUse:
-      "Engineered to automate the liquid filling process with exceptional accuracy and control. The Vial Liquid Filler handles everything from thin solutions to viscous fluids, ensuring consistent results and eliminating product waste. Its modular design allows seamless adaptation to different vial sizes and production needs.",
+      "Engineered to automate the labeling process with exceptional accuracy and speed, ensuring seamless integration into filling and capping lines. The machine provides stable product handling and consistent label placement, which is critical for traceability and serialization compliance.",
     idealFor: [
-      "Pharmaceutical and biotech production lines",
-      "Cosmetic and personal care manufacturing",
-      "Food and beverage filling operations",
-      "Chemical and laboratory applications"
+      "Pharmaceutical and biotech production lines (cGMP environments)",
+      "Nutraceutical and vitamin packaging",
+      "Cosmetic and essential oil bottling",
+      "Laboratory and chemical sampling operations"
     ],
     commonApplications: [
-      "Injectable liquids",
-      "Essential oils",
-      "Serums and lotions",
-      "Nutritional supplements",
-      "Chemical reagents",
-      "Laboratory samples"
+      "Labeling of injectable vials and ampoules",
+      "Serialization (2D matrix codes) and coding",
+      "Wrap-around labeling on small cylindrical bottles",
+      "Batch number and expiry date printing (via integrated printer)",
+      "Tamper-evident sealing (with optional module)"
     ],
     installationVideos: [
       {
-        title: "Automatic Vial Filling Machine",
-        application: "Precision filling for pharmaceutical, cosmetic, and laboratory industries.",
-        thumbnail:
-          "/thumbnails/vial_liquid_filler_thumbnail.png",
-        videoUrl: "/videos/vial_liquid_filler.mp4"
+        title: "Automatic Vial Labeling Machine Setup",
+        application: "Demonstration of label loading and sensor calibration for optimal placement.",
+        thumbnail: "", // USER: Insertar link a la miniatura
+        videoUrl: "https://youtu.be/NSQu-K5IP-8" // USER: Insertar link al video
       },
-      {
-        title: "Automatic Vial Filling Line Integration",
-        application: "Integrated vial filling and capping line showcasing seamless automation and precision performance.",
-        thumbnail: "/thumbnails/line_vial_liquid_filler_thumbnail.png",
-        videoUrl: "/videos/line_vial_filler.mp4"
-      }
     ]
   }
+  
 };

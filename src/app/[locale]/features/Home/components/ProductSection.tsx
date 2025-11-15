@@ -27,6 +27,12 @@ const ProductSection = () => {
       image: "/vial_liquid_filler_2.png",
       link: "/machines/filling-dosing/liquid-filling-machine",
     },
+        {
+      title: t("automativVialLabelingMachine"),
+      icon: "/bottle_icon.png",
+      image: "/automatic_vial_labeling_machine_2.png",
+      link: "/machines/labeling-identification/automatic-vial-labeling-machine",
+    },
   ];
 
   // Duplicar productos para efecto infinito
