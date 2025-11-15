@@ -13,7 +13,6 @@ const ProductSection = () => {
   const [canScrollRight, setCanScrollRight] = useState(true);
   const t = useTranslations("productSection");
 
-
   const products = [
     {
       title: t("automaticWeighFiller"),
@@ -27,11 +26,17 @@ const ProductSection = () => {
       image: "/vial_liquid_filler_2.png",
       link: "/machines/filling-dosing/liquid-filling-machine",
     },
-        {
+    {
       title: t("automativVialLabelingMachine"),
       icon: "/bottle_icon.png",
       image: "/automatic_vial_labeling_machine_2.png",
       link: "/machines/labeling-identification/automatic-vial-labeling-machine",
+    },
+    {
+      title: t("cappingSealingMachine"),
+      icon: "/bottle_icon.png",
+      image: "/linear_capping_sealing_machine_2.png",
+      link: "/machines/sealing-packaging/automatic-capping-sealing-machine",
     },
   ];
 
@@ -217,11 +222,11 @@ const ProductSection = () => {
                            shadow-xl shadow-black/20 relative"
               >
                 <Link href={product.link}>
-                <ProductFrame
-                  className=""
-                  title={product.title}
-                  image={product.image}
-                />
+                  <ProductFrame
+                    className=""
+                    title={product.title}
+                    image={product.image}
+                  />
                 </Link>
               </div>
             ))}
@@ -242,7 +247,6 @@ const ProductSection = () => {
                          pointer-events-none z-30"
           ></div>
         </div>
-
       </div>
     </section>
   );

@@ -63,7 +63,8 @@
     "wrapping": "Máquina de Envoltura",
     "automaticWeighFiller": "Dosificadora Automática por Peso",
     "vialLiquidFiller": "Dosificadora de Líquidos para Viales",
-    "automativVialLabelingMachine": "Etiquetadora Automática de Viales"
+    "automativVialLabelingMachine": "Etiquetadora Automática de Viales",
+    "cappingSealingMachine": "Máquina Tapadora y Selladora Lineal Automática"
   },
   "metadata": {
     "title": "JMK Robotics - Soluciones Industriales",
@@ -155,6 +156,10 @@
     },
     "automaticVialLabelingMachine": {
       "name": "Máquina Automática de Etiquetado de Viales",
+      "description": ""
+    },
+    "automaticCappingMachine": {
+      "name": "Máquina Tapadora y Selladora Lineal Automática",
       "description": ""
     },
     "caseSealer": {
@@ -294,6 +299,35 @@
       }
     ]
   },
+
+  "automatic-capping-sealing-machine": {
+    "machineName": "Máquina Tapadora y Selladora Lineal Automática",
+    "description": "Equipo de alta velocidad diseñado para la aplicación automática y el sellado hermético de tapas roscadas o a presión en una amplia gama de envases.",
+    "primaryUse": "Diseñada para líneas de envasado de alto rendimiento, su uso principal es fijar de forma segura y consistente varios tipos de tapas (por ejemplo, rosca, ROPP, a presión) a las botellas, asegurando la integridad del producto, evitando fugas y proporcionando un sello confiable a prueba de manipulaciones.",
+    "idealFor": [
+      "Líneas de producción de Alimentos y Bebidas de alto volumen",
+      "Fabricación de productos Cosméticos y de Cuidado Personal",
+      "Envasado Farmacéutico y Nutracéutico",
+      "Embotellado de líquidos Químicos e Industriales"
+    ],
+    "commonApplications": [
+      "Aplicación de tapas de rosca continua (screw caps) con control de torque preciso",
+      "Sellado de envases con tapas Roll-On Pilfer Proof (ROPP)",
+      "Ajuste y fijación de pulverizadores tipo gatillo y dispensadores de bomba",
+      "Tapado de frascos y envases de boca ancha para productos a granel",
+      "Integración perfecta con sistemas de llenado anteriores y sistemas de etiquetado posteriores"
+    ],
+    "installationVideos": [
+      {
+        "title": "Máquina Tapadora y Selladora Lineal Automática: Configuración y Operación",
+        "application": "Demostración del cambio de formato de envase y el ajuste de los cabezales de sellado para una sincronización óptima de torque y velocidad."
+      },
+      {
+        "title": "Máquina Tapadora y Selladora Lineal Automática - Demostración",
+        "application": "Demonstration of container format changeover and adjustment of sealing heads for optimal torque and speed synchronization."
+      }
+    ]
+  },
   "individualMachinePage": {
     "industrialEquiment": "Equipo Industrial",
     "whatItDoes": "Descripción",
@@ -359,6 +393,22 @@
             "2": "Integrable con líneas automáticas de tapado y etiquetado",
             "3": "Diseñada para facilitar la limpieza y el mantenimiento",
             "4": "Rendimiento de llenado constante y a alta velocidad"
+          }
+        }
+      }
+    },
+    "sealing-packaging": {
+      "categoryName": "Sistemas de Sellado y Empaquetado",
+      "categoryDescription": "Soluciones de precisión diseñadas para asegurar la integridad y la seguridad del producto, garantizando la conformidad del sellado en todos sus envases.",
+      "machines": {
+        "automatic-capping-sealing-machine": {
+          "name": "Máquina Tapadora y Selladora Lineal Automática",
+          "description": "Equipo de alta velocidad diseñado para la aplicación y sellado hermético de tapas roscadas o a presión en una amplia gama de envases.",
+          "features": {
+            "1": "Sistema automático de alimentación y orientación de tapas (Cap Feeder)",
+            "2": "Manejo de múltiples tamaños y formas de botellas sin requerir cambio de piezas (Quick Changeover)",
+            "3": "Mecanismo de torque de precisión para un sellado consistente y sin daños a la tapa",
+            "4": "Construcción robusta con materiales diseñados para la durabilidad y el cumplimiento de estándares industriales"
           }
         }
       }

@@ -264,7 +264,7 @@ export function IndividualMachinePage({
             {/* Primary Use */}
             <div>
               <h2 className="text-3xl md:text-4xl text-white mb-6">
-                {t('whatItDoes')}
+                {t("whatItDoes")}
               </h2>
               <p className="text-gray-300 text-lg leading-relaxed mb-8">
                 {primaryUse}
@@ -292,9 +292,7 @@ export function IndividualMachinePage({
               <h2 className="text-3xl md:text-4xl text-white mb-4">
                 {t("realInstallations")}
               </h2>
-              <p className="text-gray-400 text-lg">
-                 {t("description")}
-              </p>
+              <p className="text-gray-400 text-lg">{t("description")}</p>
             </div>
 
             {/* 🎯 1 o 2 videos → centrados */}
@@ -308,7 +306,9 @@ export function IndividualMachinePage({
                   >
                     <div className="relative aspect-video bg-gray-950 overflow-hidden">
                       <Image
-                        src={video.thumbnail || getYoutubeThumbnail(video.videoUrl)}
+                        src={
+                          video.thumbnail || getYoutubeThumbnail(video.videoUrl)
+                        }
                         alt={video.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         fill

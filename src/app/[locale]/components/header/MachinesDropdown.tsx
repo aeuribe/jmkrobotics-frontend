@@ -37,6 +37,14 @@ const MACHINE_CATEGORIES: MachineCategory[] = [
       { id: "automatic-vial-labeling-machine", nameKey: "automaticVialLabelingMachine.name" },
     ],
   },
+  {
+    id: "sealing-packaging",
+    nameKey: "sealingPackaging",
+    machines: [
+      { id: "automatic-capping-sealing-machine", nameKey: "automaticCappingMachine.name" },
+    ],
+  },
+  
   // {
   //   id: "sealing-packaging",
   //   nameKey: "sealingPackaging",

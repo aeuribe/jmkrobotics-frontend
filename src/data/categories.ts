@@ -92,3 +92,31 @@ export const createLabelingIdentificationCategory = (
     onMachineSelect,
   };
 };
+
+export const createSealingPackagingCategory = (
+  t: { (key: string): string; raw: (key: string) => unknown },
+  onMachineSelect: (machine: string) => void
+): Category => {
+  // ✅ Aseguramos que siempre sean arrays
+  const cappingSealingFeatures = Array.isArray(
+    t.raw("categorySection.sealing-packaging.machines.automatic-capping-sealing-machine.features")
+  )
+    ? (t.raw("categorySection.sealing-packaging.machines.automatic-capping-sealing-machine.features") as string[])
+    : [];
+
+  return {
+    categoryName: t("categorySection.sealing-packaging.categoryName"),
+    categoryDescription: t("categorySection.sealing-packaging.categoryDescription"),
+    machines: [
+      {
+        id: "automatic-capping-sealing-machine",
+        name: t("categorySection.sealing-packaging.machines.automatic-capping-sealing-machine.name"),
+        description: t("categorySection.sealing-packaging.machines.automatic-capping-sealing-machine.description"),
+        features: cappingSealingFeatures,
+        image: "/linear_capping_sealing_machine.png",
+        link: "/machines/sealing-packaging/automatic-capping-sealing-machine",
+      },
+    ],
+    onMachineSelect,
+  };
+};

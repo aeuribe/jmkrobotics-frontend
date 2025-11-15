@@ -6,6 +6,7 @@ import { CategoryPage } from "../../components/CategoryPage";
 import {
   createFillingDosingCategory,
   createLabelingIdentificationCategory,
+  createSealingPackagingCategory
   // palletizingCategory,
   // codingMarkingCategory,
   // cleaningSanitationCategory,
@@ -40,6 +41,8 @@ function getCategoryData(category: string, t: ReturnType<typeof useTranslations>
       return createFillingDosingCategory(t, noOp);
     case "labeling-identification":
       return createLabelingIdentificationCategory(t, noOp);
+    case "sealing-packaging":
+      return createSealingPackagingCategory(t, noOp);
     default:
       return null;
   }

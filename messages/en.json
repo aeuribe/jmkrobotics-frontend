@@ -63,7 +63,8 @@
     "wrapping": "Wrapping Machine",
     "automaticWeighFiller": "Automatic Weight Filler",
     "vialLiquidFiller": "Vial Liquid Filler",
-    "automativVialLabelingMachine": "Automatic Vial Labeling Machine"
+    "automativVialLabelingMachine": "Automatic Vial Labeling Machine",
+    "cappingSealingMachine": "Automatic Capping Sealing Machine"
   },
   "metadata": {
     "title": "JMK Robotics - Industrial Solutions",
@@ -169,6 +170,10 @@
       "name": "Automatic Vial Labeling Machine",
       "description": ""
     },
+    "automaticCappingMachine": {
+      "name": "Automatic Capping Sealing Machine",
+      "description": ""
+    },
     "beltConveyorSystems": {
       "name": "Belt Conveyor Systems",
       "description": "Modular belt conveyor systems for product transport"
@@ -240,7 +245,7 @@
   "categories": {
     "fillingDosing": "Filling & Dosing Systems",
     "sealingPackaging": "Sealing & Packaging Systems",
-    "labelingIdentification": "Labeling & Identification",
+    "labelingIdentification": "Labeling & Identification Systems",
     "conveyorHandling": "Conveyor & Material Handling",
     "qualityInspection": "Quality Control & Inspection",
     "palletizing": "Palletizing & Depalletizing",
@@ -325,33 +330,63 @@
   },
 
   "automatic-vial-labeling-machine": {
-  "machineName": "Automatic Vial Labeling Machine",
-  "description": "High-precision automated system designed for applying wrap-around labels to vials and small cylindrical containers.",
-  "primaryUse": "Engineered to automate the labeling process with exceptional accuracy and speed.",
-  "idealFor": [
-    "Pharmaceutical and biotech production lines (cGMP environments)",
-    "Nutraceutical and vitamin packaging",
-    "Cosmetic and essential oil bottling",
-    "Laboratory and chemical sampling operations"
-  ],
-  "commonApplications": [
-    "Labeling of injectable vials and ampoules",
-    "Serialization and coding",
-    "Wrap-around labeling",
-    "Batch number and expiry date printing",
-    "Tamper-evident sealing"
-  ],
-  "installationVideos": [
-    {
-      "title": "Automatic Vial Labeling Machine Setup",
-      "application": "Label loading and sensor calibration demonstration."
-    },
-    {
-      "title": "Vial Labeling Machine Integrated Line",
-      "application": "High-speed performance within full filling + capping line."
-    }
-  ]
-},
+    "machineName": "Automatic Vial Labeling Machine",
+    "description": "High-precision automated system designed for applying wrap-around labels to vials and small cylindrical containers.",
+    "primaryUse": "Engineered to automate the labeling process with exceptional accuracy and speed.",
+    "idealFor": [
+      "Pharmaceutical and biotech production lines (cGMP environments)",
+      "Nutraceutical and vitamin packaging",
+      "Cosmetic and essential oil bottling",
+      "Laboratory and chemical sampling operations"
+    ],
+    "commonApplications": [
+      "Labeling of injectable vials and ampoules",
+      "Serialization and coding",
+      "Wrap-around labeling",
+      "Batch number and expiry date printing",
+      "Tamper-evident sealing"
+    ],
+    "installationVideos": [
+      {
+        "title": "Automatic Vial Labeling Machine Setup",
+        "application": "Label loading and sensor calibration demonstration."
+      },
+      {
+        "title": "Vial Labeling Machine Integrated Line",
+        "application": "High-speed performance within full filling + capping line."
+      }
+    ]
+  },
+
+  "automatic-capping-sealing-machine": {
+    "machineName": "Automatic Linear Capping and Sealing Machine",
+    "description": "High-speed equipment designed for the automatic application and hermetic sealing of screw caps or snap-on caps on a wide range of containers.",
+    "primaryUse": "Engineered for high-throughput packaging lines, its primary use is to securely and consistently affix various cap types (e.g., screw, ROPP, snap-on) to bottles, ensuring product integrity, preventing leakage, and providing a reliable tamper-evident seal.",
+    "idealFor": [
+      "High-volume Food and Beverage production lines",
+      "Cosmetic and Personal Care product manufacturing",
+      "Pharmaceutical and Nutraceutical packaging",
+      "Chemical and Industrial liquid bottling"
+    ],
+    "commonApplications": [
+      "Applying continuous thread (screw) caps with precise torque control",
+      "Sealing containers with Roll-On Pilfer Proof (ROPP) caps",
+      "Tightering and securing trigger sprayers and pump dispensers",
+      "Capping jars and wide-mouth containers for bulk products",
+      "Seamless integration with upstream filling and downstream labeling systems"
+    ],
+    "installationVideos": [
+      {
+        "title": "Automatic Linear Capping and Sealing Machine",
+        "application": "Demonstration of container format changeover and adjustment of sealing heads for optimal torque and speed synchronization."
+      },
+      {
+        "title": "Automatic Linear Capping and Sealing Machine Demonstration",
+        "application": "Demonstration of container format changeover and adjustment of sealing heads for optimal torque and speed synchronization."
+      }
+    ]
+  },
+
   "categorySection": {
     "filling-dosing": {
       "categoryName": "Filling & Dosing Systems",
@@ -401,6 +436,22 @@
             "2": "Compatible with automatic capping and labeling lines",
             "3": "Designed for easy cleaning and maintenance",
             "4": "Delivers consistent, high-speed filling performance"
+          }
+        }
+      }
+    },
+    "sealing-packaging": {
+      "categoryName": "Sealing & Packaging Systems",
+      "categoryDescription": "Precision solutions designed to secure product integrity and safety, ensuring seal conformity across all your containers.",
+      "machines": {
+        "automatic-capping-sealing-machine": {
+          "name": "Automatic Linear Capping and Sealing Machine",
+          "description": "High-speed equipment designed for the automatic application and hermetic sealing of screw caps or snap-on caps on a wide range of containers.",
+          "features": {
+            "1": "Automatic cap feeding and sorting system (Cap Feeder)",
+            "2": "Handles multiple bottle sizes and shapes without the need for parts changes (Quick Changeover)",
+            "3": "Precision torque mechanism for consistent sealing without damaging the cap",
+            "4": "Robust machine construction with materials designed for durability and compliance with industry standards"
           }
         }
       }

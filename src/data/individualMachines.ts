@@ -93,4 +93,41 @@ export const machinesData: MachinesDataRecord = {
       },
     ],
   },
+  "automatic-capping-sealing-machine": {
+    machineName: "Automatic Linear Capping and Sealing Machine",
+    machineImage: "/linear_capping_sealing_machine_2.png",
+    description:
+      "High-speed equipment designed for the automatic application and hermetic sealing of screw caps or snap-on caps on a wide range of containers.",
+    primaryUse:
+      "Engineered to automate the final packaging stage by securely and consistently affixing various cap types (e.g., screw, ROPP, snap-on) to bottles, ensuring product integrity, preventing leakage, and providing a consistent tamper-evident seal, critical for market compliance and product safety.",
+    idealFor: [
+      "High-volume Food and Beverage production lines",
+      "Cosmetic and Personal Care product manufacturing",
+      "Chemical and Household goods packaging facilities",
+      "Nutraceutical and Dietary Supplement bottling operations",
+    ],
+    commonApplications: [
+      "Applying continuous thread (screw) caps with precise torque control",
+      "Sealing with Roll-On Pilfer Proof (ROPP) caps",
+      "Securing trigger sprayers and pump dispensers",
+      "Integration with upstream filling and downstream labeling systems",
+      "Capping wide-mouth containers for jars and bulk products",
+    ],
+    installationVideos: [
+      {
+        title: "Automatic Linear Capping Sealing Machine",
+        application:
+          "Demonstration of label loading and sensor calibration for optimal placement.",
+        thumbnail: "", // USER: Insertar link a la miniatura
+        videoUrl: "https://youtu.be/Z6mEpDMr9Wk", // USER: Insertar link al video
+      },
+            {
+        title: "Automatic Linear Capping Sealing Machine",
+        application:
+          "Demonstration of label loading and sensor calibration for optimal placement.",
+        thumbnail: "", // USER: Insertar link a la miniatura
+        videoUrl: "https://youtu.be/r7JkrfBkp4I", // USER: Insertar link al video
+      },
+    ],
+  },
 };
