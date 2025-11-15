@@ -153,6 +153,10 @@
       "name": "Máquina de Llenado de Polvos",
       "description": "Llenado de polvo sin polvo con control de dosificación preciso"
     },
+    "automaticVialLabelingMachine": {
+      "name": "Máquina Automática de Etiquetado de Viales",
+      "description": ""
+    },
     "caseSealer": {
       "name": "Selladora de Cajas",
       "description": "Sellado automático superior e inferior de cajas de cartón corrugado"
