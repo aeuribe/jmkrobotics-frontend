@@ -83,7 +83,7 @@ export const createLabelingIdentificationCategory = (
       {
         id: "automatic-vial-labeling-machine",
         name: t("categorySection.labeling-identification.machines.automatic-vial-labeling-machine.name"),
-        description: t("categorySection.labeling-identification.machines.automatic-al-labeling-machine.description"),
+        description: t("categorySection.labeling-identification.machines.automatic-vial-labeling-machine.description"),
         features: vialLabelingFeatures,
         image: "/automatic_vial_labeling_machine.png",
         link: "/machines/labeling-identification/automatic-vial-labeling-machine",
