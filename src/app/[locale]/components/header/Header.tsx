@@ -1,9 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Search, Globe, Mail, Menu, X, Check } from "lucide-react";
+import { Globe, Mail, Menu, X, Check } from "lucide-react";
 import { Link, useRouter, usePathname } from "@/i18n/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { MachinesDropdown } from "./MachinesDropdown";
+import { HeaderSearch } from "./HeaderSearch";
 
 interface Language {
   code: string;
@@ -68,9 +69,11 @@ export function Header() {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-3 lg:gap-4 flex-shrink-0">
-            <button className="text-white hover:text-[#ff002f] transition-colors" aria-label="Search" title="Search">
+            {/* <button className="text-white hover:text-[#ff002f] transition-colors" aria-label="Search" title="Search">
               <Search size={20} />
-            </button>
+            </button> */}
+
+            <HeaderSearch />
 
             <button
               onClick={openLanguageModal}
@@ -109,7 +112,7 @@ export function Header() {
               </div>
               <div className="flex flex-col gap-4 pt-4 border-t border-gray-700">
                 <div className="flex items-center gap-4">
-                  <button className="text-white hover:text-[#ff002f] transition-colors p-2" aria-label="Search" title="Search"><Search size={20} /></button>
+                  <HeaderSearch />
                   <button onClick={openLanguageModal} className="text-white hover:text-[#ff002f] transition-colors p-2" aria-label="Change language" title="Change language"><Globe size={20} /></button>
                 </div>
                 <Link href="/contact" className="flex items-center justify-center gap-2 bg-[#ff002f] text-[#020C18] text-[14px] rounded-md px-4 py-3 font-medium hover:bg-[#c91534] transition-colors w-full">

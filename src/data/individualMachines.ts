@@ -56,6 +56,46 @@ export const machinesData: MachinesDataRecord = {
       },
     ],
   },
+
+  "liquid-filling-machine": {
+    machineName: "Vial Liquid Filler",
+    machineImage: "/vial_liquid_filler_2.png",
+    description:
+      "Advanced vial filling machine designed for precise, hygienic, and efficient liquid dispensing across multiple industries.",
+    primaryUse:
+      "Engineered to automate the liquid filling process with exceptional accuracy and control. The Vial Liquid Filler handles everything from thin solutions to viscous fluids, ensuring consistent results and eliminating product waste. Its modular design allows seamless adaptation to different vial sizes and production needs.",
+    idealFor: [
+      "Pharmaceutical and biotech production lines",
+      "Cosmetic and personal care manufacturing",
+      "Food and beverage filling operations",
+      "Chemical and laboratory applications",
+    ],
+    commonApplications: [
+      "Injectable liquids",
+      "Essential oils",
+      "Serums and lotions",
+      "Nutritional supplements",
+      "Chemical reagents",
+      "Laboratory samples",
+    ],
+    installationVideos: [
+      {
+        title: "Automatic Vial Filling Machine",
+        application:
+          "Precision filling for pharmaceutical, cosmetic, and laboratory industries.",
+        thumbnail: "/thumbnails/vial_liquid_filler_thumbnail.png",
+        videoUrl: "/videos/vial_liquid_filler.mp4",
+      },
+      {
+        title: "Automatic Vial Filling Line Integration",
+        application:
+          "Integrated vial filling and capping line showcasing seamless automation and precision performance.",
+        thumbnail: "/thumbnails/line_vial_liquid_filler_thumbnail.png",
+        videoUrl: "/videos/line_vial_filler.mp4",
+      },
+    ],
+  },
+
   "automatic-vial-labeling-machine": {
     machineName: "Automatic Vial Labeling Machine",
     machineImage: "/automatic_vial_labeling_machine_2.png",
@@ -121,7 +161,7 @@ export const machinesData: MachinesDataRecord = {
         thumbnail: "", // USER: Insertar link a la miniatura
         videoUrl: "https://youtu.be/Z6mEpDMr9Wk", // USER: Insertar link al video
       },
-            {
+      {
         title: "Automatic Linear Capping Sealing Machine",
         application:
           "Demonstration of label loading and sensor calibration for optimal placement.",
