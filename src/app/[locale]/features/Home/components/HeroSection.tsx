@@ -1,28 +1,55 @@
+"use client"
+
 import React from "react";
+import {useEffect, useState} from "react";
 import HeroSlider from "@/app/[locale]/features/Home/components/HeroSlider";
 import ButtonExplore from "./ButtonExplore";
 import { useTranslations } from "next-intl";
 
 const HeroSection = () => {
   const t = useTranslations("hero");
+  const [showVideo, setShowVideo] = useState(false);
+
+useEffect(() => {
+  let idleId: number | null = null;
+  let timeoutId: number | null = null;
+
+  if ("requestIdleCallback" in window) {
+    idleId = (window as any).requestIdleCallback(() => setShowVideo(true));
+  } else {
+    timeoutId = (window as any).setTimeout(() => setShowVideo(true), 1200);
+  }
+
+  return () => {
+    if (idleId !== null && "cancelIdleCallback" in window) {
+      (window as any).cancelIdleCallback(idleId);
+    }
+    if (timeoutId !== null) {
+      clearTimeout(timeoutId);
+    }
+  };
+}, []);
+  
   return (
     <div className="h-screen">
       <section className="relative w-full h-[calc(100vh-6rem)] overflow-hidden">
         {/* Video de fondo alineado a la derecha con mejoras móvil */}
-        <video
+        {showVideo && (        
+          <video
           // @ts-expect-error fetchpriority is not in React types but is valid in HTML
           fetchPriority="high"
           src="/video-hero.webm"
           poster="/hero-portrait.webp" // <-- aquí agregas la portada
           autoPlay
           loop
-          muted
+          muted 
           playsInline
           className="absolute right-0 top-0 w-full sm:w-[85%] md:w-[80%] lg:w-[75%] xl:w-[70%] 
             min-h-full object-cover z-0
             object-center sm:object-center
             scale-105 sm:scale-100"
-        />
+        />)}
+
 
         {/* Overlay mejorado para contraste y legibilidad */}
         <div
