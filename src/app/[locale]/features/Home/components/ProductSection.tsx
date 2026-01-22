@@ -17,25 +17,25 @@ const ProductSection = () => {
     {
       title: t("automaticWeighFiller"),
       icon: "/bottle_icon.png",
-      image: "/automatic_weight_filler_2.png",
+      image: "/automatic_weight_filler_2.webp",
       link: "/machines/filling-dosing/automatic-weight-filler",
     },
     {
       title: t("vialLiquidFiller"),
       icon: "/bottle_icon.png",
-      image: "/vial_liquid_filler_2.png",
+      image: "/vial_liquid_filler_2.webp",
       link: "/machines/filling-dosing/liquid-filling-machine",
     },
     {
       title: t("automativVialLabelingMachine"),
       icon: "/bottle_icon.png",
-      image: "/automatic_vial_labeling_machine_2.png",
+      image: "/automatic_vial_labeling_machine_2.webp",
       link: "/machines/labeling-identification/automatic-vial-labeling-machine",
     },
     {
       title: t("cappingSealingMachine"),
       icon: "/bottle_icon.png",
-      image: "/linear_capping_sealing_machine_2.png",
+      image: "/linear_capping_sealing_machine_2.webp",
       link: "/machines/sealing-packaging/automatic-capping-sealing-machine",
     },
   ];
