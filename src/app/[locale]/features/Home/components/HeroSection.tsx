@@ -15,14 +15,14 @@ useEffect(() => {
   let timeoutId: number | null = null;
 
   if ("requestIdleCallback" in window) {
-    idleId = (window as any).requestIdleCallback(() => setShowVideo(true));
+    idleId = (window as Window).requestIdleCallback(() => setShowVideo(true));
   } else {
-    timeoutId = (window as any).setTimeout(() => setShowVideo(true), 1200);
+    timeoutId = (window as Window).setTimeout(() => setShowVideo(true), 1200);
   }
 
   return () => {
     if (idleId !== null && "cancelIdleCallback" in window) {
-      (window as any).cancelIdleCallback(idleId);
+      (window as Window).cancelIdleCallback(idleId);
     }
     if (timeoutId !== null) {
       clearTimeout(timeoutId);
