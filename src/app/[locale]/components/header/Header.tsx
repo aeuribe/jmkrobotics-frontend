@@ -39,9 +39,18 @@ export function Header() {
 
   const handleLanguageSelect = (languageCode: string) => {
     setIsLanguageModalOpen(false);
-    router.push(pathname, { locale: languageCode.toLowerCase() });
-    // no necesitas setSelectedLanguage aquí, useEffect lo actualizará automáticamente
+
+    const lower = languageCode.toLowerCase();
+
+    // misma ruta, nuevo locale, pero con navegación nativa
+    const newUrl = `/${lower}${pathname === "/" ? "" : pathname}`;
+
+    if (typeof window !== "undefined") {
+      window.location.href = newUrl; // fuerza recarga completa del documento
+    }
   };
+
+
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>): void => {
     if (e.target === e.currentTarget) closeLanguageModal();

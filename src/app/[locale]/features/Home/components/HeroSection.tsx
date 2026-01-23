@@ -134,32 +134,7 @@ useEffect(() => {
           </div>
         </div>
 
-        {/* Recuadro del HeroSlider - Posicionamiento Natural */}
-        <div
-          className="
-            absolute z-30 bg-white shadow-lg rounded-xl
-            bottom-6
 
-            /* Mobile (<640px): centrado */
-            left-1/2 -translate-x-1/2
-            w-[260px] h-[70px]
-
-            /* >=640px: derecha */
-            sm:left-auto sm:right-6 sm:translate-x-0
-            sm:w-[320px] sm:h-[90px]
-
-            /* >=1024px */
-            lg:w-[420px] lg:h-[130px]
-
-            /* >=1280px */
-            xl:w-[480px] xl:h-[150px]
-
-            /* >=1536px */
-            2xl:w-[520px] 2xl:h-[170px]
-          "
-        >
-          <HeroSlider />
-        </div>
       </section>
     </div>
   );
