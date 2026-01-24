@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Globe, Mail, Menu, X, Check } from "lucide-react";
-import { Link, useRouter, usePathname } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { MachinesDropdown } from "./MachinesDropdown";
 import { HeaderSearch } from "./HeaderSearch";
@@ -17,7 +17,6 @@ export function Header() {
   const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
 
   const t = useTranslations("header");
-  const router = useRouter();
   const pathname = usePathname();
   const locale = useLocale(); // <-- idioma real de next-intl
 

@@ -2,7 +2,6 @@
 
 import React from "react";
 import {useEffect, useState} from "react";
-import HeroSlider from "@/app/[locale]/features/Home/components/HeroSlider";
 import ButtonExplore from "./ButtonExplore";
 import { useTranslations } from "next-intl";
 
