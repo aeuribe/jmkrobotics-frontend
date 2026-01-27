@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 import PipedriveChat from "./components/pipedrive/PipedriveChat";
+import { Analytics } from "@vercel/analytics/next";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -70,6 +71,7 @@ export default async function LocaleLayout({
           {children}
           <PipedriveChat key={locale} />
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );
