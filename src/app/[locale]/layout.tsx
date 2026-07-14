@@ -8,6 +8,7 @@ import { routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 import PipedriveChat from "./components/pipedrive/PipedriveChat";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import Script from "next/script";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -73,6 +74,7 @@ export default async function LocaleLayout({
           <PipedriveChat key={locale} />
         </NextIntlClientProvider>
         <Analytics />
+        <SpeedInsights />
         <Script
           src="https://integration.financepartners.com/ascstart.js?acv=bffc42a4-96b0-47a1-a0a4-c3495d0c5da3"
           id="acapital"
