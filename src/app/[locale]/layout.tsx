@@ -6,10 +6,10 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
-import PipedriveChat from "./components/pipedrive/PipedriveChat";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+
+
 import Script from "next/script";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -56,31 +56,24 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>; // 👈 Tipo corregido
+  params: Promise<{ locale: string }>; // 
 }) {
-  const { locale } = await params; // ✅ await necesario
+  const { locale } = await params; // 
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${satoshi.variable} ${plusJakartaSans.variable} antialiased`}
       >
         <NextIntlClientProvider locale={locale}>
           {children}
-          <PipedriveChat key={locale} />
         </NextIntlClientProvider>
-        <Analytics />
-        <SpeedInsights />
-        <Script
-          src="https://integration.financepartners.com/ascstart.js?acv=bffc42a4-96b0-47a1-a0a4-c3495d0c5da3"
-          id="acapital"
-          strategy="lazyOnload"
-        />
       </body>
+      <GoogleAnalytics gaId="G-BYCEDB4F99" />
     </html>
   );
 }
