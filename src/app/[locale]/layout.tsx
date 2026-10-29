@@ -72,6 +72,13 @@ export default async function LocaleLayout({
         <NextIntlClientProvider locale={locale}>
           {children}
         </NextIntlClientProvider>
+
+        <Script
+          src="https://analytics.servicesjmk.com/script.js"
+          data-website-id="b1ebe2cd-57c9-4e85-b145-066294c2a8ae"
+          data-domains="jmkrobotics.com,www.jmkrobotics.com"
+          strategy="afterInteractive"
+        />
       </body>
       <GoogleAnalytics gaId="G-BYCEDB4F99" />
     </html>
