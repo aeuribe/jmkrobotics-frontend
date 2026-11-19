@@ -1,95 +1,220 @@
 @import "tailwindcss";
 
+/* =========================================================
+   FONT THEME TOKENS
+   ========================================================= */
 @theme inline {
   --font-main: var(--font-satoshi);
-}
-
-@theme inline {
   --font-jakarta: var(--font-plus-jakarta-sans);
 }
 
 /* =========================================================
-   🎨 COLORES Y VARIABLES GLOBALES (modo claro y oscuro)
+   DESIGN SYSTEM — JMK Precision Lab (Fresh Architectural)
+   Palette extracted directly from JMKRobotics.png logo:
+   - Maritime Navy (#0B2D5B / #071A36) — primary brand ink
+   - Carmine Red   (#B81D2B / #D42232) — surgical T-bar accent
+   - Porcelain     (#F8FAFC / #FFFFFF) — crisp studio canvas
+   - Brushed Steel (#F1F5F9 / #DDE4EE) — hardware surfaces
    ========================================================= */
 :root {
-  /* Fondos y capas */
-  --bg-dark: #020c18;
-  --frame-overlay-dark: rgba(2, 12, 24, 0.95);
-  --frame-overlay-mid: rgba(2, 12, 24, 0.7);
-  --frame-overlay-end: rgba(2, 12, 24, 0.9);
+  /* --- Light Architectural Surfaces --- */
+  --canvas-base:       #F8FAFC;
+  --canvas-white:      #FFFFFF;
+  --surface-studio:    #F1F5F9;
+  --surface-mist:      #E8EEF5;
 
-  /* Colores principales */
-  --accent-main: #ff002f;
-  --accent-soft: #ff6b6b;
-  --accent-light: rgba(228, 23, 60, 0.15);
-  --accent-mid: rgba(228, 23, 60, 0.3);
-  --accent-blue: rgba(68, 123, 181, 0.2);
+  /* --- Brand Identity (Logo-Derived) --- */
+  --brand-navy:        #0B2D5B;
+  --brand-navy-hover:  #0F3B75;
+  --brand-navy-deep:   #071A36;
+  --brand-ink:         #09182E;
 
-  /* Textos y bordes */
-  --text-hover: #ffffff;
-  --text-muted: #6e7784;
-  --border-color: #2e3c51;
+  --brand-carmine:       #B81D2B;
+  --brand-carmine-hover: #D42232;
+  --brand-carmine-soft:  rgba(184, 29, 43, 0.08);
+  --brand-carmine-glow:  rgba(184, 29, 43, 0.22);
 
-  /* Botones y sombras */
-  --button-bg: rgba(2, 12, 24, 0.8);
-  --accent-shadow: rgba(228, 23, 60, 0.3);
+  /* --- Typography --- */
+  --text-primary:      #09182E;
+  --text-secondary:    #475569;
+  --text-muted:        #64748B;
+  --text-on-dark:      #F8FAFC;
 
-  /* Tipografía global */
-  --font-primary: var(--font-main);
-  --font-secondary: var(--font-jakarta);
+  /* --- Borders --- */
+  --border-hairline:   rgba(11, 45, 91, 0.09);
+  --border-strong:     rgba(11, 45, 91, 0.16);
+  --border-dark-line:  rgba(255, 255, 255, 0.09);
+
+  /* --- Semantic --- */
+  --status-live:       #059669;
+  --spec-highlight:    #0B2D5B;
+
+  /* --- Shadows (Crisp Studio Depth) --- */
+  --shadow-studio:       0 1px 2px rgba(9, 24, 46, 0.04), 0 10px 30px -12px rgba(9, 24, 46, 0.08);
+  --shadow-studio-hover: 0 4px 12px rgba(9, 24, 46, 0.06), 0 22px 44px -16px rgba(11, 45, 91, 0.16);
+  --shadow-navy-btn:     0 8px 20px -6px rgba(11, 45, 91, 0.38);
+  --shadow-carmine-btn:  0 8px 22px -6px rgba(184, 29, 43, 0.42);
+
+  /* --- Motion Tokens --- */
+  --ease-precision:    cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-fast:   160ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* --- Backward-compat aliases for legacy pages --- */
+  --bg-base:           #050810;
+  --bg-surface-1:      #090E1A;
+  --bg-surface-2:      #0D1424;
+  --bg-surface-3:      #111827;
+  --accent:            #B81D2B;
+  --accent-hover:      #D42232;
+  --accent-main:       #B81D2B;
+  --accent-soft:       #D42232;
+  --accent-light:      rgba(184, 29, 43, 0.14);
+  --accent-mid:        rgba(184, 29, 43, 0.28);
+  --accent-shadow:     rgba(184, 29, 43, 0.30);
+  --border-base:       rgba(11, 45, 91, 0.09);
+  --border-color:      rgba(11, 45, 91, 0.09);
+  --bg-dark:           #071A36;
+  --font-primary:      var(--font-main);
+  --font-secondary:    var(--font-jakarta);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--canvas-base);
+  color: var(--text-primary);
+}
+
+body {
+  font-family: var(--font-main), var(--font-jakarta), system-ui, -apple-system, sans-serif;
+  background-color: var(--canvas-base);
+  color: var(--text-primary);
+  overflow-x: hidden;
 }
 
 /* =========================================================
-   🌙 MODO OSCURO AUTOMÁTICO
+   ARCHITECTURAL TEXTURES
    ========================================================= */
-[data-theme="dark"], .dark {
-  --bg-dark: #000610;
-  --frame-overlay-dark: rgba(0, 0, 0, 0.95);
-  --frame-overlay-mid: rgba(10, 10, 10, 0.7);
-  --frame-overlay-end: rgba(0, 0, 0, 0.9);
 
-  --accent-main: #ff0044;
-  --accent-soft: #ff7b7b;
-  --accent-light: rgba(255, 60, 90, 0.2);
-  --accent-mid: rgba(255, 60, 90, 0.35);
-  --accent-blue: rgba(110, 160, 220, 0.25);
+/* Light precision engineering dot matrix */
+.precision-dots {
+  background-image: radial-gradient(rgba(11, 45, 91, 0.13) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
 
-  --text-hover: #f8f9fa;
-  --text-muted: #8a94a6;
-  --border-color: #3a4a5e;
+/* Light Swiss technical blueprint hairlines */
+.blueprint-light {
+  background-image:
+    linear-gradient(to right, rgba(11, 45, 91, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 45, 91, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
 
-  --button-bg: rgba(5, 10, 18, 0.85);
-  --accent-shadow: rgba(255, 0, 47, 0.35);
+/* Dark maritime navy technical grid (for Video Theatre) */
+.blueprint-navy {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
 /* =========================================================
-   🌈 EFECTO DE PULSO Y UTILIDADES ANIMADAS
+   TYPOGRAPHY HELPERS
    ========================================================= */
-@layer utilities {
-  @keyframes pulse {
-    0%, 100% {
-      opacity: 0.6;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 1;
-      transform: scale(1.4);
-    }
-  }
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
 
-  @keyframes fadeInSlide {
-    0% { opacity: 0; transform: translateX(-20px); }
-    100% { opacity: 1; transform: translateX(0); }
+/* =========================================================
+   INFINITE MARQUEE ANIMATION
+   ========================================================= */
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
   }
-  .animate-fadeInSlide {
-    animation: fadeInSlide 0.8s ease-out forwards;
+  100% {
+    transform: translate3d(-50%, 0, 0);
   }
+}
 
-  @keyframes fadeInSlideUp {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 34s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
   }
-  .animate-fadeInSlideUp {
-    animation: fadeInSlideUp 0.8s ease-out forwards;
-  }
+}
+
+/* =========================================================
+   CUSTOM RANGE SLIDER (Line Simulator)
+   ========================================================= */
+.jmk-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 9999px;
+  background: #DDE4EE;
+  outline: none;
+}
+
+.jmk-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: var(--brand-carmine);
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 2px 10px rgba(184, 29, 43, 0.45);
+  cursor: pointer;
+  transition: transform 150ms ease, background-color 150ms ease;
+}
+
+.jmk-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.12);
+  background: var(--brand-carmine-hover);
+}
+
+.jmk-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: var(--brand-carmine);
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 2px 10px rgba(184, 29, 43, 0.45);
+  cursor: pointer;
+}
+
+/* =========================================================
+   CUSTOM SCROLLBAR
+   ========================================================= */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94A3B8;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-navy);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #94A3B8 #F1F5F9;
 }
