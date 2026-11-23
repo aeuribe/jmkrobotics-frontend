@@ -139,16 +139,19 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true });
     }
 
-    const smtpHost = process.env.SMTP_HOST;
+    const smtpHost = process.env.SMTP_HOST || 'smtp.hostinger.com';
     const smtpPort = Number(process.env.SMTP_PORT || '587');
     const smtpSecure = process.env.SMTP_SECURE === 'true' || smtpPort === 465;
-    const smtpUser = process.env.SMTP_USER;
-    const smtpPass = process.env.SMTP_PASS;
+    const smtpUser = process.env.SMTP_USER || 'noreply@servicesjmk.com';
+    const smtpPass = process.env.SMTP_PASS || process.env.MAIL_PASS;
     const smtpFrom = process.env.SMTP_FROM || smtpUser;
-    const recipients = parseRecipients(process.env.CONTACT_RECIPIENTS);
+    const recipients = parseRecipients(
+      process.env.CONTACT_RECIPIENTS ||
+        'juribe@servicesjmk.com,kmendez@servicesjmk.com,aeuribe@servicesjmk.com',
+    );
 
     if (!smtpHost || !smtpUser || !smtpPass || recipients.length === 0) {
-      console.error('[api/contact] Missing SMTP configuration or CONTACT_RECIPIENTS.');
+      console.error('[api/contact] Missing SMTP password (SMTP_PASS / MAIL_PASS) or CONTACT_RECIPIENTS.');
       return NextResponse.json(
         { error: 'Email service is not configured on the server.' },
         { status: 503 },
