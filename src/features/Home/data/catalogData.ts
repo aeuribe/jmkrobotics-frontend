@@ -155,15 +155,15 @@ export const MACHINE_CATALOG: MachineCatalogItem[] = [
     image: '/thumbnails/line_vial_liquid_filler_thumbnail.png',
     isStudioCutout: false,
     videoUrl: '/videos/line_vial_filler.mp4',
-    link: '/solutions',
+    link: '/machines',
     specs: {
       speed: '40–70 BPM',
       accuracy: 'PLC Sync',
       material: 'GMP 316L',
     },
     highlights: {
-      en: ['Single central HMI line control', 'Compact monoblock footprint', 'Services JMK commissioning'],
-      es: ['Control central en una pantalla HMI', 'Huella compacta monoblock', 'Puesta en marcha Services JMK'],
+      en: ['Single central HMI line control', 'Compact monoblock footprint', 'On-site commissioning & training'],
+      es: ['Control central en una pantalla HMI', 'Huella compacta monoblock', 'Puesta en marcha y capacitación'],
     },
   },
 ];
@@ -244,11 +244,11 @@ export const LINE_STAGES: LineStageItem[] = [
       es: 'Configuradas a la escala de su planta',
     },
     highlights: {
-      en: ['Line balancing & layout planning', 'Pre-shipment testing with your containers', 'Installation & training by Services JMK LLC'],
-      es: ['Balanceo de línea y planificación de layout', 'Pruebas previas con sus envases reales', 'Instalación y capacitación con Services JMK LLC'],
+      en: ['Line balancing & layout planning', 'Pre-shipment testing with your containers', 'On-site installation & operator training'],
+      es: ['Balanceo de línea y planificación de layout', 'Pruebas previas con sus envases reales', 'Instalación en planta y capacitación'],
     },
     image: '/automatic_weight_filler_2.webp',
-    link: '/solutions',
+    link: '/machines',
   },
 ];
 

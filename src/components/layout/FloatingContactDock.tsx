@@ -116,12 +116,12 @@ export function FloatingContactDock() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.96 }}
             transition={{ duration: 0.22, ease: EASE }}
-            className="w-[calc(100vw-2.5rem)] max-w-[370px] overflow-hidden rounded-3xl border border-[#0B2D5B]/15 bg-white shadow-[0_28px_70px_-16px_rgba(7,26,54,0.34)]"
+            className="chamfer-card w-[calc(100vw-2.5rem)] max-w-[370px] overflow-hidden border border-[#0B2D5B]/15 bg-white shadow-[0_28px_70px_-16px_rgba(7,26,54,0.34)]"
           >
             {/* Header */}
             <div className="flex items-center justify-between bg-[#071A36] px-5 py-4 text-white">
               <div className="flex items-center gap-3">
-                <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white p-1.5 shadow-sm ring-2 ring-white/15">
+                <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-[2px] bg-white p-1.5 shadow-sm ring-2 ring-white/15">
                   <Image
                     src="/JMKRobotics.png"
                     alt="JMK Robotics"
@@ -130,7 +130,7 @@ export function FloatingContactDock() {
                     className="h-auto w-full object-contain"
                   />
                   <span
-                    className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-emerald-400 ring-2 ring-[#071A36]"
+                    className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-[2px] bg-emerald-400 ring-2 ring-[#071A36]"
                     aria-hidden="true"
                   />
                 </div>
@@ -147,7 +147,7 @@ export function FloatingContactDock() {
                 type="button"
                 onClick={() => setIsOpen(false)}
                 aria-label={isEs ? 'Cerrar chat' : 'Close chat'}
-                className="rounded-full p-1.5 text-slate-300 transition-colors hover:bg-white/10 hover:text-white"
+                className="rounded-[2px] p-1.5 text-slate-300 transition-colors hover:bg-white/10 hover:text-white"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -157,21 +157,21 @@ export function FloatingContactDock() {
             <div className="p-5">
               {status === 'success' ? (
                 <div className="py-6 text-center space-y-3">
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-[2px] bg-emerald-100 text-emerald-700">
                     <CheckCircle2 className="h-6 w-6" />
                   </div>
                   <h3 className="text-base font-bold text-[#09182E]">
                     {isEs ? '¡Mensaje enviado!' : 'Message sent!'}
                   </h3>
-                  <p className="text-xs leading-relaxed text-[#475569]">
+                  <p className="text-xs leading-relaxed text-[#475263]">
                     {isEs
-                      ? 'Nuestro equipo de Services JMK LLC te responderá a la brevedad.'
-                      : 'Our Services JMK LLC team will reply to you shortly.'}
+                      ? 'Nuestro equipo de JMK Robotics te responderá a la brevedad.'
+                      : 'Our JMK Robotics team will reply to you shortly.'}
                   </p>
                   <button
                     type="button"
                     onClick={resetChat}
-                    className="mt-1 rounded-full border border-[#0B2D5B]/20 px-4 py-1.5 text-xs font-semibold text-[#0B2D5B] hover:bg-[#0B2D5B] hover:text-white transition-colors"
+                    className="mt-1 rounded-[2px] border border-[#0B2D5B]/20 px-4 py-1.5 text-xs font-semibold text-[#0B2D5B] hover:bg-[#0B2D5B] hover:text-white transition-colors"
                   >
                     {isEs ? 'Enviar otro mensaje' : 'Send another message'}
                   </button>
@@ -185,7 +185,7 @@ export function FloatingContactDock() {
                         key={prompt}
                         type="button"
                         onClick={() => setFormData((prev) => ({ ...prev, message: prompt }))}
-                        className="rounded-full border border-[#0B2D5B]/12 bg-[#F8FAFC] px-2.5 py-1 text-[11px] font-medium text-[#334155] transition-colors hover:border-[#0B2D5B]/35 hover:text-[#0B2D5B]"
+                        className="rounded-[2px] border border-[#0B2D5B]/12 bg-[#F8FAFC] px-2.5 py-1 text-[11px] font-medium text-[#334155] transition-colors hover:border-[#0B2D5B]/35 hover:text-[#0B2D5B]"
                       >
                         {prompt}
                       </button>
@@ -199,7 +199,7 @@ export function FloatingContactDock() {
                     onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
                     placeholder={isEs ? 'Tu nombre *' : 'Your name *'}
                     aria-label={isEs ? 'Tu nombre' : 'Your name'}
-                    className="w-full rounded-xl border border-[#0B2D5B]/15 bg-[#F8FAFC] px-3.5 py-2.5 text-xs text-[#09182E] placeholder-[#94A3B8] focus:border-[#0B2D5B] focus:bg-white focus:outline-none"
+                    className="w-full rounded-[2px] border border-[#0B2D5B]/15 bg-[#F8FAFC] px-3.5 py-2.5 text-xs text-[#09182E] placeholder-[#94A3B8] focus:border-[#0B2D5B] focus:bg-white focus:outline-none"
                   />
 
                   <input
@@ -209,7 +209,7 @@ export function FloatingContactDock() {
                     onChange={(e) => setFormData((prev) => ({ ...prev, contact: e.target.value }))}
                     placeholder={isEs ? 'WhatsApp o correo electrónico *' : 'Phone / WhatsApp or email *'}
                     aria-label={isEs ? 'WhatsApp o correo electrónico' : 'Phone or email'}
-                    className="w-full rounded-xl border border-[#0B2D5B]/15 bg-[#F8FAFC] px-3.5 py-2.5 text-xs text-[#09182E] placeholder-[#94A3B8] focus:border-[#0B2D5B] focus:bg-white focus:outline-none"
+                    className="w-full rounded-[2px] border border-[#0B2D5B]/15 bg-[#F8FAFC] px-3.5 py-2.5 text-xs text-[#09182E] placeholder-[#94A3B8] focus:border-[#0B2D5B] focus:bg-white focus:outline-none"
                   />
 
                   <textarea
@@ -223,11 +223,11 @@ export function FloatingContactDock() {
                         : 'How can we help with your project? *'
                     }
                     aria-label={isEs ? 'Mensaje' : 'Message'}
-                    className="w-full resize-none rounded-xl border border-[#0B2D5B]/15 bg-[#F8FAFC] px-3.5 py-2.5 text-xs text-[#09182E] placeholder-[#94A3B8] focus:border-[#0B2D5B] focus:bg-white focus:outline-none"
+                    className="w-full resize-none rounded-[2px] border border-[#0B2D5B]/15 bg-[#F8FAFC] px-3.5 py-2.5 text-xs text-[#09182E] placeholder-[#94A3B8] focus:border-[#0B2D5B] focus:bg-white focus:outline-none"
                   />
 
                   {errorMsg && (
-                    <div className="flex items-center gap-1.5 rounded-lg bg-red-50 px-3 py-2 text-[11px] font-medium text-[#B81D2B]">
+                    <div className="flex items-center gap-1.5 rounded-[2px] bg-red-50 px-3 py-2 text-[11px] font-medium text-[#B81D2B]">
                       <AlertCircle className="h-3.5 w-3.5 shrink-0" />
                       <span>{errorMsg}</span>
                     </div>
@@ -236,7 +236,7 @@ export function FloatingContactDock() {
                   <button
                     type="submit"
                     disabled={status === 'submitting'}
-                    className="flex w-full items-center justify-center gap-2 rounded-full bg-[#0B2D5B] py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#B81D2B] disabled:opacity-60"
+                    className="flex w-full items-center justify-center gap-2 rounded-[2px] bg-[#0B2D5B] py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#B81D2B] disabled:opacity-60"
                   >
                     <Send className="h-3.5 w-3.5" />
                     <span>
@@ -272,15 +272,24 @@ export function FloatingContactDock() {
         )}
       </AnimatePresence>
 
-      {/* Unified Floating Dual-Action Capsule (Bottom-Right — Zero Left-Corner Clutter) */}
-      <div className="flex items-center gap-1.5 rounded-full border border-[#0B2D5B]/15 bg-white/95 p-1.5 shadow-[0_14px_38px_-10px_rgba(7,26,54,0.28)] backdrop-blur-md">
+      {/* Unified Floating Dual-Action Dock with CNC Chamfered Bevel */}
+      <div
+        className="flex items-center gap-1.5 border border-[#0F141E]/[0.12] bg-[#FAF9F6]/95 p-1.5 shadow-[0_14px_38px_-10px_rgba(14,19,29,0.28)] backdrop-blur-md"
+        style={{
+          clipPath:
+            'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)',
+        }}
+      >
         {/* 1-Click Direct WhatsApp */}
         <a
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={isEs ? 'Escribir por WhatsApp' : 'Chat on WhatsApp'}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366] text-white shadow-sm transition-transform hover:scale-105 hover:bg-[#1FB859]"
+          className="inline-flex h-11 w-11 items-center justify-center bg-[#25D366] text-white shadow-sm transition-transform hover:scale-105 hover:bg-[#1FB859]"
+          style={{
+            clipPath: 'polygon(8px 0, 100% 0, 100% 100%, 0 100%, 0 8px)',
+          }}
         >
           <WhatsAppIcon className="h-5 w-5" />
         </a>
@@ -292,10 +301,10 @@ export function FloatingContactDock() {
           aria-expanded={isOpen}
           aria-label={isEs ? 'Abrir chat rápido' : 'Open quick message'}
           className={cn(
-            'inline-flex h-11 items-center gap-2 rounded-full px-4 text-xs font-bold text-white transition-all',
+            'chamfer-btn inline-flex h-11 items-center gap-2 px-4 text-xs font-bold uppercase tracking-wider text-[#FAF9F6] transition-all',
             isOpen
-              ? 'bg-[#B81D2B] hover:bg-[#9E1422]'
-              : 'bg-[#0B2D5B] hover:bg-[#071A36]',
+              ? 'btn-satin-crimson'
+              : 'btn-satin-obsidian',
           )}
         >
           {isOpen ? (

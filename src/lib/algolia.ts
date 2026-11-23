@@ -34,9 +34,9 @@ export async function searchMachines(query: string): Promise<SearchResult[]> {
   // Check solutions
   if ('bottling line'.includes(lowerQuery) || 'vial'.includes(lowerQuery) || 'line'.includes(lowerQuery)) {
     results.push({
-      title: 'Automatic Vial Bottling Line',
+      title: 'Integrated Vial Bottling Line',
       type: 'solution',
-      url: '/solutions',
+      url: '/en/machines',
       description: 'Complete integrated packaging and bottling solution for industrial vials.',
     });
   }

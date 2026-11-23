@@ -9,125 +9,250 @@
 }
 
 /* =========================================================
-   DESIGN SYSTEM — JMK Precision Lab (Fresh Architectural)
-   Palette extracted directly from JMKRobotics.png logo:
-   - Maritime Navy (#0B2D5B / #071A36) — primary brand ink
-   - Carmine Red   (#B81D2B / #D42232) — surgical T-bar accent
-   - Porcelain     (#F8FAFC / #FFFFFF) — crisp studio canvas
-   - Brushed Steel (#F1F5F9 / #DDE4EE) — hardware surfaces
+   DESIGN SYSTEM — Architectural Light (Alabaster & Obsidian)
+   Bespoke Enterprise Precision Suite for JMK Robotics
+   Surface Hierarchy:
+     Level 0 (Canvas)    : #F4F3EF  Warm Alabaster
+     Level 1 (Elevated)  : #FAF9F6  Porcelain Silk
+     Level 2 (Recessed)  : #EAE8E1  Brushed Mineral
+     Level 3 (Obsidian)  : #0E131D  Deep Obsidian (Cinema / Bar)
    ========================================================= */
 :root {
-  /* --- Light Architectural Surfaces --- */
-  --canvas-base:       #F8FAFC;
-  --canvas-white:      #FFFFFF;
-  --surface-studio:    #F1F5F9;
-  --surface-mist:      #E8EEF5;
+  /* --- Surface Hierarchy --- */
+  --surface-canvas:          #F4F3EF;
+  --surface-elevated:        #FAF9F6;
+  --surface-elevated-hover:  #FFFFFF;
+  --surface-recessed:        #EAE8E1;
+  --surface-recessed-deep:   #E2DFD6;
+  --surface-obsidian:        #0E131D;
+  --surface-obsidian-2:      #151C2B;
+  --surface-obsidian-deep:   #090D14;
 
-  /* --- Brand Identity (Logo-Derived) --- */
-  --brand-navy:        #0B2D5B;
-  --brand-navy-hover:  #0F3B75;
-  --brand-navy-deep:   #071A36;
-  --brand-ink:         #09182E;
+  /* --- Brand & Engineering Inks --- */
+  --ink-primary:             #0F141E;
+  --ink-secondary:           #475263;
+  --ink-muted:               #5C6575;
+  --ink-on-dark:             #F4F3EF;
 
-  --brand-carmine:       #B81D2B;
-  --brand-carmine-hover: #D42232;
-  --brand-carmine-soft:  rgba(184, 29, 43, 0.08);
-  --brand-carmine-glow:  rgba(184, 29, 43, 0.22);
+  --accent-cobalt:           #1E3A5F;
+  --accent-cobalt-hover:     #284B78;
+  --accent-steel:            #3B587E;
+  --accent-crimson:          #9E1C28;
+  --accent-crimson-hover:    #B42330;
 
-  /* --- Typography --- */
-  --text-primary:      #09182E;
-  --text-secondary:    #475569;
-  --text-muted:        #64748B;
-  --text-on-dark:      #F8FAFC;
+  /* --- Precision Hairline Borders --- */
+  --border-hairline:         rgba(15, 20, 30, 0.09);
+  --border-hairline-md:      rgba(15, 20, 30, 0.14);
+  --border-hairline-active:  rgba(30, 58, 95, 0.28);
+  --border-hairline-dark:    rgba(244, 243, 239, 0.10);
+  --border-metallic-top:     rgba(255, 255, 255, 0.72);
 
-  /* --- Borders --- */
-  --border-hairline:   rgba(11, 45, 91, 0.09);
-  --border-strong:     rgba(11, 45, 91, 0.16);
-  --border-dark-line:  rgba(255, 255, 255, 0.09);
+  /* --- Tactile Anodized Primary Buttons --- */
+  --gradient-obsidian-btn:   linear-gradient(180deg, #171F2E 0%, #0E131D 100%);
+  --shadow-obsidian-btn:
+    0 1px 2px rgba(14, 19, 29, 0.25),
+    0 8px 20px -6px rgba(14, 19, 29, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
 
-  /* --- Semantic --- */
-  --status-live:       #059669;
-  --spec-highlight:    #0B2D5B;
+  /* --- Zenith Lighting for Dark Stages --- */
+  --gradient-obsidian-stage: radial-gradient(circle at 50% 0%, #1B2538 0%, #0E131D 70%);
 
-  /* --- Shadows (Crisp Studio Depth) --- */
-  --shadow-studio:       0 1px 2px rgba(9, 24, 46, 0.04), 0 10px 30px -12px rgba(9, 24, 46, 0.08);
-  --shadow-studio-hover: 0 4px 12px rgba(9, 24, 46, 0.06), 0 22px 44px -16px rgba(11, 45, 91, 0.16);
-  --shadow-navy-btn:     0 8px 20px -6px rgba(11, 45, 91, 0.38);
-  --shadow-carmine-btn:  0 8px 22px -6px rgba(184, 29, 43, 0.42);
+  /* --- Multi-Layer Tinted Ambient Shadows --- */
+  --shadow-card:
+    0 1px 2px rgba(14, 19, 29, 0.04),
+    0 8px 20px -10px rgba(14, 19, 29, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  --shadow-card-hover:
+    0 2px 6px rgba(14, 19, 29, 0.05),
+    0 20px 40px -16px rgba(30, 58, 95, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --shadow-float-stage:
+    0 2px 4px rgba(14, 19, 29, 0.05),
+    0 16px 36px -12px rgba(14, 19, 29, 0.12),
+    0 36px 72px -24px rgba(30, 58, 95, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
 
   /* --- Motion Tokens --- */
-  --ease-precision:    cubic-bezier(0.22, 1, 0.36, 1);
-  --transition-fast:   160ms cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-precision:          cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* --- Backward-compat aliases for legacy pages --- */
-  --bg-base:           #050810;
-  --bg-surface-1:      #090E1A;
-  --bg-surface-2:      #0D1424;
-  --bg-surface-3:      #111827;
-  --accent:            #B81D2B;
-  --accent-hover:      #D42232;
-  --accent-main:       #B81D2B;
-  --accent-soft:       #D42232;
-  --accent-light:      rgba(184, 29, 43, 0.14);
-  --accent-mid:        rgba(184, 29, 43, 0.28);
-  --accent-shadow:     rgba(184, 29, 43, 0.30);
-  --border-base:       rgba(11, 45, 91, 0.09);
-  --border-color:      rgba(11, 45, 91, 0.09);
-  --bg-dark:           #071A36;
-  --font-primary:      var(--font-main);
-  --font-secondary:    var(--font-jakarta);
+  /* --- Legacy aliases --- */
+  --canvas-base:             var(--surface-canvas);
+  --canvas-white:            var(--surface-elevated);
+  --brand-navy:              var(--accent-cobalt);
+  --brand-navy-deep:         var(--surface-obsidian);
+  --brand-ink:               var(--ink-primary);
+  --brand-carmine:           var(--accent-crimson);
+  --font-primary:            var(--font-main);
+  --font-secondary:          var(--font-jakarta);
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--canvas-base);
-  color: var(--text-primary);
+  background-color: var(--surface-canvas);
+  color: var(--ink-primary);
 }
 
 body {
   font-family: var(--font-main), var(--font-jakarta), system-ui, -apple-system, sans-serif;
-  background-color: var(--canvas-base);
-  color: var(--text-primary);
+  background-color: var(--surface-canvas);
+  color: var(--ink-primary);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* =========================================================
-   ARCHITECTURAL TEXTURES
+   ANODIZED METALLIC BUTTONS, CAD VIEWPORTS & DARK STAGES
    ========================================================= */
-
-/* Light precision engineering dot matrix */
-.precision-dots {
-  background-image: radial-gradient(rgba(11, 45, 91, 0.13) 1px, transparent 1px);
-  background-size: 24px 24px;
+.btn-satin-obsidian {
+  background: var(--gradient-obsidian-btn);
+  box-shadow: var(--shadow-obsidian-btn);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition:
+    transform 180ms var(--ease-precision),
+    box-shadow 180ms var(--ease-precision),
+    background 180ms var(--ease-precision),
+    border-color 180ms var(--ease-precision);
 }
 
-/* Light Swiss technical blueprint hairlines */
-.blueprint-light {
-  background-image:
-    linear-gradient(to right, rgba(11, 45, 91, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(11, 45, 91, 0.045) 1px, transparent 1px);
-  background-size: 48px 48px;
+.btn-satin-obsidian:hover {
+  background: linear-gradient(180deg, #274872 0%, #172E4D 100%);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 2px 4px rgba(14, 19, 29, 0.24),
+    0 14px 28px -8px rgba(30, 58, 95, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
-/* Dark maritime navy technical grid (for Video Theatre) */
-.blueprint-navy {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
+.btn-satin-crimson {
+  background: linear-gradient(180deg, #B22431 0%, #8C1722 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 1px 2px rgba(14, 19, 29, 0.2),
+    0 10px 24px -8px rgba(158, 28, 40, 0.36),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition:
+    transform 180ms var(--ease-precision),
+    box-shadow 180ms var(--ease-precision),
+    background 180ms var(--ease-precision);
+}
+
+.btn-satin-crimson:hover {
+  background: var(--gradient-obsidian-btn);
+  box-shadow: var(--shadow-obsidian-btn);
+}
+
+/* Technical CAD Viewport Framing for Machinery Displays */
+.cad-viewport {
+  background: var(--surface-recessed);
+  border: 1px solid var(--border-hairline);
+  box-shadow: inset 0 1px 3px rgba(14, 19, 29, 0.04);
+}
+
+/* Zenith-lit Dark Stage (In Action / Theatre / Footer) */
+.obsidian-stage {
+  background: var(--gradient-obsidian-stage);
+}
+
+/* Elevated Interactive Card with 180ms Precision State Transition */
+.surface-card-elevated {
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-hairline);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 180ms var(--ease-precision),
+    background-color 180ms var(--ease-precision),
+    border-color 180ms var(--ease-precision),
+    box-shadow 180ms var(--ease-precision);
+}
+
+.surface-card-elevated:hover,
+.surface-card-elevated.active {
+  background-color: var(--surface-elevated-hover);
+  border-color: var(--border-hairline-active);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Interactive Instrument Tab State */
+.instrument-tab {
+  transition:
+    background-color 180ms var(--ease-precision),
+    border-color 180ms var(--ease-precision),
+    color 180ms var(--ease-precision);
+}
+
+.instrument-tab:hover,
+.instrument-tab.active {
+  background-color: var(--surface-elevated-hover);
+  border-color: var(--border-hairline-active);
 }
 
 /* =========================================================
-   TYPOGRAPHY HELPERS
+   CNC CHAMFERED ARCHITECTURE (Signature JMK Geometry)
+   ========================================================= */
+.chamfer-card {
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+  position: relative;
+}
+
+.chamfer-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(
+    225deg,
+    transparent 47%,
+    rgba(15, 20, 30, 0.16) 48%,
+    rgba(15, 20, 30, 0.16) 53%,
+    transparent 54%
+  );
+  pointer-events: none;
+  z-index: 25;
+  transition: background 180ms var(--ease-precision);
+}
+
+.chamfer-card:hover::after {
+  background: linear-gradient(
+    225deg,
+    transparent 46%,
+    var(--accent-cobalt) 47%,
+    var(--accent-cobalt) 54%,
+    transparent 55%
+  );
+}
+
+.chamfer-stage {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 22px) 0,
+    100% 22px,
+    100% 100%,
+    22px 100%,
+    0 calc(100% - 22px)
+  );
+}
+
+.chamfer-btn {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 9px),
+    calc(100% - 9px) 100%,
+    0 100%
+  );
+}
+
+/* =========================================================
+   TYPOGRAPHY & ANIMATION UTILITIES
    ========================================================= */
 .tabular-nums {
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum";
 }
 
-/* =========================================================
-   INFINITE MARQUEE ANIMATION
-   ========================================================= */
 @keyframes marquee-scroll {
   0% {
     transform: translate3d(0, 0, 0);
@@ -140,7 +265,7 @@ body {
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee-scroll 34s linear infinite;
+  animation: marquee-scroll 36s linear infinite;
 }
 
 .animate-marquee:hover {
@@ -154,46 +279,6 @@ body {
 }
 
 /* =========================================================
-   CUSTOM RANGE SLIDER (Line Simulator)
-   ========================================================= */
-.jmk-slider {
-  -webkit-appearance: none;
-  appearance: none;
-  height: 6px;
-  border-radius: 9999px;
-  background: #DDE4EE;
-  outline: none;
-}
-
-.jmk-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 22px;
-  height: 22px;
-  border-radius: 9999px;
-  background: var(--brand-carmine);
-  border: 3px solid #FFFFFF;
-  box-shadow: 0 2px 10px rgba(184, 29, 43, 0.45);
-  cursor: pointer;
-  transition: transform 150ms ease, background-color 150ms ease;
-}
-
-.jmk-slider::-webkit-slider-thumb:hover {
-  transform: scale(1.12);
-  background: var(--brand-carmine-hover);
-}
-
-.jmk-slider::-moz-range-thumb {
-  width: 22px;
-  height: 22px;
-  border-radius: 9999px;
-  background: var(--brand-carmine);
-  border: 3px solid #FFFFFF;
-  box-shadow: 0 2px 10px rgba(184, 29, 43, 0.45);
-  cursor: pointer;
-}
-
-/* =========================================================
    CUSTOM SCROLLBAR
    ========================================================= */
 ::-webkit-scrollbar {
@@ -202,19 +287,19 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+  background: var(--surface-recessed);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #94A3B8;
-  border-radius: 4px;
+  background: rgba(15, 20, 30, 0.25);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--brand-navy);
+  background: var(--accent-cobalt);
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #94A3B8 #F1F5F9;
+  scrollbar-color: rgba(15, 20, 30, 0.25) var(--surface-recessed);
 }

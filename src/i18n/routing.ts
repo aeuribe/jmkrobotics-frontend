@@ -19,9 +19,13 @@ export const routing = defineRouting({
       en: '/terms-of-service',
       es: '/terminos-de-servicio',
     },
-    '/solutions': {
-      en: '/solutions',
-      es: '/soluciones',
+    '/machines': {
+      en: '/machines',
+      es: '/maquinas',
+    },
+    '/in-action': {
+      en: '/in-action',
+      es: '/en-accion',
     },
     '/machines/filling-dosing/automatic-weight-filler': {
       en: '/machines/filling-dosing/automatic-weight-filler',

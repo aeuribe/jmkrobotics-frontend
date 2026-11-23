@@ -56,12 +56,12 @@ export function HeaderSearch() {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="inline-flex items-center gap-2 rounded-full border border-[#0B2D5B]/12 bg-[#F1F5F9] px-3 py-1.5 text-xs font-medium text-[#475569] transition-all hover:border-[#0B2D5B]/25 hover:bg-white hover:text-[#09182E]"
+        className="inline-flex items-center gap-2 rounded-[2px] border border-[#0F141E]/[0.11] bg-[#EAE8E1] px-3 py-1.5 text-xs font-medium text-[#475569] transition-all hover:border-[#0B2D5B]/25 hover:bg-[#FAF9F6] hover:text-[#0F141E]"
         aria-label={isEs ? 'Buscar maquinaria' : 'Search machinery'}
       >
-        <Search className="h-3.5 w-3.5 text-[#0B2D5B]" />
+        <Search className="h-3.5 w-3.5 text-[#1E3A5F]" />
         <span className="hidden xl:inline">{isEs ? 'Buscar...' : 'Search...'}</span>
-        <kbd className="hidden xl:inline-flex items-center rounded border border-[#0B2D5B]/15 bg-white px-1.5 py-0.5 font-mono text-[10px] text-[#64748B]">
+        <kbd className="hidden xl:inline-flex items-center rounded border border-[#0F141E]/[0.13] bg-[#FAF9F6] px-1.5 py-0.5 font-mono text-[10px] text-[#5C6575]">
           ⌘K
         </kbd>
       </button>
@@ -74,7 +74,7 @@ export function HeaderSearch() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.18 }}
-              className="fixed inset-0 z-[60] bg-[#071A36]/45 backdrop-blur-sm"
+              className="fixed inset-0 z-[60] obsidian-stage/45 backdrop-blur-sm"
               onClick={() => setIsOpen(false)}
             />
 
@@ -83,22 +83,22 @@ export function HeaderSearch() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -14, scale: 0.98 }}
               transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed left-1/2 top-20 z-[70] w-[92vw] max-w-2xl -translate-x-1/2 overflow-hidden rounded-2xl border border-[#0B2D5B]/12 bg-white shadow-[0_24px_64px_-12px_rgba(7,26,54,0.28)]"
+              className="fixed left-1/2 top-20 z-[70] w-[92vw] max-w-2xl -translate-x-1/2 overflow-hidden rounded-[2px] border border-[#0F141E]/[0.11] bg-[#FAF9F6] shadow-[0_24px_64px_-12px_rgba(7,26,54,0.28)]"
             >
-              <div className="relative flex items-center border-b border-[#0B2D5B]/10">
-                <Search className="pointer-events-none absolute left-5 h-5 w-5 text-[#0B2D5B]" />
+              <div className="relative flex items-center border-b border-[#0F141E]/[0.09]">
+                <Search className="pointer-events-none absolute left-5 h-5 w-5 text-[#1E3A5F]" />
                 <input
                   ref={inputRef}
                   type="text"
                   value={searchTerm}
                   onChange={(e) => handleSearch(e.target.value)}
                   placeholder={isEs ? 'Buscar llenadoras, tapadoras, etiquetadoras...' : 'Search fillers, cappers, labelers...'}
-                  className="w-full bg-transparent py-4 pl-13 pr-12 text-base text-[#09182E] placeholder-[#94A3B8] focus:outline-none"
+                  className="w-full bg-transparent py-4 pl-13 pr-12 text-base text-[#0F141E] placeholder-[#94A3B8] focus:outline-none"
                 />
                 <button
                   type="button"
                   onClick={() => (searchTerm ? handleSearch('') : setIsOpen(false))}
-                  className="absolute right-4 rounded-lg p-1.5 text-[#64748B] transition-colors hover:bg-[#F1F5F9] hover:text-[#09182E]"
+                  className="absolute right-4 rounded-[2px] p-1.5 text-[#5C6575] transition-colors hover:bg-[#EAE8E1] hover:text-[#0F141E]"
                   aria-label={isEs ? 'Cerrar búsqueda' : 'Close search'}
                 >
                   <X className="h-4 w-4" />
@@ -108,7 +108,7 @@ export function HeaderSearch() {
               <div className="max-h-[58vh] overflow-y-auto">
                 {searchTerm.length === 0 ? (
                   <div className="px-6 py-8 text-center">
-                    <p className="text-sm text-[#64748B]">
+                    <p className="text-sm text-[#5C6575]">
                       {isEs
                         ? 'Escribe el nombre o aplicación del equipo que necesitas.'
                         : 'Start typing a machine name or packaging application.'}
@@ -124,30 +124,30 @@ export function HeaderSearch() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.04 }}
                         onClick={() => handleResultClick(result.url)}
-                        className="group flex w-full items-center justify-between gap-4 px-5 py-3.5 text-left transition-colors hover:bg-[#F8FAFC]"
+                        className="group flex w-full items-center justify-between gap-4 px-5 py-3.5 text-left transition-colors hover:bg-[#F4F3EF]"
                       >
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center gap-2">
-                            <h3 className="truncate text-sm font-semibold text-[#09182E] transition-colors group-hover:text-[#B81D2B]">
+                            <h3 className="truncate text-sm font-semibold text-[#0F141E] transition-colors group-hover:text-[#9E1C28]">
                               {result.title}
                             </h3>
-                            <span className="rounded bg-[#0B2D5B]/8 px-1.5 py-0.5 font-mono text-[10px] font-semibold uppercase text-[#0B2D5B]">
+                            <span className="rounded bg-[#0E131D]/8 px-1.5 py-0.5 font-mono text-[10px] font-semibold uppercase text-[#1E3A5F]">
                               {result.type}
                             </span>
                           </div>
                           {result.description && (
-                            <p className="mt-0.5 line-clamp-1 text-xs text-[#64748B]">
+                            <p className="mt-0.5 line-clamp-1 text-xs text-[#5C6575]">
                               {result.description}
                             </p>
                           )}
                         </div>
-                        <ArrowRight className="h-4 w-4 shrink-0 text-[#94A3B8] transition-all group-hover:translate-x-1 group-hover:text-[#B81D2B]" />
+                        <ArrowRight className="h-4 w-4 shrink-0 text-[#94A3B8] transition-all group-hover:translate-x-1 group-hover:text-[#9E1C28]" />
                       </motion.button>
                     ))}
                   </div>
                 ) : (
                   <div className="px-6 py-8 text-center">
-                    <p className="text-sm text-[#64748B]">
+                    <p className="text-sm text-[#5C6575]">
                       {isEs ? `Sin resultados para "${searchTerm}"` : `No results found for "${searchTerm}"`}
                     </p>
                   </div>

@@ -11,13 +11,7 @@ import {
   useSpring,
   useTransform,
 } from 'motion/react';
-import {
-  ArrowRight,
-  Play,
-  Maximize2,
-  Sliders,
-  Video,
-} from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 import { VideoModal } from '@/components/ui/VideoModal';
 import {
   LINE_STAGES,
@@ -28,39 +22,37 @@ import { cn } from '@/lib/utils';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-interface InteractiveHardwareStageProps {
+interface InteractiveSystemsCardProps {
   locale: Locale;
-  onExpandVideo: () => void;
 }
 
-function InteractiveHardwareStage({ locale, onExpandVideo }: InteractiveHardwareStageProps) {
+function InteractiveSystemsCard({ locale }: InteractiveSystemsCardProps) {
   const isEs = locale === 'es';
-  const [stageMode, setStageMode] = useState<'studio' | 'reel'>('studio');
   const [activeIdx, setActiveIdx] = useState(0);
-  const stageRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-4, 4]), {
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-2.5, 2.5]), {
     stiffness: 180,
     damping: 22,
   });
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [4, -4]), {
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [2.5, -2.5]), {
     stiffness: 180,
     damping: 22,
   });
 
-  const [isPaused, setIsPaused] = useState(false);
   useEffect(() => {
-    if (stageMode !== 'studio' || isPaused) return;
+    if (isPaused) return;
     const timer = window.setInterval(() => {
       setActiveIdx((prev) => (prev + 1) % LINE_STAGES.length);
     }, 5000);
     return () => window.clearInterval(timer);
-  }, [stageMode, isPaused]);
+  }, [isPaused]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = stageRef.current?.getBoundingClientRect();
+    const rect = cardRef.current?.getBoundingClientRect();
     if (!rect) return;
     mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
     mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
@@ -75,169 +67,142 @@ function InteractiveHardwareStage({ locale, onExpandVideo }: InteractiveHardware
   const activeStage = LINE_STAGES[activeIdx];
 
   return (
-    <motion.div
-      ref={stageRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={handleMouseLeave}
-      style={{ rotateX, rotateY, transformPerspective: 1100 }}
-      initial={{ opacity: 0, y: 24, scale: 0.98 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.7, ease: EASE, delay: 0.15 }}
-      className="relative flex flex-col overflow-hidden rounded-3xl border border-[#0B2D5B]/10 bg-white shadow-[0_28px_70px_-24px_rgba(9,24,46,0.18)]"
-    >
-      {/* Clean Top Stage Bar */}
-      <div className="flex items-center justify-between border-b border-[#0B2D5B]/8 bg-[#F8FAFC] px-5 py-3.5">
-        <span className="text-xs font-bold tracking-wide text-[#0B2D5B]">
-          {stageMode === 'studio'
-            ? activeStage.stageName[locale]
-            : isEs
-              ? 'Operación en Planta'
-              : 'Factory Floor'}
-        </span>
+    <div className="relative">
+      {/* Ambient Radial Spotlight — scenic depth behind the machinery instrument panel */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -inset-10 -z-10 blur-2xl"
+        style={{
+          background:
+            'radial-gradient(ellipse 68% 64% at 52% 48%, rgba(30, 58, 95, 0.18) 0%, rgba(158, 28, 40, 0.06) 44%, rgba(244, 243, 239, 0) 74%)',
+        }}
+      />
 
-        <div className="inline-flex items-center rounded-full border border-[#0B2D5B]/12 bg-white p-0.5">
-          <button
-            type="button"
-            onClick={() => setStageMode('studio')}
-            className={cn(
-              'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold transition-all',
-              stageMode === 'studio'
-                ? 'bg-[#0B2D5B] text-white shadow-sm'
-                : 'text-[#64748B] hover:text-[#09182E]',
-            )}
-          >
-            <Sliders className="h-3 w-3" />
-            <span>{isEs ? 'Soluciones' : 'Systems'}</span>
-          </button>
-          <button
-            type="button"
-            onClick={() => setStageMode('reel')}
-            className={cn(
-              'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold transition-all',
-              stageMode === 'reel'
-                ? 'bg-[#B81D2B] text-white shadow-sm'
-                : 'text-[#64748B] hover:text-[#09182E]',
-            )}
-          >
-            <Video className="h-3 w-3" />
-            <span>{isEs ? 'Video' : 'Video'}</span>
-          </button>
+      <motion.div
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          rotateX,
+          rotateY,
+          transformPerspective: 1100,
+          boxShadow: 'var(--shadow-float-stage)',
+        }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.65, ease: EASE, delay: 0.14 }}
+        className="chamfer-stage relative flex flex-col overflow-hidden border border-[#0F141E]/[0.11] bg-[#FAF9F6]/92 backdrop-blur-xl"
+      >
+        {/* Luxury Instrument Control Header */}
+        <div className="flex items-center justify-between border-b border-[#0F141E]/[0.08] bg-gradient-to-b from-[#FAF9F6] to-[#F2F0EA] px-5 py-3.5">
+          <div className="flex items-center gap-2.5">
+            <span className="h-1.5 w-1.5 bg-[#9E1C28]" aria-hidden="true" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#0F141E]">
+              {activeStage.stageName[locale]}
+            </span>
+          </div>
+          <span className="font-mono text-[10px] font-semibold tracking-[0.12em] text-[#6E7787] tabular-nums">
+            {activeStage.step} / 0{LINE_STAGES.length}
+          </span>
         </div>
-      </div>
 
-      {/* Main Visual Canvas */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9]/60 to-white">
-        <AnimatePresence mode="wait">
-          {stageMode === 'studio' ? (
-            <motion.div
-              key={activeStage.id}
-              initial={{ opacity: 0, scale: 0.94, y: 12 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 1.03, y: -10 }}
-              transition={{ duration: 0.45, ease: EASE }}
-              className="relative flex h-full w-full items-center justify-center p-6 pb-20 sm:p-10 sm:pb-24"
-            >
-              <div className="relative h-full w-full">
-                <Image
-                  src={activeStage.image}
-                  alt={activeStage.roleTitle[locale]}
-                  fill
-                  priority
-                  sizes="(min-width:1024px) 44vw, 95vw"
-                  className="object-contain mix-blend-multiply drop-shadow-[0_18px_24px_rgba(9,24,46,0.10)]"
-                />
-              </div>
-
-              {/* Clean Category Overlay */}
-              <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between gap-4 rounded-2xl border border-[#0B2D5B]/10 bg-white/92 px-4 py-3 backdrop-blur-md shadow-sm">
-                <div className="min-w-0">
-                  <p className="text-sm font-bold text-[#09182E] truncate">
-                    {activeStage.roleTitle[locale]}
-                  </p>
-                  <p className="mt-0.5 text-xs text-[#64748B] truncate">
-                    {activeStage.rangeLabel[locale]}
-                  </p>
+        {/* Technical CAD Viewport Frame */}
+        <div className="p-3 bg-[#FAF9F6]">
+          <div className="cad-viewport relative aspect-[4/3] w-full overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeStage.id}
+                initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 1.03, y: -8 }}
+                transition={{ duration: 0.42, ease: EASE }}
+                className="relative flex h-full w-full items-center justify-center p-6 pb-20 sm:p-9 sm:pb-24"
+              >
+                <div className="relative h-full w-full">
+                  <Image
+                    src={activeStage.image}
+                    alt={activeStage.roleTitle[locale]}
+                    fill
+                    priority
+                    sizes="(min-width:1024px) 44vw, 95vw"
+                    className="object-contain mix-blend-multiply drop-shadow-[0_22px_28px_rgba(14,19,29,0.12)]"
+                  />
                 </div>
-                <Link
-                  href={activeStage.link}
-                  className="shrink-0 rounded-full bg-[#F1F5F9] px-3 py-1.5 text-[11px] font-bold text-[#0B2D5B] transition-colors hover:bg-[#0B2D5B] hover:text-white"
-                >
-                  {isEs ? 'Explorar' : 'Explore'}
-                </Link>
-              </div>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="factory-reel"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.35 }}
-              className="relative h-full w-full bg-[#071A36]"
-            >
-              <video
-                src="/video-hero.webm"
-                poster="/hero-portrait.webp"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="h-full w-full object-cover"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#071A36]/75 via-transparent to-transparent" />
-              <div className="absolute bottom-5 right-5">
-                <button
-                  type="button"
-                  onClick={onExpandVideo}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-xs font-bold text-[#09182E] shadow-lg transition-transform hover:scale-105"
-                >
-                  <Maximize2 className="h-3.5 w-3.5 text-[#B81D2B]" />
-                  <span>{isEs ? 'Ver video completo' : 'Watch full video'}</span>
-                </button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
 
-      {/* Bottom Interactive Process Selector Strip */}
-      <div className="grid grid-cols-4 divide-x divide-[#0B2D5B]/8 border-t border-[#0B2D5B]/8 bg-[#F8FAFC]">
-        {LINE_STAGES.map((stage, idx) => {
-          const isSelected = stageMode === 'studio' && activeIdx === idx;
-          return (
-            <button
-              key={stage.id}
-              type="button"
-              onClick={() => {
-                setStageMode('studio');
-                setActiveIdx(idx);
-              }}
-              className={cn(
-                'relative px-2.5 py-3 text-left transition-colors',
-                isSelected ? 'bg-white' : 'hover:bg-white/60',
-              )}
-            >
-              {isSelected && (
-                <motion.span
-                  layoutId="hero-stage-indicator"
-                  className="absolute inset-x-0 top-0 h-[2.5px] bg-[#B81D2B]"
-                  transition={{ type: 'spring', stiffness: 360, damping: 30 }}
-                />
-              )}
-              <span
+                {/* Floating Specification Readout Bar */}
+                <div
+                  className="absolute bottom-3.5 left-3.5 right-3.5 flex items-center justify-between gap-4 border border-[#0F141E]/[0.10] bg-[#FAF9F6]/96 px-4 py-3 backdrop-blur-md"
+                  style={{
+                    boxShadow:
+                      '0 6px 20px -8px rgba(14,19,29,0.12), inset 0 1px 0 rgba(255,255,255,0.85)',
+                  }}
+                >
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-bold tracking-[-0.015em] text-[#0F141E]">
+                      {activeStage.roleTitle[locale]}
+                    </p>
+                    <p className="mt-0.5 truncate text-xs text-[#5C6575]">
+                      {activeStage.rangeLabel[locale]}
+                    </p>
+                  </div>
+                  <Link
+                    href={activeStage.link}
+                    className="btn-satin-obsidian chamfer-btn shrink-0 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#FAF9F6]"
+                  >
+                    {isEs ? 'Explorar' : 'Explore'}
+                  </Link>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+
+        {/* Machined Bottom Instrument Control Tabs */}
+        <div className="grid grid-cols-4 divide-x divide-[#0F141E]/[0.08] border-t border-[#0F141E]/[0.09] bg-[#EAE8E1]/85">
+          {LINE_STAGES.map((stage, idx) => {
+            const isSelected = activeIdx === idx;
+            return (
+              <button
+                key={stage.id}
+                type="button"
+                onClick={() => setActiveIdx(idx)}
                 className={cn(
-                  'block truncate text-[11px] font-bold',
-                  isSelected ? 'text-[#0B2D5B]' : 'text-[#475569]',
+                  'instrument-tab relative px-3 py-3.5 text-left',
+                  isSelected
+                    ? 'active bg-[#FFFFFF]'
+                    : 'bg-transparent',
                 )}
               >
-                {stage.stageName[locale]}
-              </span>
-            </button>
-          );
-        })}
-      </div>
-    </motion.div>
+                {isSelected && (
+                  <motion.span
+                    layoutId="hero-stage-indicator"
+                    className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#1E3A5F] to-[#9E1C28]"
+                    transition={{ type: 'spring', stiffness: 360, damping: 30 }}
+                  />
+                )}
+                <span
+                  className={cn(
+                    'block font-mono text-[9px] tracking-[0.12em] mb-0.5',
+                    isSelected ? 'text-[#9E1C28] font-bold' : 'text-[#5C6575]',
+                  )}
+                >
+                  {stage.step}
+                </span>
+                <span
+                  className={cn(
+                    'block truncate text-[11px] font-bold tracking-[-0.01em]',
+                    isSelected ? 'text-[#0F141E]' : 'text-[#475263]',
+                  )}
+                >
+                  {stage.stageName[locale]}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </motion.div>
+    </div>
   );
 }
 
@@ -249,53 +214,76 @@ export function HeroSection() {
   const marqueeItems = MARQUEE_APPLICATIONS[locale];
 
   return (
-    <section className="relative overflow-hidden bg-[#F8FAFC] pt-10 lg:pt-16">
-      <div className="precision-dots pointer-events-none absolute inset-0 opacity-55" />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(ellipse 70% 60% at 75% 30%, rgba(11, 45, 91, 0.055), transparent 70%), linear-gradient(to bottom, transparent 78%, #F8FAFC 100%)',
-        }}
-      />
+    <section className="relative overflow-hidden bg-[#F4F3EF]">
+      {/* Full-Bleed Atmospheric Factory Video Dissolved Into Warm Alabaster */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <video
+          src="/video-hero.webm"
+          poster="/hero-portrait.webp"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="h-full w-full object-cover object-center opacity-45 scale-[1.02] saturate-[0.75]"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(102deg, rgba(244,243,239,0.98) 0%, rgba(244,243,239,0.93) 44%, rgba(244,243,239,0.64) 74%, rgba(14,19,29,0.22) 100%)',
+          }}
+        />
+        <div
+          className="absolute inset-x-0 top-0 h-20"
+          style={{
+            background: 'linear-gradient(to bottom, #F4F3EF 0%, transparent 100%)',
+          }}
+        />
+        <div
+          className="absolute inset-x-0 bottom-0 h-24"
+          style={{
+            background: 'linear-gradient(to top, #F4F3EF 0%, transparent 100%)',
+          }}
+        />
+      </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-10">
-          {/* Left Column — Clean, Confident Positioning (No Metrics Clutter) */}
+      {/* Main Hero Content */}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-22">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-12">
+          {/* Left Editorial Column */}
           <div className="lg:col-span-6">
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, ease: EASE }}
-              className="text-xs font-bold uppercase tracking-[0.16em] text-[#0B2D5B]"
+              className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#1E3A5F]"
             >
               JMK Robotics · Miami, Florida
             </motion.p>
 
-            {/* Logo-inspired Crimson Precision Rule */}
             <motion.div
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
-              transition={{ duration: 0.65, ease: EASE, delay: 0.08 }}
+              transition={{ duration: 0.6, ease: EASE, delay: 0.08 }}
               style={{ transformOrigin: 'left' }}
-              className="mt-4 h-[3px] w-14 bg-[#B81D2B]"
+              className="mt-4 h-[2px] w-14 bg-gradient-to-r from-[#9E1C28] to-[#1E3A5F]"
             />
 
             <motion.h1
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: EASE, delay: 0.14 }}
-              className="mt-5 text-4xl font-black leading-[1.04] tracking-[-0.035em] text-[#09182E] sm:text-5xl xl:text-[3.7rem]"
+              transition={{ duration: 0.55, ease: EASE, delay: 0.14 }}
+              className="mt-5 text-4xl font-black leading-[1.03] tracking-[-0.03em] text-[#0F141E] sm:text-5xl xl:text-[3.75rem]"
             >
               {isEs ? (
                 <>
-                  Maquinaria industrial de envasado para{' '}
-                  <span className="text-[#0B2D5B]">escalar su producción.</span>
+                  Maquinaria industrial y{' '}
+                  <span className="text-[#1E3A5F]">líneas de producción completas.</span>
                 </>
               ) : (
                 <>
-                  Industrial packaging machinery built to{' '}
-                  <span className="text-[#0B2D5B]">scale your plant.</span>
+                  Industrial machinery and{' '}
+                  <span className="text-[#1E3A5F]">complete production lines.</span>
                 </>
               )}
             </motion.h1>
@@ -303,23 +291,23 @@ export function HeroSection() {
             <motion.p
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, ease: EASE, delay: 0.24 }}
-              className="mt-6 max-w-xl text-base leading-relaxed text-[#475569]"
+              transition={{ duration: 0.55, ease: EASE, delay: 0.22 }}
+              className="mt-6 max-w-xl text-base leading-relaxed text-[#475263]"
             >
               {isEs
-                ? 'Desde equipos individuales hasta líneas automatizadas de alta capacidad — suministrados, probados con su producto y respaldados desde Miami por Services JMK LLC.'
-                : 'From standalone packaging equipment to high-capacity automated lines — supplied, tested with your product, and backed out of Miami by Services JMK LLC.'}
+                ? 'Desde equipos industriales individuales hasta líneas de producción completas llave en mano — suministrados, probados con su producto y respaldados desde Miami.'
+                : 'From standalone industrial equipment to complete turnkey production lines — supplied, tested with your product, and backed out of Miami.'}
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, ease: EASE, delay: 0.32 }}
+              transition={{ duration: 0.55, ease: EASE, delay: 0.3 }}
               className="mt-9 flex flex-wrap items-center gap-3.5"
             >
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2.5 rounded-full bg-[#0B2D5B] px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-[0_12px_28px_-8px_rgba(11,45,91,0.45)] transition-all hover:bg-[#B81D2B] hover:shadow-[0_12px_28px_-8px_rgba(184,29,43,0.45)] active:scale-[0.98]"
+                className="chamfer-btn btn-satin-obsidian group inline-flex items-center gap-2.5 px-7 py-3.5 text-[11px] font-bold uppercase tracking-[0.14em] text-[#FAF9F6] active:scale-[0.98]"
               >
                 <span>{isEs ? 'Solicitar Cotización' : 'Request a Quote'}</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -328,34 +316,30 @@ export function HeroSection() {
               <button
                 type="button"
                 onClick={() => setIsVideoOpen(true)}
-                className="group inline-flex items-center gap-2.5 rounded-full border border-[#0B2D5B]/15 bg-white px-5 py-3.5 text-sm font-semibold text-[#09182E] shadow-sm transition-all hover:border-[#B81D2B]/40 hover:bg-[#F8FAFC]"
+                className="group inline-flex items-center gap-2.5 border border-[#0F141E]/[0.14] bg-[#FAF9F6]/85 px-5 py-3.5 text-[11px] font-bold uppercase tracking-[0.14em] text-[#0F141E] backdrop-blur-md transition-all hover:border-[#1E3A5F] hover:bg-[#FAF9F6]"
               >
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#B81D2B]/10 text-[#B81D2B] transition-colors group-hover:bg-[#B81D2B] group-hover:text-white">
-                  <Play className="ml-0.5 h-3 w-3 fill-current" />
-                </span>
-                <span>{isEs ? 'Ver equipos en acción' : 'Watch in operation'}</span>
+                <Play className="h-3.5 w-3.5 fill-current text-[#9E1C28]" />
+                <span>{isEs ? 'Ver video completo' : 'Watch full video'}</span>
               </button>
             </motion.div>
           </div>
 
+          {/* Right Column — Luxury Engineering Instrument Panel */}
           <div className="lg:col-span-6">
-            <InteractiveHardwareStage
-              locale={locale}
-              onExpandVideo={() => setIsVideoOpen(true)}
-            />
+            <InteractiveSystemsCard locale={locale} />
           </div>
         </div>
       </div>
 
-      {/* Industry Ribbon */}
-      <div className="border-y border-[#0B2D5B]/10 bg-white py-3.5 overflow-hidden">
+      {/* Architectural Industry Ribbon */}
+      <div className="relative z-10 border-y border-[#0F141E]/[0.09] bg-[#FAF9F6] py-3.5 overflow-hidden">
         <div className="animate-marquee items-center gap-10">
           {[...marqueeItems, ...marqueeItems].map((item, idx) => (
             <div key={`${item}-${idx}`} className="flex items-center gap-10 whitespace-nowrap">
-              <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#0B2D5B]/75">
+              <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#475263]">
                 {item}
               </span>
-              <span className="h-1.5 w-1.5 rounded-full bg-[#B81D2B]" aria-hidden="true" />
+              <span className="h-1 w-1 bg-[#9E1C28]" aria-hidden="true" />
             </div>
           ))}
         </div>

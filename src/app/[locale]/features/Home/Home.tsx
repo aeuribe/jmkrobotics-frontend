@@ -6,13 +6,12 @@ import { HeroSection } from '@/features/Home/components/HeroSection';
 import { PackagingLineExplorer } from '@/features/Home/components/PackagingLineExplorer';
 import { MachineCatalogShowcase } from '@/features/Home/components/MachineCatalogShowcase';
 import { VideoDemosSection } from '@/features/Home/components/VideoDemosSection';
-import { AuthorityAdvantage } from '@/features/Home/components/AuthorityAdvantage';
 import { QuickQuoteSection } from '@/features/Home/components/QuickQuoteSection';
 import { Footer } from '@/components/layout/Footer';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#09182E] selection:bg-[#0B2D5B] selection:text-white">
+    <div className="min-h-screen bg-[#F4F3EF] text-[#0F141E] selection:bg-[#1E3A5F] selection:text-[#FAF9F6]">
       <Header />
 
       <main>
@@ -20,7 +19,6 @@ export default function Home() {
         <PackagingLineExplorer />
         <MachineCatalogShowcase />
         <VideoDemosSection />
-        <AuthorityAdvantage />
         <QuickQuoteSection />
       </main>
 

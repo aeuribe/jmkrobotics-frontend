@@ -62,45 +62,45 @@ export function QuickQuoteSection() {
   };
 
   return (
-    <section id="quote" className="relative bg-white py-20 lg:py-28">
+    <section id="quote" className="relative bg-[#F4F3EF] py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12">
-          {/* Left Context & Contact */}
+          {/* Left Context */}
           <div className="lg:col-span-5 space-y-6">
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#B81D2B]">
+            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#9E1C28]">
               {isEs ? 'Cotización' : 'Get a Quote'}
             </p>
 
-            <h2 className="text-3xl font-black leading-[1.05] tracking-[-0.03em] text-[#09182E] sm:text-4xl">
+            <h2 className="text-3xl font-black leading-[1.05] tracking-[-0.03em] text-[#0F141E] sm:text-4xl">
               {isEs ? (
                 <>
                   Cuéntenos qué necesita{' '}
-                  <span className="text-[#0B2D5B]">para su línea.</span>
+                  <span className="text-[#1E3A5F]">para su línea.</span>
                 </>
               ) : (
                 <>
                   Tell us what you need{' '}
-                  <span className="text-[#0B2D5B]">for your line.</span>
+                  <span className="text-[#1E3A5F]">for your line.</span>
                 </>
               )}
             </h2>
 
-            <p className="text-sm leading-relaxed text-[#475569] sm:text-base">
+            <p className="text-sm leading-relaxed text-[#475263] sm:text-base">
               {isEs
-                ? 'Déjenos sus datos y una breve descripción de su producto o proyecto. Un especialista de Services JMK LLC se comunicará con usted para asesorarle sin compromiso.'
-                : 'Leave your contact info and a brief note about your project. A Services JMK LLC specialist will reach out to recommend the right equipment and pricing.'}
+                ? 'Déjenos sus datos y una breve descripción de su producto o proyecto. Un especialista de JMK Robotics se comunicará con usted para asesorarle sin compromiso.'
+                : 'Leave your contact info and a brief note about your project. A JMK Robotics specialist will reach out to recommend the right equipment and pricing.'}
             </p>
 
             <div className="space-y-4 pt-2">
               <div className="flex items-start gap-3.5">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#0B2D5B]/8 text-[#0B2D5B]">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-[#0F141E]/[0.09] bg-[#FAF9F6] text-[#1E3A5F]">
                   <Clock className="h-4 w-4" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-[#09182E]">
+                  <h3 className="text-sm font-bold text-[#0F141E]">
                     {isEs ? 'Respuesta rápida' : 'Fast Response'}
                   </h3>
-                  <p className="text-xs text-[#64748B]">
+                  <p className="text-xs text-[#5C6575]">
                     {isEs
                       ? 'Nuestro equipo revisa su proyecto y responde en menos de 24 horas.'
                       : 'Our team reviews your inquiry and replies within one business day.'}
@@ -109,42 +109,45 @@ export function QuickQuoteSection() {
               </div>
 
               <div className="flex items-start gap-3.5">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#B81D2B]/10 text-[#B81D2B]">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-[#0F141E]/[0.09] bg-[#FAF9F6] text-[#9E1C28]">
                   <ShieldCheck className="h-4 w-4" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-[#09182E]">
+                  <h3 className="text-sm font-bold text-[#0F141E]">
                     {isEs ? 'Asesoría y respaldo en EE. UU.' : 'US Advisory & Support'}
                   </h3>
-                  <p className="text-xs text-[#64748B]">
+                  <p className="text-xs text-[#5C6575]">
                     {isEs
-                      ? 'Instalación, puesta en marcha y repuestos con Services JMK LLC.'
-                      : 'Installation, commissioning, and local parts by Services JMK LLC.'}
+                      ? 'Instalación, puesta en marcha y stock de repuestos desde Miami.'
+                      : 'Installation, commissioning, and local spare parts out of Miami.'}
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[#0B2D5B]/10 bg-[#F8FAFC] p-4 text-xs font-medium text-[#09182E]">
+            <div className="flex flex-wrap items-center justify-between gap-3 border border-[#0F141E]/[0.09] bg-[#FAF9F6] p-4 text-xs font-medium text-[#0F141E]">
               <a
                 href="tel:+17862587335"
-                className="inline-flex items-center gap-2 hover:text-[#B81D2B]"
+                className="inline-flex items-center gap-2 hover:text-[#9E1C28]"
               >
-                <Phone className="h-4 w-4 text-[#B81D2B]" />
+                <Phone className="h-4 w-4 text-[#9E1C28]" />
                 <span className="font-mono font-semibold">+1 (786) 258-7335</span>
               </a>
               <a
                 href="mailto:info@servicesjmk.com"
-                className="inline-flex items-center gap-2 hover:text-[#B81D2B]"
+                className="inline-flex items-center gap-2 hover:text-[#9E1C28]"
               >
-                <Mail className="h-4 w-4 text-[#0B2D5B]" />
+                <Mail className="h-4 w-4 text-[#1E3A5F]" />
                 <span>info@servicesjmk.com</span>
               </a>
             </div>
           </div>
 
-          {/* Right Frictionless Lead Capture Form */}
-          <div className="lg:col-span-7 rounded-3xl border border-[#0B2D5B]/12 bg-[#F8FAFC] p-6 shadow-[0_24px_60px_-24px_rgba(9,24,46,0.14)] sm:p-8">
+          {/* Right Elevated Porcelain Silk Form */}
+          <div
+            className="chamfer-card lg:col-span-7 border border-[#0F141E]/[0.10] bg-[#FAF9F6] p-6 sm:p-9"
+            style={{ boxShadow: 'var(--shadow-float-stage)' }}
+          >
             <AnimatePresence mode="wait">
               {status === 'success' ? (
                 <motion.div
@@ -154,21 +157,21 @@ export function QuickQuoteSection() {
                   exit={{ opacity: 0 }}
                   className="py-12 text-center space-y-4"
                 >
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-800">
                     <CheckCircle2 className="h-8 w-8" />
                   </div>
-                  <h3 className="text-2xl font-black text-[#09182E]">
+                  <h3 className="text-2xl font-black tracking-[-0.02em] text-[#0F141E]">
                     {isEs ? '¡Solicitud Recibida!' : 'Request Received!'}
                   </h3>
-                  <p className="mx-auto max-w-md text-sm text-[#475569]">
+                  <p className="mx-auto max-w-md text-sm text-[#475263]">
                     {isEs
-                      ? 'Gracias por contactarnos. Un asesor de Services JMK LLC se comunicará muy pronto con usted.'
-                      : 'Thank you for reaching out. A Services JMK LLC specialist will be in touch with you shortly.'}
+                      ? 'Gracias por contactarnos. Un asesor de JMK Robotics se comunicará muy pronto con usted.'
+                      : 'Thank you for reaching out. A JMK Robotics specialist will be in touch with you shortly.'}
                   </p>
                   <button
                     type="button"
                     onClick={() => setStatus('idle')}
-                    className="mt-2 rounded-full border border-[#0B2D5B]/20 bg-white px-5 py-2.5 text-xs font-bold text-[#0B2D5B] hover:bg-[#0B2D5B] hover:text-white transition-colors"
+                    className="mt-2 border border-[#0F141E]/[0.18] bg-[#F4F3EF] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-[#0F141E] transition-colors hover:bg-[#0E131D] hover:text-[#FAF9F6]"
                   >
                     {isEs ? 'Enviar otra solicitud' : 'Submit another inquiry'}
                   </button>
@@ -184,7 +187,7 @@ export function QuickQuoteSection() {
                 >
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div className="space-y-1.5">
-                      <label htmlFor="quote-name" className="text-xs font-semibold text-[#334155]">
+                      <label htmlFor="quote-name" className="text-xs font-semibold text-[#2D3748]">
                         {isEs ? 'Nombre completo *' : 'Full name *'}
                       </label>
                       <input
@@ -194,12 +197,12 @@ export function QuickQuoteSection() {
                         value={formData.fullName}
                         onChange={(e) => setFormData((prev) => ({ ...prev, fullName: e.target.value }))}
                         placeholder={isEs ? 'Ej. Carlos Martínez' : 'e.g. Alex Carter'}
-                        className="w-full rounded-xl border border-[#0B2D5B]/15 bg-white px-3.5 py-2.5 text-sm text-[#09182E] placeholder-[#94A3B8] focus:border-[#0B2D5B] focus:outline-none focus:ring-2 focus:ring-[#0B2D5B]/15"
+                        className="w-full border border-[#0F141E]/[0.12] bg-[#F4F3EF] px-3.5 py-2.5 text-sm text-[#0F141E] placeholder-[#8A94A6] transition-colors focus:border-[#1E3A5F] focus:bg-[#FAF9F6] focus:outline-none"
                       />
                     </div>
 
                     <div className="space-y-1.5">
-                      <label htmlFor="quote-email" className="text-xs font-semibold text-[#334155]">
+                      <label htmlFor="quote-email" className="text-xs font-semibold text-[#2D3748]">
                         {isEs ? 'Correo electrónico *' : 'Work email *'}
                       </label>
                       <input
@@ -209,12 +212,12 @@ export function QuickQuoteSection() {
                         value={formData.email}
                         onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
                         placeholder="name@company.com"
-                        className="w-full rounded-xl border border-[#0B2D5B]/15 bg-white px-3.5 py-2.5 text-sm text-[#09182E] placeholder-[#94A3B8] focus:border-[#0B2D5B] focus:outline-none focus:ring-2 focus:ring-[#0B2D5B]/15"
+                        className="w-full border border-[#0F141E]/[0.12] bg-[#F4F3EF] px-3.5 py-2.5 text-sm text-[#0F141E] placeholder-[#8A94A6] transition-colors focus:border-[#1E3A5F] focus:bg-[#FAF9F6] focus:outline-none"
                       />
                     </div>
 
                     <div className="space-y-1.5">
-                      <label htmlFor="quote-phone" className="text-xs font-semibold text-[#334155]">
+                      <label htmlFor="quote-phone" className="text-xs font-semibold text-[#2D3748]">
                         {isEs ? 'Teléfono / WhatsApp *' : 'Phone / WhatsApp *'}
                       </label>
                       <input
@@ -224,12 +227,12 @@ export function QuickQuoteSection() {
                         value={formData.phone}
                         onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
                         placeholder="+1 (786) 000-0000"
-                        className="w-full rounded-xl border border-[#0B2D5B]/15 bg-white px-3.5 py-2.5 text-sm text-[#09182E] placeholder-[#94A3B8] focus:border-[#0B2D5B] focus:outline-none focus:ring-2 focus:ring-[#0B2D5B]/15"
+                        className="w-full border border-[#0F141E]/[0.12] bg-[#F4F3EF] px-3.5 py-2.5 text-sm text-[#0F141E] placeholder-[#8A94A6] transition-colors focus:border-[#1E3A5F] focus:bg-[#FAF9F6] focus:outline-none"
                       />
                     </div>
 
                     <div className="space-y-1.5">
-                      <label htmlFor="quote-company" className="text-xs font-semibold text-[#334155]">
+                      <label htmlFor="quote-company" className="text-xs font-semibold text-[#2D3748]">
                         {isEs ? 'Empresa (opcional)' : 'Company (optional)'}
                       </label>
                       <input
@@ -238,13 +241,13 @@ export function QuickQuoteSection() {
                         value={formData.company}
                         onChange={(e) => setFormData((prev) => ({ ...prev, company: e.target.value }))}
                         placeholder={isEs ? 'Nombre de su empresa' : 'Your company'}
-                        className="w-full rounded-xl border border-[#0B2D5B]/15 bg-white px-3.5 py-2.5 text-sm text-[#09182E] placeholder-[#94A3B8] focus:border-[#0B2D5B] focus:outline-none focus:ring-2 focus:ring-[#0B2D5B]/15"
+                        className="w-full border border-[#0F141E]/[0.12] bg-[#F4F3EF] px-3.5 py-2.5 text-sm text-[#0F141E] placeholder-[#8A94A6] transition-colors focus:border-[#1E3A5F] focus:bg-[#FAF9F6] focus:outline-none"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-1.5">
-                    <label htmlFor="quote-comments" className="text-xs font-semibold text-[#334155]">
+                    <label htmlFor="quote-comments" className="text-xs font-semibold text-[#2D3748]">
                       {isEs
                         ? '¿Qué producto envasa o qué equipo está buscando?'
                         : 'What product are you packaging or looking to automate?'}
@@ -259,12 +262,12 @@ export function QuickQuoteSection() {
                           ? 'Cuéntenos brevemente sobre su producto, envase o necesidad...'
                           : 'Share a brief overview of your product, container, or project...'
                       }
-                      className="w-full resize-none rounded-xl border border-[#0B2D5B]/15 bg-white px-3.5 py-2.5 text-sm text-[#09182E] placeholder-[#94A3B8] focus:border-[#0B2D5B] focus:outline-none focus:ring-2 focus:ring-[#0B2D5B]/15"
+                      className="w-full resize-none border border-[#0F141E]/[0.12] bg-[#F4F3EF] px-3.5 py-2.5 text-sm text-[#0F141E] placeholder-[#8A94A6] transition-colors focus:border-[#1E3A5F] focus:bg-[#FAF9F6] focus:outline-none"
                     />
                   </div>
 
                   {validationError && (
-                    <div className="flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-3.5 py-2.5 text-xs font-medium text-[#B81D2B]">
+                    <div className="flex items-center gap-2 border border-[#9E1C28]/25 bg-[#9E1C28]/8 px-3.5 py-2.5 text-xs font-medium text-[#9E1C28]">
                       <AlertCircle className="h-4 w-4 shrink-0" />
                       <span>{validationError}</span>
                     </div>
@@ -273,7 +276,7 @@ export function QuickQuoteSection() {
                   <button
                     type="submit"
                     disabled={status === 'submitting'}
-                    className="flex w-full items-center justify-center gap-2 rounded-full bg-[#B81D2B] py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-[0_12px_28px_-8px_rgba(184,29,43,0.45)] transition-all hover:bg-[#0B2D5B] hover:shadow-[0_12px_28px_-8px_rgba(11,45,91,0.4)] disabled:opacity-60"
+                    className="chamfer-btn btn-satin-obsidian flex w-full items-center justify-center gap-2 py-3.5 text-[11px] font-bold uppercase tracking-[0.14em] text-[#FAF9F6] disabled:opacity-60"
                   >
                     <Send className="h-4 w-4" />
                     <span>

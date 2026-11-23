@@ -1,377 +1,381 @@
-"use client";
-import React, { useState } from "react";
-import { Send, Mail, Phone } from "lucide-react";
-import { useTranslations } from "next-intl";
+'use client';
 
-interface FormData {
-  fullName: string;
-  email: string;
-  subject: string;
-  message: string;
-}
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { useLocale, useTranslations } from 'next-intl';
+import { z } from 'zod';
+import { motion, AnimatePresence } from 'motion/react';
+import {
+  Send,
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  CheckCircle2,
+  AlertCircle,
+  ExternalLink,
+} from 'lucide-react';
+import { InteractivePrecisionField } from '@/components/ui/InteractivePrecisionField';
+
+const contactSchema = z.object({
+  fullName: z.string().trim().min(2),
+  email: z.string().trim().email(),
+  phone: z.string().trim().optional(),
+  subject: z.string().min(1),
+  message: z.string().trim().min(5).max(2000),
+});
 
 const ContactUs: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
-    fullName: "",
-    email: "",
-    subject: "General",
-    message: "",
+  const locale = useLocale();
+  const isEs = locale === 'es';
+  const t = useTranslations('contact');
+  const searchParams = useSearchParams();
+  const machineParam = searchParams.get('machine');
+
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    subject: machineParam ? 'Product Inquiry' : 'General',
+    message: '',
   });
+
+  useEffect(() => {
+    if (!machineParam) return;
+    const readableMachine = machineParam.replace(/-/g, ' ');
+    setFormData((prev) => ({
+      ...prev,
+      subject: 'Product Inquiry',
+      message:
+        prev.message ||
+        (isEs
+          ? `Hola, me gustaría solicitar información y cotización sobre: ${readableMachine}.`
+          : `Hi, I would like to request information and a quote for: ${readableMachine}.`),
+    }));
+  }, [machineParam, isEs]);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const t = useTranslations("contact");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setErrorMessage(null);
 
+    const parsed = contactSchema.safeParse(formData);
+    if (!parsed.success) {
+      setErrorMessage(
+        isEs
+          ? 'Por favor verifique su nombre, correo electrónico válido y mensaje.'
+          : 'Please enter your name, a valid email address, and your message.',
+      );
+      return;
+    }
+
+    setIsSubmitting(true);
     try {
-      // const response = await fetch("http://localhost:8080/enviar-correo-robotics", { // URL local para pruebas
+      const composedMessage = formData.phone
+        ? `[${formData.subject}] Phone: ${formData.phone}\n\n${formData.message}`
+        : `[${formData.subject}]\n\n${formData.message}`;
+
       const response = await fetch(
-        "https://servicesjmk-backend.onrender.com/enviar-correo-robotics",
+        'https://servicesjmk-backend.onrender.com/enviar-correo-robotics',
         {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             full_name: formData.fullName,
             email: formData.email,
-            message: formData.message,
+            message: composedMessage,
           }),
-        }
+        },
       );
 
       if (!response.ok) {
-        throw new Error(t("form.error.text"));
+        throw new Error(t('form.error.text'));
       }
 
       setIsSubmitted(true);
-
-      // Reset form después de mostrar confirmación
-      setTimeout(() => {
-        setFormData({
-          fullName: "",
-          email: "",
-          subject: "General",
-          message: "",
-        });
-      }, 3000);
-    } catch (error) {
-      console.error(error);
-      alert("No se pudo enviar el mensaje, inténtalo más tarde.");
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        subject: 'General',
+        message: '',
+      });
+    } catch {
+      setErrorMessage(
+        isEs
+          ? 'No pudimos enviar el mensaje en este momento. Puede escribirnos directo por WhatsApp o a info@servicesjmk.com.'
+          : 'Could not send your message right now. Please reach out via WhatsApp or info@servicesjmk.com.',
+      );
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const isFormValid = formData.fullName && formData.email && formData.message;
-
   return (
-    <div className="min-h-screen bg-[#020C18] relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-96 h-96 border border-white/20 rotate-45"></div>
-        <div className="absolute bottom-20 right-10 w-64 h-64 border border-white/10 rotate-12"></div>
-        <div className="absolute top-1/2 left-1/4 w-32 h-32 border border-[#ff002f]/30 rotate-45"></div>
-      </div>
-
-      {/* Hero Header Section */}
-      <div className="relative z-10 pt-20 pb-16 px-4 sm:px-6 lg:px-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-left text-white">
-            <p className="font-jakarta text-md tracking-wide mb-4">
-              {t("hero.preTitle1")}{" "}
-              <span className="text-[#ff002f]">{t("hero.preTitle2")}</span>{" "}
-              {t("hero.preTitle3")}
+    <main className="relative overflow-hidden bg-[#F4F3EF] text-[#0F141E]">
+      {/* Clean Hero Header */}
+      <section className="relative overflow-hidden border-b border-[#0F141E]/[0.09] bg-[#FAF9F6] py-14 lg:py-20">
+        <InteractivePrecisionField theme="light" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#9E1C28]">
+              JMK Robotics · Miami, FL
             </p>
-            <h1 className="font-jakarta font-medium text-5xl md:text-7xl lg:text-8xl leading-tight mb-6">
-              {t("hero.title1")}{" "}
-              <span className="text-[#ff002f]">{t("hero.title2")}</span>{" "}
-              {t("hero.title3")}
+            <div className="mt-4 h-[3px] w-14 bg-[#9E1C28]" />
+            <h1 className="mt-5 text-4xl font-black tracking-[-0.03em] text-[#0F141E] sm:text-5xl lg:text-6xl">
+              {isEs ? 'Conversemos sobre su proyecto.' : 'Connect with our team.'}
             </h1>
-            <p className="text-lg text-gray-300 font-satoshi max-w-2xl leading-relaxed">
-              {t("hero.subtitle")}
+            <p className="mt-4 text-base leading-relaxed text-[#475569] sm:text-lg">
+              {t('hero.subtitle')}
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Main Content Section */}
-      <div className="relative z-10 px-4 sm:px-6 lg:px-20 pb-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            {/* Contact Form - White Card Floating */}
-            <div className="bg-white shadow-2xl p-8 lg:p-12 order-2 lg:order-1">
-              {isSubmitted ? (
-                <div className="text-center py-8">
-                  <div className="w-16 h-16 bg-[#ff002f]/10 flex items-center justify-center mx-auto mb-4">
-                    <svg
-                      className="w-8 h-8 text-[#ff002f]"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-jakarta font-semibold text-[#020C18] mb-2">
-                    {t("form.success.title")}
-                  </h3>
-                  <p className="text-gray-600 font-satoshi">
-                    {t("form.success.text")}
-                  </p>
-                </div>
-              ) : (
-                <>
-                  <div className="mb-8">
-                    <h2 className="text-2xl font-jakarta font-semibold text-[#020C18] mb-2">
-                      {t("form.title")}
+      {/* Main Content */}
+      <section className="py-14 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12">
+            {/* Contact Form */}
+            <div className="rounded-[2px] border border-[#0F141E]/[0.09] bg-[#FAF9F6] p-6 shadow-[0_20px_50px_-24px_rgba(9,24,46,0.14)] sm:p-10 lg:col-span-7">
+              <AnimatePresence mode="wait">
+                {isSubmitted ? (
+                  <motion.div
+                    key="submitted"
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="py-12 text-center space-y-4"
+                  >
+                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-[2px] bg-emerald-100 text-emerald-700">
+                      <CheckCircle2 className="h-8 w-8" />
+                    </div>
+                    <h2 className="text-2xl font-black text-[#0F141E]">
+                      {t('form.success.title')}
                     </h2>
-                    <p className="text-gray-600 font-satoshi">
-                      {t("form.subtitle")}
+                    <p className="mx-auto max-w-md text-sm text-[#475569]">
+                      {t('form.success.text')}
                     </p>
-                  </div>
+                    <button
+                      type="button"
+                      onClick={() => setIsSubmitted(false)}
+                      className="mt-2 rounded-[2px] border border-[#0B2D5B]/20 px-5 py-2.5 text-xs font-bold text-[#1E3A5F] transition-colors hover:bg-[#0E131D] hover:text-white"
+                    >
+                      {isEs ? 'Enviar otro mensaje' : 'Send another message'}
+                    </button>
+                  </motion.div>
+                ) : (
+                  <motion.div key="form-wrap" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                    <h2 className="text-2xl font-black tracking-tight text-[#0F141E]">
+                      {t('form.title')}
+                    </h2>
+                    <p className="mt-1.5 text-sm text-[#5C6575]">{t('form.subtitle')}</p>
 
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* Full Name */}
-                    <div>
-                      <label
-                        htmlFor="fullName"
-                        className="block text-sm font-jakarta font-medium text-[#020C18] mb-2"
-                      >
-                        {t("form.fields.fullName.label")}
-                      </label>
-                      <input
-                        type="text"
-                        id="fullName"
-                        name="fullName"
-                        value={formData.fullName}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 bg-gray-50/50 text-[#020C18] font-satoshi focus:ring-2 focus:ring-[#ff002f] focus:border-transparent transition-all duration-200 placeholder:text-gray-500"
-                        placeholder={t("form.fields.fullName.placeholder")}
-                      />
-                    </div>
+                    <form onSubmit={handleSubmit} className="mt-7 space-y-5" noValidate>
+                      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        <div className="space-y-1.5">
+                          <label htmlFor="fullName" className="text-xs font-semibold text-[#334155]">
+                            {t('form.fields.fullName.label')} *
+                          </label>
+                          <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            value={formData.fullName}
+                            onChange={handleInputChange}
+                            required
+                            placeholder={t('form.fields.fullName.placeholder')}
+                            className="w-full rounded-[2px] border border-[#0F141E]/[0.13] bg-[#F4F3EF] px-4 py-3 text-sm text-[#0F141E] placeholder-[#94A3B8] focus:border-[#0B2D5B] focus:bg-[#FAF9F6] focus:outline-none focus:ring-2 focus:ring-[#0B2D5B]/15"
+                          />
+                        </div>
 
-                    {/* Email */}
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-jakarta font-medium text-[#020C18] mb-2"
-                      >
-                        {t("form.fields.email.label")}
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 bg-gray-50/50 text-[#020C18] font-satoshi focus:ring-2 focus:ring-[#ff002f] focus:border-transparent transition-all duration-200 placeholder:text-gray-500"
-                        placeholder={t("form.fields.email.placeholder")}
-                      />
-                    </div>
+                        <div className="space-y-1.5">
+                          <label htmlFor="email" className="text-xs font-semibold text-[#334155]">
+                            {t('form.fields.email.label')} *
+                          </label>
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            required
+                            placeholder={t('form.fields.email.placeholder')}
+                            className="w-full rounded-[2px] border border-[#0F141E]/[0.13] bg-[#F4F3EF] px-4 py-3 text-sm text-[#0F141E] placeholder-[#94A3B8] focus:border-[#0B2D5B] focus:bg-[#FAF9F6] focus:outline-none focus:ring-2 focus:ring-[#0B2D5B]/15"
+                          />
+                        </div>
+                      </div>
 
-                    {/* Subject */}
-                    <div>
-                      <label
-                        htmlFor="subject"
-                        className="block text-sm font-jakarta font-medium text-[#020C18] mb-2"
-                      >
-                        {t("form.fields.subject.label")}
-                      </label>
-                      <select
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 bg-gray-50/50 text-[#020C18] font-satoshi focus:ring-2 focus:ring-[#ff002f] focus:border-transparent transition-all duration-200"
-                      >
-                        <option value="General">
-                          {t("form.fields.subject.options.general")}
-                        </option>
-                        <option value="Product Inquiry">
-                          {t("form.fields.subject.options.product")}
-                        </option>
-                        <option value="Support">
-                          {t("form.fields.subject.options.support")}
-                        </option>
-                      </select>
-                    </div>
+                      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        <div className="space-y-1.5">
+                          <label htmlFor="phone" className="text-xs font-semibold text-[#334155]">
+                            {isEs ? 'Teléfono / WhatsApp' : 'Phone / WhatsApp'}
+                          </label>
+                          <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                            placeholder="+1 (786) 000-0000"
+                            className="w-full rounded-[2px] border border-[#0F141E]/[0.13] bg-[#F4F3EF] px-4 py-3 text-sm text-[#0F141E] placeholder-[#94A3B8] focus:border-[#0B2D5B] focus:bg-[#FAF9F6] focus:outline-none focus:ring-2 focus:ring-[#0B2D5B]/15"
+                          />
+                        </div>
 
-                    {/* Message */}
-                    <div>
-                      <label
-                        htmlFor="message"
-                        className="block text-sm font-jakarta font-medium text-[#020C18] mb-2"
-                      >
-                        {t("form.fields.message.label")}
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        required
-                        rows={6}
-                        className="w-full px-4 py-3 border border-gray-300 bg-gray-50/50 text-[#020C18] font-satoshi focus:ring-2 focus:ring-[#ff002f] focus:border-transparent transition-all duration-200 placeholder:text-gray-500 resize-none"
-                        placeholder={t("form.fields.message.placeholder")}
-                      />
-                    </div>
+                        <div className="space-y-1.5">
+                          <label htmlFor="subject" className="text-xs font-semibold text-[#334155]">
+                            {t('form.fields.subject.label')}
+                          </label>
+                          <select
+                            id="subject"
+                            name="subject"
+                            value={formData.subject}
+                            onChange={handleInputChange}
+                            className="w-full rounded-[2px] border border-[#0F141E]/[0.13] bg-[#F4F3EF] px-4 py-3 text-sm text-[#0F141E] focus:border-[#0B2D5B] focus:bg-[#FAF9F6] focus:outline-none focus:ring-2 focus:ring-[#0B2D5B]/15"
+                          >
+                            <option value="General">{t('form.fields.subject.options.general')}</option>
+                            <option value="Product Inquiry">{t('form.fields.subject.options.product')}</option>
+                            <option value="Support">{t('form.fields.subject.options.support')}</option>
+                          </select>
+                        </div>
+                      </div>
 
-                    {/* Submit Button */}
-                    <div className="pt-2">
+                      <div className="space-y-1.5">
+                        <label htmlFor="message" className="text-xs font-semibold text-[#334155]">
+                          {t('form.fields.message.label')} *
+                        </label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          value={formData.message}
+                          onChange={handleInputChange}
+                          required
+                          rows={5}
+                          placeholder={t('form.fields.message.placeholder')}
+                          className="w-full resize-none rounded-[2px] border border-[#0F141E]/[0.13] bg-[#F4F3EF] px-4 py-3 text-sm text-[#0F141E] placeholder-[#94A3B8] focus:border-[#0B2D5B] focus:bg-[#FAF9F6] focus:outline-none focus:ring-2 focus:ring-[#0B2D5B]/15"
+                        />
+                      </div>
+
+                      {errorMessage && (
+                        <div className="flex items-start gap-2 rounded-[2px] border border-red-200 bg-red-50 px-4 py-3 text-xs font-medium text-[#9E1C28]">
+                          <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+                          <span>{errorMessage}</span>
+                        </div>
+                      )}
+
                       <button
                         type="submit"
-                        disabled={!isFormValid || isSubmitting}
-                        aria-label={
-                          isSubmitting
-                            ? t("form.submit.loading")
-                            : t("form.submit.idle")
-                        }
-                        className="w-full bg-[#ff002f] text-white font-jakarta font-medium py-3 px-6 hover:bg-[#c91534] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center gap-2"
+                        disabled={isSubmitting}
+                        className="flex w-full items-center justify-center gap-2 rounded-[2px] bg-[#9E1C28] py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-[0_12px_28px_-8px_rgba(184,29,43,0.45)] transition-all hover:bg-[#0E131D] disabled:opacity-60"
                       >
-                        {isSubmitting ? (
-                          <>
-                            <svg
-                              className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                            >
-                              <circle
-                                className="opacity-25"
-                                cx="12"
-                                cy="12"
-                                r="10"
-                                stroke="currentColor"
-                                strokeWidth="4"
-                              ></circle>
-                              <path
-                                className="opacity-75"
-                                fill="currentColor"
-                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                              ></path>
-                            </svg>
-                            {t("form.submit.loading")}
-                          </>
-                        ) : (
-                          <>
-                            <Send size={16} />
-                            {t("form.submit.idle")}
-                          </>
-                        )}
+                        <Send className="h-4 w-4" />
+                        <span>
+                          {isSubmitting ? t('form.submit.loading') : t('form.submit.idle')}
+                        </span>
                       </button>
-                    </div>
-                  </form>
-                </>
-              )}
+                    </form>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
-            {/* Contact Information */}
-            <div className="text-white order-1 lg:order-2">
-              <div className="space-y-8">
-                <div>
-                  <h3 className="text-2xl font-jakarta font-semibold mb-6">
-                    {t("info.title")}
-                  </h3>
-                  <p className="text-gray-300 font-satoshi text-lg leading-relaxed">
-                    {t("info.text")}
-                  </p>
-                </div>
+            {/* Right Contact Details Card */}
+            <div className="space-y-6 lg:col-span-5">
+              <div className="rounded-[2px] obsidian-stage p-7 text-white sm:p-9">
+                <h3 className="text-xl font-bold">{t('info.title')}</h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-slate-300">
+                  {t('info.text')}
+                </p>
 
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#ff002f] flex items-center justify-center flex-shrink-0">
-                      <Mail size={20} className="text-white" />
+                <div className="mt-7 space-y-5">
+                  <div className="flex items-start gap-3.5">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[2px] bg-white/10 text-[#F87171]">
+                      <Mail className="h-5 w-5" />
                     </div>
                     <div>
-                      <h4 className="font-jakarta font-medium mb-1">
-                        {t("info.email.label")}
-                      </h4>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                        {t('info.email.label')}
+                      </p>
                       <a
                         href="mailto:info@servicesjmk.com"
-                        className="text-gray-300 hover:text-[#ff002f] font-satoshi transition-colors"
+                        className="mt-0.5 block text-sm font-semibold text-white hover:text-[#F87171]"
                       >
                         info@servicesjmk.com
                       </a>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#ff002f] flex items-center justify-center flex-shrink-0">
-                      <Phone size={20} className="text-white" />
+                  <div className="flex items-start gap-3.5">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[2px] bg-white/10 text-[#F87171]">
+                      <Phone className="h-5 w-5" />
                     </div>
                     <div>
-                      <h4 className="font-jakarta font-medium mb-1">
-                        {t("info.phone.label")}
-                      </h4>
-                      <div className="space-y-1">
-                        <p className="text-gray-300 font-satoshi">
-                          <span className="text-gray-200 text-sm">
-                            WhatsApp:
-                          </span>{" "}
-                          <a
-                            href="https://wa.me/17862587335?text=Hello%20JMK%20Robotics%2C%20I%20would%20like%20more%20information."
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-400 hover:underline"
-                          >
-                            +1 (786) 258-7335
-                          </a>
-                        </p>
-                        <p className="text-gray-400 text-xs italic">
-                          Support available in English and Spanish
-                        </p>
-                      </div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                        {t('info.phone.label')}
+                      </p>
+                      <a
+                        href="tel:+17862587335"
+                        className="mt-0.5 block font-mono text-sm font-semibold text-white hover:text-[#F87171]"
+                      >
+                        +1 (786) 258-7335
+                      </a>
+                      <a
+                        href="https://wa.me/17862587335?text=Hello%20JMK%20Robotics%2C%20I%20would%20like%20more%20information."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-1 inline-flex items-center gap-1 text-xs font-semibold text-emerald-400 hover:underline"
+                      >
+                        <span>{isEs ? 'Escribir por WhatsApp' : 'Message on WhatsApp'}</span>
+                        <ExternalLink className="h-3 w-3" />
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3.5">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[2px] bg-white/10 text-[#F87171]">
+                      <MapPin className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                        {isEs ? 'Base de Operaciones' : 'Location'}
+                      </p>
+                      <p className="mt-0.5 text-sm font-semibold text-white">
+                        Miami, Florida — USA
+                      </p>
+                      <p className="text-xs text-slate-400">
+                        {isEs
+                          ? 'Atención en inglés y español'
+                          : 'Support in English and Spanish'}
+                      </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-8 border-t border-gray-700">
-                  <h4 className="font-jakarta font-medium mb-4">
-                    {t("info.responseTime.title")}
-                  </h4>
-                  <p className="text-gray-300 font-satoshi">
-                    {t("info.responseTime.text")}
+                <div className="mt-8 border-t border-white/10 pt-6">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-300">
+                    <Clock className="h-4 w-4 text-[#F87171]" />
+                    <span>{t('info.responseTime.title')}</span>
+                  </div>
+                  <p className="mt-2 text-xs leading-relaxed text-slate-300">
+                    {t('info.responseTime.text')}
                   </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Footer */}
-      <footer className="relative z-10 border-t border-gray-700 py-8 px-4 sm:px-6 lg:px-20">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-gray-400 font-satoshi text-sm">
-            {t("footer.text")}
-          </p>
-        </div>
-      </footer>
-    </div>
+      </section>
+    </main>
   );
 };
 

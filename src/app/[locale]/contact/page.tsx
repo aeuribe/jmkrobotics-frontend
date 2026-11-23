@@ -1,19 +1,16 @@
-import Contact from "../features/Contact/components/Contact";
-import Header from "../components/header/Header";
-import Head from "next/head";
-import { useTranslations } from "next-intl";
+import React, { Suspense } from 'react';
+import Contact from '../features/Contact/components/Contact';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 
 export default function ContactPage() {
-  const t = useTranslations("contact");
-
   return (
-    <>
-      <Head>
-        <title>{t("metadata.contactTitle")}</title>
-        <meta name="description" content={t("metadata.contactDescription")} />
-      </Head>
+    <div className="min-h-screen bg-[#F4F3EF] text-[#0F141E]">
       <Header />
-      <Contact />
-    </>
+      <Suspense fallback={<div className="min-h-[60vh] bg-[#F4F3EF]" />}>
+        <Contact />
+      </Suspense>
+      <Footer />
+    </div>
   );
 }

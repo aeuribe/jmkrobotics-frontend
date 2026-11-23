@@ -123,7 +123,7 @@ export function AuthorityAdvantage() {
                   : 'JMK Robotics and Services JMK LLC operate as one team — supplying packaging machinery backed in Florida with installation, local parts, and field service.'}
               </p>
 
-              <div className="mt-7 rounded-2xl border border-[#0B2D5B]/10 bg-white p-5 shadow-sm">
+              <div className="mt-7 rounded-[2px] border border-[#0B2D5B]/10 bg-white p-5 shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-wider text-[#0B2D5B]">
                   Services JMK LLC
                 </p>
@@ -167,7 +167,7 @@ export function AuthorityAdvantage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.45, ease: EASE, delay: idx * 0.08 }}
-                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#0B2D5B]/10 bg-white p-6 shadow-[0_1px_2px_rgba(9,24,46,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-[#0B2D5B]/25 hover:shadow-[0_18px_40px_-18px_rgba(11,45,91,0.16)]"
+                  className="chamfer-card group relative flex flex-col justify-between overflow-hidden border border-[#0B2D5B]/10 bg-white p-6 shadow-[0_1px_2px_rgba(9,24,46,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-[#0B2D5B]/25 hover:shadow-[0_18px_40px_-18px_rgba(11,45,91,0.16)]"
                 >
                   <span
                     className="pointer-events-none absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-[#B81D2B] transition-transform duration-300 group-hover:scale-x-100"
@@ -175,7 +175,7 @@ export function AuthorityAdvantage() {
                   />
 
                   <div>
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0B2D5B]/6 text-[#0B2D5B] transition-colors group-hover:bg-[#0B2D5B] group-hover:text-white">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-[2px] bg-[#0B2D5B]/6 text-[#0B2D5B] transition-colors group-hover:bg-[#0B2D5B] group-hover:text-white">
                       <Icon className="h-5 w-5" />
                     </div>
 

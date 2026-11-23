@@ -1,162 +1,96 @@
-"use client";
+'use client';
 
-import React, { ReactNode } from "react";
-import Header from "@/app/[locale]/components/header/Header";
-import Footer from "@/app/[locale]/components/footer/Footer";
-import { ArrowLeft, FileText, Shield } from "lucide-react";
-import Link from "next/link";
+import React, { ReactNode } from 'react';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
+import { Link } from '@/i18n/navigation';
+import { ArrowLeft, FileText, Shield } from 'lucide-react';
+import { InteractivePrecisionField } from '@/components/ui/InteractivePrecisionField';
 
 type LegalPageLayoutProps = {
   children: ReactNode;
   title: string;
   subtitle: string;
   lastUpdated: string;
-  icon: "terms" | "privacy";
+  icon: 'terms' | 'privacy';
   onBack?: () => void;
 };
 
-const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({ 
-  children, 
-  title, 
-  subtitle, 
-  lastUpdated, 
+const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({
+  children,
+  title,
+  subtitle,
+  lastUpdated,
   icon,
-  onBack 
 }) => {
-  const IconComponent = icon === "terms" ? FileText : Shield;
+  const IconComponent = icon === 'terms' ? FileText : Shield;
 
   return (
-    <div className="w-full min-h-screen" style={{backgroundColor: '#020C18'}}>
-      {/* Corporate background pattern */}
-      <div className="fixed inset-0 opacity-5 pointer-events-none">
-        <div className="absolute inset-0" 
-             style={{
-               backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60' width='60' height='60' fill='none' stroke='rgb(255 255 255 / 0.05)'%3e%3cpath d='M0 30h60M30 0v60M15 15h30M15 45h30'/%3e%3c/svg%3e")`,
-               backgroundSize: '60px 60px'
-             }} 
-        />
-      </div>
+    <div className="min-h-screen bg-[#F4F3EF] text-[#0F141E]">
+      <Header />
 
-      {/* Subtle gradient overlay */}
-      <div className="fixed inset-0 opacity-10 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#ff002f]/20 via-transparent to-[#2E3C51]/20"></div>
-      </div>
-      
-      <div className="relative z-10">
-        {/* Header */}
-        <Header />
-        
-        {/* Legal Page Hero */}
-        <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
-          {/* Back button */}
-          {onBack && (
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-              <button
-                onClick={onBack}
-                className="inline-flex items-center gap-2 text-[#6E7784] hover:text-white
-                          transition-colors duration-300 group"
-                aria-label="Go back to main site"
-              >
-                <ArrowLeft 
-                  size={20} 
-                  className="transition-transform duration-300 group-hover:-translate-x-1" 
-                />
-                <span className="text-sm sm:text-base">Back to main site</span>
-              </button>
-            </div>
-          )}
+      <main>
+        {/* Clean Porcelain Hero */}
+        <section className="relative overflow-hidden border-b border-[#0F141E]/[0.09] bg-[#FAF9F6] py-14 lg:py-20">
+          <InteractivePrecisionField theme="light" />
+          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <Link
+              href="/"
+              className="group inline-flex items-center gap-2 text-xs font-semibold text-[#475569] transition-colors hover:text-[#1E3A5F]"
+            >
+              <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
+              <span>Back to JMK Robotics</span>
+            </Link>
 
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            {/* Icon */}
-            <div className="mb-6 sm:mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20
-                             bg-[#ff002f]/10 border border-[#ff002f]/20 rounded-full">
-                <IconComponent 
-                  size={32} 
-                  className="text-[#ff002f]" 
-                />
+            <div className="mt-8 flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-[2px] bg-[#0E131D]/8 text-[#1E3A5F]">
+                <IconComponent className="h-5 w-5" />
               </div>
+              <span className="rounded-[2px] border border-[#0F141E]/[0.11] bg-[#F4F3EF] px-3 py-1 text-xs font-medium text-[#475569]">
+                Last updated: {lastUpdated}
+              </span>
             </div>
 
-            {/* Title */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 
-                          font-semibold text-white mb-4 sm:mb-6
-                          leading-tight tracking-tight">
+            <h1 className="mt-5 text-3xl font-black tracking-[-0.03em] text-[#0F141E] sm:text-5xl">
               {title}
             </h1>
-            
-            {/* Subtitle */}
-            <p className="text-[#6E7784] text-base sm:text-lg lg:text-xl 
-                         max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8">
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#475569]">
               {subtitle}
             </p>
-
-            {/* Last updated */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 
-                           bg-[#0A1220]/50 border border-[#2E3C51] 
-                           text-[#6E7784] text-sm sm:text-base">
-              <span>Last updated: {lastUpdated}</span>
-            </div>
           </div>
-
-          {/* Decorative elements */}
-          <div className="absolute top-1/2 left-4 w-1 h-16 bg-gradient-to-b from-transparent via-[#ff002f] to-transparent opacity-30"></div>
-          <div className="absolute top-1/2 right-4 w-1 h-16 bg-gradient-to-b from-transparent via-[#ff002f] to-transparent opacity-30"></div>
         </section>
 
-        {/* Content Section */}
-        <section className="relative py-8 sm:py-12 lg:py-16">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-[#0A1220]/30 backdrop-blur-sm border border-[#2E3C51]
-                           shadow-xl shadow-black/20 overflow-hidden">
-              
-              {/* Content container */}
-              <div className="p-6 sm:p-8 lg:p-12">
-                {children}
-              </div>
-
-              {/* Bottom border accent */}
-              <div className="h-1 bg-gradient-to-r from-transparent via-[#ff002f] to-transparent"></div>
+        {/* Legal Document Surface (Maritime Navy preserves high contrast for legal body styles) */}
+        <section className="py-12 lg:py-16">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="overflow-hidden rounded-[2px] border border-[#0F141E]/[0.13] obsidian-stage shadow-[0_24px_60px_-24px_rgba(7,26,54,0.35)]">
+              <div className="h-[3px] w-full bg-gradient-to-r from-[#0B2D5B] via-[#B81D2B] to-[#0B2D5B]" />
+              <div className="p-6 sm:p-10 lg:p-12">{children}</div>
             </div>
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section className="relative py-12 sm:py-16 lg:py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="bg-[#0A1220]/50 backdrop-blur-sm border border-[#2E3C51] 
-                           p-6 sm:p-8 lg:p-10">
-              <h2 className="text-xl sm:text-2xl font-semibold text-white mb-4">
-                Questions or Concerns?
-              </h2>
-              <p className="text-[#6E7784] mb-6 sm:mb-8">
-                If you have any questions about this {icon === "terms" ? "Terms and Conditions" : "Privacy Policy"}, 
-                please don&#39;t hesitate to contact us.
+        {/* Questions Card */}
+        <section className="pb-16 lg:pb-20">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="rounded-[2px] border border-[#0F141E]/[0.09] bg-[#FAF9F6] p-8 text-center">
+              <h2 className="text-xl font-bold text-[#0F141E]">Questions or Concerns?</h2>
+              <p className="mt-2 text-sm text-[#475569]">
+                If you have any questions about our{' '}
+                {icon === 'terms' ? 'Terms of Service' : 'Privacy Policy'}, reach out to our team.
               </p>
-              <div className="inline-flex items-center gap-4 text-sm sm:text-base">
-                <Link 
-                  href="mailto:info@servicesjmk.com" 
-                  className="text-[#ff002f] hover:text-white transition-colors duration-300"
-                >
-                  info@servicesjmk.com
-                </Link>
-
-                {/* Descomentar cuando haya un numero telefonico disponible */}
-                {/* <span className="text-[#2E3C51]">|</span> */}
-                {/* <Link 
-                  href="tel:+1234567890" 
-                  className="text-[#ff002f] hover:text-white transition-colors duration-300"
-                >
-                  +1 (234) 567-890
-                </Link> */}
-              </div>
+              <a
+                href="mailto:info@servicesjmk.com"
+                className="mt-4 inline-block text-sm font-bold text-[#9E1C28] hover:text-[#1E3A5F]"
+              >
+                info@servicesjmk.com
+              </a>
             </div>
           </div>
         </section>
+      </main>
 
-        {/* Footer */}
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };
