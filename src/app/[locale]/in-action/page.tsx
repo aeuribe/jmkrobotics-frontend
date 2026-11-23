@@ -127,13 +127,24 @@ function InstallationViewerModal({
             <div className="overflow-y-auto">
               {/* Active Slide Viewport */}
               <div className="relative aspect-video w-full bg-[#090D14]">
-                {entry.slides[slideIdx]?.type === 'video' ? (
+                {entry.slides[slideIdx]?.type === 'youtube' ? (
+                  <iframe
+                    key={entry.slides[slideIdx].url}
+                    src={entry.slides[slideIdx].url}
+                    title={entry.slides[slideIdx].caption[locale]}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="h-full w-full border-0"
+                  />
+                ) : entry.slides[slideIdx]?.type === 'video' ? (
                   <video
                     key={entry.slides[slideIdx].url}
                     src={entry.slides[slideIdx].url}
                     poster={entry.slides[slideIdx].poster}
                     controls
                     autoPlay
+                    muted={Boolean(entry.slides[slideIdx].mutedLoop)}
+                    loop={Boolean(entry.slides[slideIdx].mutedLoop)}
                     playsInline
                     className="h-full w-full object-contain"
                   />
@@ -198,11 +209,27 @@ function InstallationViewerModal({
 
               {/* Technical Summary + Highlights + CTA */}
               <div className="grid gap-6 p-6 md:grid-cols-12">
-                <div className="md:col-span-7">
+                <div className="md:col-span-7 space-y-4">
                   <p className="text-sm leading-relaxed text-[#CBD5E1]">
                     {entry.summary[locale]}
                   </p>
-                  <ul className="mt-4 space-y-2">
+                  {entry.story && entry.story.length > 0 && (
+                    <div className="space-y-3 border-t border-white/[0.08] pt-3">
+                      {entry.story.map((block, bIdx) => (
+                        <div key={bIdx} className="space-y-1">
+                          {block.heading && (
+                            <h4 className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[#D15A65]">
+                              {block.heading[locale]}
+                            </h4>
+                          )}
+                          <p className="text-xs leading-relaxed text-[#CBD5E1]/90">
+                            {block.body[locale]}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  <ul className="space-y-2 pt-1">
                     {entry.highlights[locale].map((point) => (
                       <li key={point} className="flex items-start gap-2 text-xs text-[#94A3B8]">
                         <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#D15A65]" />
@@ -269,10 +296,10 @@ function InstallationCard({ entry, index, locale, onOpen }: InstallationCardProp
     setActiveSlide((prev) => (prev - 1 + entry.slides.length) % entry.slides.length);
   };
 
-  const previewSrc =
-    currentSlide.type === 'video'
-      ? currentSlide.poster || '/hero-portrait.webp'
-      : currentSlide.url;
+  const isVideoSlide = currentSlide.type === 'video' || currentSlide.type === 'youtube';
+  const previewSrc = isVideoSlide
+    ? currentSlide.poster || '/hero-portrait.webp'
+    : currentSlide.url;
 
   return (
     <motion.article
@@ -297,13 +324,15 @@ function InstallationCard({ entry, index, locale, onOpen }: InstallationCardProp
               sizes="(min-width:1024px) 32vw, 95vw"
               className={cn(
                 'transition-transform duration-500 group-hover:scale-[1.04]',
-                currentSlide.type === 'image' && previewSrc.endsWith('.webp')
+                currentSlide.type === 'image' &&
+                  previewSrc.endsWith('.webp') &&
+                  !previewSrc.includes('/media/')
                   ? 'object-contain p-5 mix-blend-multiply'
                   : 'object-cover',
               )}
             />
 
-            {currentSlide.type === 'video' && (
+            {isVideoSlide && (
               <div className="absolute inset-0 flex items-center justify-center bg-[#090D14]/25 transition-colors group-hover:bg-[#090D14]/40">
                 <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-[#0E131D]/90 text-[#FAF9F6] shadow-lg transition-all group-hover:scale-110 group-hover:bg-[#9E1C28]">
                   <Play className="ml-0.5 h-5 w-5 fill-current" />
@@ -406,7 +435,9 @@ export default function InActionPage() {
   const filteredEntries =
     activeCategory === 'all'
       ? INSTALLATIONS_FEED
-      : INSTALLATIONS_FEED.filter((entry) => entry.category === activeCategory);
+      : activeCategory === 'featured'
+        ? INSTALLATIONS_FEED.filter((entry) => entry.featured)
+        : INSTALLATIONS_FEED.filter((entry) => entry.category === activeCategory);
 
   return (
     <div className="min-h-screen bg-[#F4F3EF] text-[#0F141E] selection:bg-[#1E3A5F] selection:text-[#FAF9F6]">

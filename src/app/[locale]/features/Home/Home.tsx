@@ -3,7 +3,6 @@
 import React from 'react';
 import { Header } from '@/components/layout/Header';
 import { HeroSection } from '@/features/Home/components/HeroSection';
-import { PackagingLineExplorer } from '@/features/Home/components/PackagingLineExplorer';
 import { MachineCatalogShowcase } from '@/features/Home/components/MachineCatalogShowcase';
 import { VideoDemosSection } from '@/features/Home/components/VideoDemosSection';
 import { QuickQuoteSection } from '@/features/Home/components/QuickQuoteSection';
@@ -16,7 +15,6 @@ export default function Home() {
 
       <main>
         <HeroSection />
-        <PackagingLineExplorer />
         <MachineCatalogShowcase />
         <VideoDemosSection />
         <QuickQuoteSection />

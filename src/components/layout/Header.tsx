@@ -162,7 +162,7 @@ export function Header() {
                         {MACHINE_CATALOG.slice(0, 4).map((item) => (
                           <Link
                             key={item.id}
-                            href={item.link}
+                            href={item.link || '/machines'}
                             onClick={() => setIsMachinesOpen(false)}
                             className="group flex items-center gap-3.5 p-2.5 transition-colors hover:bg-[#EAE8E1]/65"
                           >
@@ -206,11 +206,6 @@ export function Header() {
                 )}
               </AnimatePresence>
             </div>
-
-            <a href={`/${locale}#line-flow`} className={navLinkClass()}>
-              <span>{isEs ? 'Capacidades' : 'Capabilities'}</span>
-              <span className="absolute inset-x-0 bottom-0 h-[1.5px] origin-left scale-x-0 bg-[#1E3A5F] transition-transform duration-200 group-hover:scale-x-100" />
-            </a>
 
             <Link href="/in-action" className={navLinkClass(pathname === '/in-action')}>
               <span>{isEs ? 'En Acción' : 'In Action'}</span>
@@ -324,13 +319,6 @@ export function Header() {
                   >
                     {isEs ? 'Maquinaria' : 'Machinery'}
                   </Link>
-                  <a
-                    href={`/${locale}#line-flow`}
-                    onClick={() => setIsMobileOpen(false)}
-                    className="block px-3 py-2.5 text-xs font-bold uppercase tracking-[0.14em] text-[#475263] hover:bg-[#EAE8E1]/60"
-                  >
-                    {isEs ? 'Capacidades' : 'Capabilities'}
-                  </a>
                   <Link
                     href="/in-action"
                     onClick={() => setIsMobileOpen(false)}

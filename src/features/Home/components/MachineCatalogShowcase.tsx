@@ -10,22 +10,25 @@ import { VideoModal } from '@/components/ui/VideoModal';
 import { InteractivePrecisionField } from '@/components/ui/InteractivePrecisionField';
 import {
   MACHINE_CATALOG,
+  CATALOG_CATEGORY_LABELS,
   MachineCatalogItem,
   CatalogTabId,
   Locale,
+  getMachineTitle,
 } from '@/features/Home/data/catalogData';
 import { cn } from '@/lib/utils';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const TAB_LABELS: Record<CatalogTabId, Record<Locale, string>> = {
-  all: { en: 'All Systems', es: 'Todos' },
-  filling: { en: 'Filling & Dosing', es: 'Llenado' },
-  capping: { en: 'Capping', es: 'Tapado' },
-  labeling: { en: 'Labeling', es: 'Etiquetado' },
-  line: { en: 'Turnkey Lines', es: 'Líneas' },
-};
-const TAB_ORDER: CatalogTabId[] = ['all', 'filling', 'capping', 'labeling', 'line'];
+const HOME_TAB_ORDER: CatalogTabId[] = ['all', 'filling', 'vffs-pouch', 'capping', 'end-of-line', 'line'];
+
+const HOME_FEATURED_IDS: string[] = [
+  'vial-bottling-line',
+  'rotary-bottle-filling-capping',
+  'automatic-capping-sealing-machine',
+  'automatic-pallet-stretch-wrapper',
+  'automatic-weight-filler',
+];
 
 interface VideoSelection {
   url: string;
@@ -44,8 +47,9 @@ interface MachineCardProps {
 
 function MachineStudioCard({ machine, index, locale, featured, onPlay }: MachineCardProps) {
   const isEs = locale === 'es';
+  const displayTitle = getMachineTitle(machine, locale);
   const labels = isEs
-    ? { speed: 'Velocidad', acc: 'Precisión', build: 'Construcción', specs: 'Ficha técnica', quote: 'Cotizar', video: 'Ver Video' }
+    ? { speed: 'Velocidad', acc: 'Precisión', build: 'Material', specs: 'Ficha técnica', quote: 'Cotizar', video: 'Ver Video' }
     : { speed: 'Output', acc: 'Accuracy', build: 'Build', specs: 'Full specs', quote: 'Get quote', video: 'Watch Demo' };
 
   return (
@@ -76,9 +80,20 @@ function MachineStudioCard({ machine, index, locale, featured, onPlay }: Machine
           className={cn(
             'cad-viewport relative h-full w-full overflow-hidden',
             featured ? 'aspect-[4/3] lg:aspect-auto lg:min-h-[320px]' : 'aspect-[4/3]',
+            machine.videoUrl && 'bg-[#0E131D]',
           )}
         >
-        {machine.isStudioCutout ? (
+        {machine.videoUrl ? (
+          <video
+            src={machine.videoUrl}
+            poster={machine.image}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          />
+        ) : machine.isStudioCutout ? (
           <Image
             src={machine.image}
             alt={machine.title}
@@ -102,7 +117,7 @@ function MachineStudioCard({ machine, index, locale, featured, onPlay }: Machine
             onClick={() =>
               onPlay({
                 url: machine.videoUrl as string,
-                title: machine.title,
+                title: displayTitle,
                 description: machine.subtitle[locale],
                 slug: machine.id,
               })
@@ -127,7 +142,7 @@ function MachineStudioCard({ machine, index, locale, featured, onPlay }: Machine
               featured ? 'text-2xl lg:text-3xl' : 'text-xl',
             )}
           >
-            {machine.title}
+            {displayTitle}
           </h3>
           <p className="mt-2.5 text-sm leading-relaxed text-[#475263]">
             {machine.subtitle[locale]}
@@ -175,7 +190,7 @@ function MachineStudioCard({ machine, index, locale, featured, onPlay }: Machine
 
           <div className="mt-5 flex items-center justify-between gap-3">
             <Link
-              href={machine.link}
+              href={machine.link || '/machines'}
               className="inline-flex items-center gap-1 text-xs font-bold text-[#1E3A5F] transition-colors hover:text-[#9E1C28]"
             >
               <span>{labels.specs}</span>
@@ -203,7 +218,9 @@ export function MachineCatalogShowcase() {
 
   const filteredMachines =
     activeTab === 'all'
-      ? MACHINE_CATALOG.slice(0, 3)
+      ? HOME_FEATURED_IDS.map((id) => MACHINE_CATALOG.find((m) => m.id === id)).filter(
+          (m): m is MachineCatalogItem => Boolean(m),
+        )
       : MACHINE_CATALOG.filter((m) => m.category === activeTab);
 
   return (
@@ -236,7 +253,7 @@ export function MachineCatalogShowcase() {
             aria-label={isEs ? 'Categorías de maquinaria' : 'Machinery categories'}
             className="inline-flex flex-wrap items-center gap-1 border border-[#0F141E]/[0.10] bg-[#FAF9F6] p-1.5 shadow-sm"
           >
-            {TAB_ORDER.map((tab) => {
+            {HOME_TAB_ORDER.map((tab) => {
               const isSelected = activeTab === tab;
               return (
                 <button
@@ -257,7 +274,7 @@ export function MachineCatalogShowcase() {
                       className="absolute inset-0 bg-[#0E131D]"
                     />
                   )}
-                  <span className="relative z-10">{TAB_LABELS[tab][locale]}</span>
+                  <span className="relative z-10">{CATALOG_CATEGORY_LABELS[tab][locale]}</span>
                 </button>
               );
             })}

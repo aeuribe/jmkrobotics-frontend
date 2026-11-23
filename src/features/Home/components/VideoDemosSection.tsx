@@ -18,14 +18,12 @@ export function VideoDemosSection() {
   const isEs = locale === 'es';
 
   const [selectedIdx, setSelectedIdx] = useState(0);
-  const [isPlayingInline, setIsPlayingInline] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const activeDemo = DEMO_VIDEOS[selectedIdx];
 
   const handleSelectChapter = (idx: number) => {
     setSelectedIdx(idx);
-    setIsPlayingInline(false);
   };
 
   return (
@@ -73,58 +71,42 @@ export function VideoDemosSection() {
         <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <div className="chamfer-stage relative overflow-hidden border border-white/[0.10] bg-[#090D14] shadow-[0_32px_72px_-20px_rgba(0,0,0,0.72)]">
-              <div className="relative aspect-video w-full">
+              <div className="relative aspect-video w-full bg-[#090D14]">
                 <AnimatePresence mode="wait">
-                  {isPlayingInline ? (
-                    <motion.video
-                      key={`${activeDemo.id}-video`}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
+                  <motion.div
+                    key={`${activeDemo.id}-live`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.35, ease: EASE }}
+                    className="group relative h-full w-full"
+                  >
+                    <video
+                      key={activeDemo.videoUrl}
                       src={activeDemo.videoUrl}
-                      controls
+                      poster={activeDemo.thumbnail}
                       autoPlay
+                      muted
+                      loop
                       playsInline
                       className="h-full w-full object-cover"
                     />
-                  ) : (
-                    <motion.div
-                      key={`${activeDemo.id}-poster`}
-                      initial={{ opacity: 0, scale: 1.03 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.4, ease: EASE }}
-                      className="group relative h-full w-full cursor-pointer"
-                      onClick={() => setIsPlayingInline(true)}
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#090D14]/65 via-transparent to-[#090D14]/20" />
+
+                    <div className="pointer-events-none absolute left-5 top-5 inline-flex items-center gap-2 border border-white/15 bg-[#090D14]/75 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[#FAF9F6] backdrop-blur">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true" />
+                      <span>{isEs ? 'En Planta' : 'Live Floor'}</span>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setIsModalOpen(true)}
+                      className="absolute right-5 top-5 inline-flex items-center gap-1.5 border border-white/[0.18] bg-[#090D14]/75 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[#FAF9F6] backdrop-blur transition-colors hover:bg-[#FAF9F6] hover:text-[#0E131D]"
                     >
-                      <Image
-                        src={activeDemo.thumbnail}
-                        alt={activeDemo.title[locale]}
-                        fill
-                        sizes="(min-width:1024px) 58vw, 100vw"
-                        className="object-cover opacity-85 transition-transform duration-700 group-hover:scale-105 group-hover:opacity-95"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#090D14] via-[#090D14]/25 to-transparent" />
-
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="flex h-16 w-16 items-center justify-center rounded-full border border-white/25 bg-[#0E131D]/90 text-[#FAF9F6] shadow-[0_0_40px_rgba(0,0,0,0.65)] backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:border-[#9E1C28] group-hover:bg-[#9E1C28]">
-                          <Play className="ml-1 h-6 w-6 fill-current" />
-                        </div>
-                      </div>
-
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setIsModalOpen(true);
-                        }}
-                        className="absolute right-5 top-5 inline-flex items-center gap-1.5 border border-white/[0.15] bg-[#090D14]/70 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[#FAF9F6] backdrop-blur transition-colors hover:bg-[#FAF9F6] hover:text-[#0E131D]"
-                      >
-                        <Maximize2 className="h-3.5 w-3.5" />
-                        <span className="hidden sm:inline">{isEs ? 'Expandir' : 'Expand'}</span>
-                      </button>
-                    </motion.div>
-                  )}
+                      <Maximize2 className="h-3.5 w-3.5" />
+                      <span className="hidden sm:inline">{isEs ? 'Expandir' : 'Expand'}</span>
+                    </button>
+                  </motion.div>
                 </AnimatePresence>
               </div>
 

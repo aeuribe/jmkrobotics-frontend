@@ -211,7 +211,7 @@ export function QuickQuoteSection() {
                         required
                         value={formData.email}
                         onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
-                        placeholder="name@company.com"
+                        placeholder={isEs ? 'nombre@empresa.com' : 'name@company.com'}
                         className="w-full border border-[#0F141E]/[0.12] bg-[#F4F3EF] px-3.5 py-2.5 text-sm text-[#0F141E] placeholder-[#8A94A6] transition-colors focus:border-[#1E3A5F] focus:bg-[#FAF9F6] focus:outline-none"
                       />
                     </div>
