@@ -93,9 +93,36 @@ export function FloatingContactDock() {
     }
 
     setStatus('submitting');
-    // Ready to wire into /api/contact or n8n lead webhook
-    await new Promise((resolve) => setTimeout(resolve, 600));
-    setStatus('success');
+    try {
+      const isEmail = formData.contact.includes('@');
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName: formData.name,
+          email: isEmail ? formData.contact : '',
+          phone: isEmail ? '' : formData.contact,
+          contact: formData.contact,
+          message: formData.message,
+          source: 'floating-dock',
+          locale,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Request failed');
+      }
+
+      setStatus('success');
+      setFormData({ name: '', contact: '', message: '' });
+    } catch {
+      setStatus('idle');
+      setErrorMsg(
+        isEs
+          ? 'No pudimos enviar el mensaje ahora. Puede escribirnos directo por WhatsApp.'
+          : 'Could not send right now. Please message us directly on WhatsApp.',
+      );
+    }
   };
 
   const resetChat = () => {

@@ -54,10 +54,39 @@ export function QuickQuoteSection() {
 
     setStatus('submitting');
     try {
-      await new Promise((resolve) => setTimeout(resolve, 700));
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          message: formData.comments,
+          source: 'home-quote',
+          locale,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Request failed');
+      }
+
       setStatus('success');
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        company: '',
+        comments: '',
+      });
     } catch {
       setStatus('error');
+      setValidationError(
+        isEs
+          ? 'No pudimos enviar su solicitud en este momento. Puede escribirnos por WhatsApp o a info@servicesjmk.com.'
+          : 'Could not send your request right now. Please reach out via WhatsApp or info@servicesjmk.com.',
+      );
     }
   };
 

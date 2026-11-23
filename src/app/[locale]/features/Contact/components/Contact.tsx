@@ -81,22 +81,19 @@ const ContactUs: React.FC = () => {
 
     setIsSubmitting(true);
     try {
-      const composedMessage = formData.phone
-        ? `[${formData.subject}] Phone: ${formData.phone}\n\n${formData.message}`
-        : `[${formData.subject}]\n\n${formData.message}`;
-
-      const response = await fetch(
-        'https://servicesjmk-backend.onrender.com/enviar-correo-robotics',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            full_name: formData.fullName,
-            email: formData.email,
-            message: composedMessage,
-          }),
-        },
-      );
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+          source: 'contact-page',
+          locale: isEs ? 'es' : 'en',
+        }),
+      });
 
       if (!response.ok) {
         throw new Error(t('form.error.text'));
