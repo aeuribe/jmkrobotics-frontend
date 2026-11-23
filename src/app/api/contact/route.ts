@@ -107,7 +107,7 @@ function buildEmailHtml(data: z.infer<typeof contactPayloadSchema>): string {
             <tr>
               <td style="background:#0e131d;padding:20px 20px;color:#faf9f6;">
                 <div style="font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#d15a65;font-weight:700;">JMK Robotics · Nuevo Lead</div>
-                <h1 style="margin:6px 0 0;font-size:19px;line-height:1.25;font-weight:800;color:#faf9f6;">Nueva solicitud de cotización</h1>
+                <h1 style="margin:6px 0 0;font-size:19px;line-height:1.25;font-weight:800;color:#faf9f6;">Nueva solicitud desde <a href="https://jmkrobotics.com" style="color:#93c5fd;text-decoration:none;">jmkrobotics.com</a></h1>
               </td>
             </tr>
             <tr>
@@ -118,7 +118,7 @@ function buildEmailHtml(data: z.infer<typeof contactPayloadSchema>): string {
             </tr>
             <tr>
               <td style="padding:14px 20px;background:#faf9f6;border-top:1px solid #e5e7eb;font-size:11px;color:#6e7787;">
-                Enviado automáticamente desde el formulario web de JMK Robotics
+                Enviado automáticamente desde el formulario de <a href="https://jmkrobotics.com" style="color:#2563eb;text-decoration:underline;">jmkrobotics.com</a>
               </td>
             </tr>
           </table>
